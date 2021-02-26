@@ -44,18 +44,31 @@
     }
 </style>
 
-<head>
-    <title> API</title>
-    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
-    <script src="~/Scripts/PremierLeagueMatch.js"></script>
-</head>
-<body>
-    <p class="id"></p>
-    <div class="container" id="wrapper">
-        <img src="~/Images/PremierLeague.png" alt="Avatar" class="avatar">
-        <div id="home" class="home"></div>
-        <div id="time" class="time"></div>
-        <div id="away" class="away"></div>
-    </div>
-    
-</body>
+    <head>
+        <title> API</title>
+        <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+        <script>
+            jQuery.getJSON('https://app.sportdataapi.com/api/v1/soccer/matches?apikey=78b7f4f0-781d-11eb-b7ce-ab513a4a050f&season_id=352&date_from=2021-02-24', function (result) {
+                console.log(result)
+                    var Get_Results1 = result.data[7]
+                    var start_time = Get_Results1.match_start
+                    var away = Get_Results1.away_team.name
+                    var home = Get_Results1.home_team.name
+                    var id = Get_Results1.match_id
+                    $(".id").append(id)
+                    $(".time").append(start_time)
+                    $(".away").append(away)
+                    $(".home").append(home)
+                });
+        </script>
+    </head>
+    <body>
+        <p class="id"></p>
+        <div class="container" id="wrapper">
+            <img src="~/Images/PremierLeague.png" alt="Avatar" class="avatar">
+            <div id="home" class="home"></div>
+            <div id="time" class="time"></div>
+            <div id="away" class="away"></div>
+        </div>
+
+    </body>

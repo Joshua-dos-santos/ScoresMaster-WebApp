@@ -77,3 +77,4 @@ C:\Users\joshu\OneDrive\Bureaublad\Semester 2\IP\Scoresmaster\ScoresMaster\Score
 C:\Users\joshu\OneDrive\Bureaublad\Semester 2\IP\Scoresmaster\ScoresMaster\ScoresMaster\obj\Debug\ScoresMaster.csproj.CopyComplete
 C:\Users\joshu\OneDrive\Bureaublad\Semester 2\IP\Scoresmaster\ScoresMaster\ScoresMaster\obj\Debug\ScoresMaster.dll
 C:\Users\joshu\OneDrive\Bureaublad\Semester 2\IP\Scoresmaster\ScoresMaster\ScoresMaster\obj\Debug\ScoresMaster.pdb
+C:\Users\joshu\OneDrive\Bureaublad\Semester 2\IP\ScoresMaster\ScoresMaster\ScoresMaster\bin\Images\PremierLeague.png

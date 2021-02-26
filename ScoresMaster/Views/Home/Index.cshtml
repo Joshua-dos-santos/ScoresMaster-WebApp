@@ -1,18 +1,60 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+
+<h2>Match Details</h2>
+
+<style>
+    .avatar {
+        vertical-align: middle;
+        width: 75px;
+        height: 75px;
+        border-radius: 50%;
+    }
+
+    .container {
+        padding: 2px 16px;
+        background-color
+    }
+
+    #wrapper {
+        display: flex;
+        border: 1px solid black;
+    }
+
+    #home {
+        border: 50px transparent;
+        margin-left: 100px;
+        margin-top: 25px;
+        margin-bottom: 25px;
+    }
+
+    #away {
+        border: 50px transparent;
+        margin-top: 25px;
+        margin-bottom: 25px;
+    }
+
+    #time {
+        margin-left: 50px;
+        margin-right: 50px;
+        margin-top: 25px;
+        margin-bottom: 25px;
+    }
+</style>
+
 <head>
     <title> API</title>
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <script src="~/Scripts/JavaScript.js"></script>
-
-
 </head>
 <body>
-    <div class="match_data-container">
-        <p class="id"></p>
-        <p class="time"></p>
-        <p class="home"></p>
-        <p class="away"></p>
+    <p class="id"></p>
+    <div class="container" id="wrapper">
+        <img src="~/Images/PremierLeague.png" alt="Avatar" class="avatar">
+        <div id="home" class="home"></div>
+        <div id="time" class="time"></div>
+        <div id="away" class="away"></div>
     </div>
+    
 </body>

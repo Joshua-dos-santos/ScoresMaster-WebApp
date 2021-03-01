@@ -44,36 +44,35 @@
     }
 </style>
 
-<head>
-    <title> API</title>
-    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
-    @for (var i = 0; i <= 7; i++)
-    {
+    <head>
+        <title> API</title>
+        <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
         <script>
-            jQuery.getJSON('https://app.sportdataapi.com/api/v1/soccer/matches?apikey=78b7f4f0-781d-11eb-b7ce-ab513a4a050f&season_id=352&date_from=2021-02-24', function (result) {
+            jQuery.getJSON('https://app.sportdataapi.com/api/v1/soccer/matches?apikey=78b7f4f0-781d-11eb-b7ce-ab513a4a050f&season_id=352&date_from=2021-03-01', function (result) {
                 console.log(result)
-                var Get_Results1 = result.data[1]
-                var start_time1 = Get_Results1.match_start
-                var away1 = Get_Results1.away_team.name
-                var home1 = Get_Results1.home_team.name
-                var id1 = Get_Results1.match_id
-                $(".id1").append(id1)
-                $(".time1").append(start_time1)
-                $(".away1").append(away1)
-                $(".home1").append(home1)
+                for (var i = 0; i <= 7; i++)
+                {
+                var Get_Results1 = result.data[i]
+                var start_time = Get_Results1.match_start
+                var away = Get_Results1.away_team.name
+                var home = Get_Results1.home_team.name
+                var id = Get_Results1.match_id
+                $(".id1").append(id)
+                $(".time1").append(start_time)
+                $(".away1").append(away)
+                    $(".home1").append(home)
+                }
             });
         </script>
-        <p class="id1"></p>
+    </head>
+    
+    <body>
+        <p class="id"></p>
         <div class="container" id="wrapper">
             <img src="~/Images/PremierLeague.png" alt="Avatar" class="avatar">
-            <div id="home1" class="home"></div>
-            <div id="time1" class="time"></div>
-            <div id="away1" class="away"></div>
+            <div id="home" class="home1"></div>
+            <div id="time" class="time1"></div>
+            <div id="away" class="away1"></div>
         </div>
-    }
-</head>
-    
-<body>
-    
-</body>
-      
+    </body>
+

@@ -5,3 +5,7 @@
 *.csproj
 .vs/ScoresMaster/v16/.suo
 *.dll
+*.csproj
+*.pdb
+*.dll
+*.cache

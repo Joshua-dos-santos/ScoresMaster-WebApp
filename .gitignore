@@ -4,3 +4,4 @@
 *.pdb
 *.csproj
 .vs/ScoresMaster/v16/.suo
+*.dll

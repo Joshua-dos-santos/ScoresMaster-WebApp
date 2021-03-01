@@ -1,2 +1,6 @@
 
 .vs/ScoresMaster/v16/.suo
+*.cache
+*.pdb
+*.csproj
+.vs/ScoresMaster/v16/.suo

@@ -11,7 +11,7 @@ namespace ScoresMaster.Models
         private static string dbPort = "3306";
         private static string dbUname = "root";
         private static string dbPassword = "";
-        private static string dbName = "gogreens";
+        private static string dbName = "scoremaster";
         private static string pAPI_key = "";
         private static string dbConnectionString = "Datasource=" + dbIp + ";port=" + dbPort + ";username=" + dbUname + ";password=;database=" + dbName + ";";
 

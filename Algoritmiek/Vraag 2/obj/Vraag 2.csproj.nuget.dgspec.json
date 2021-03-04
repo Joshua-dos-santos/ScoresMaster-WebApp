@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\joshu\\OneDrive\\Bureaublad\\Semester 2\\IP\\Algoritmiek\\Vraag 2\\Vraag 2.csproj": {}
+    "C:\\Users\\joshu\\OneDrive\\Bureaublad\\Semester 2\\IP\\Scoresmaster\\ScoresMaster\\Algoritmiek\\Vraag 2\\Vraag 2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\joshu\\OneDrive\\Bureaublad\\Semester 2\\IP\\Algoritmiek\\Vraag 2\\Vraag 2.csproj": {
+    "C:\\Users\\joshu\\OneDrive\\Bureaublad\\Semester 2\\IP\\Scoresmaster\\ScoresMaster\\Algoritmiek\\Vraag 2\\Vraag 2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\joshu\\OneDrive\\Bureaublad\\Semester 2\\IP\\Algoritmiek\\Vraag 2\\Vraag 2.csproj",
+        "projectUniqueName": "C:\\Users\\joshu\\OneDrive\\Bureaublad\\Semester 2\\IP\\Scoresmaster\\ScoresMaster\\Algoritmiek\\Vraag 2\\Vraag 2.csproj",
         "projectName": "Vraag 2",
-        "projectPath": "C:\\Users\\joshu\\OneDrive\\Bureaublad\\Semester 2\\IP\\Algoritmiek\\Vraag 2\\Vraag 2.csproj",
+        "projectPath": "C:\\Users\\joshu\\OneDrive\\Bureaublad\\Semester 2\\IP\\Scoresmaster\\ScoresMaster\\Algoritmiek\\Vraag 2\\Vraag 2.csproj",
         "packagesPath": "C:\\Users\\joshu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\joshu\\OneDrive\\Bureaublad\\Semester 2\\IP\\Algoritmiek\\Vraag 2\\obj\\",
+        "outputPath": "C:\\Users\\joshu\\OneDrive\\Bureaublad\\Semester 2\\IP\\Scoresmaster\\ScoresMaster\\Algoritmiek\\Vraag 2\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"

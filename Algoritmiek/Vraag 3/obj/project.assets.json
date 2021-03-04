@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\joshu\\OneDrive\\Bureaublad\\Semester 2\\IP\\Algoritmiek\\Vraag 3\\Vraag 3.csproj",
+      "projectUniqueName": "C:\\Users\\joshu\\OneDrive\\Bureaublad\\Semester 2\\IP\\Scoresmaster\\ScoresMaster\\Algoritmiek\\Vraag 3\\Vraag 3.csproj",
       "projectName": "Vraag 3",
-      "projectPath": "C:\\Users\\joshu\\OneDrive\\Bureaublad\\Semester 2\\IP\\Algoritmiek\\Vraag 3\\Vraag 3.csproj",
+      "projectPath": "C:\\Users\\joshu\\OneDrive\\Bureaublad\\Semester 2\\IP\\Scoresmaster\\ScoresMaster\\Algoritmiek\\Vraag 3\\Vraag 3.csproj",
       "packagesPath": "C:\\Users\\joshu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\joshu\\OneDrive\\Bureaublad\\Semester 2\\IP\\Algoritmiek\\Vraag 3\\obj\\",
+      "outputPath": "C:\\Users\\joshu\\OneDrive\\Bureaublad\\Semester 2\\IP\\Scoresmaster\\ScoresMaster\\Algoritmiek\\Vraag 3\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"

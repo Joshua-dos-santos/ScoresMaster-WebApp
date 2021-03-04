@@ -7,9 +7,6 @@ namespace ScoresMaster
 {
     public class LeagueDatabase
     {
-        //public string GetLeagues()
-        //{
-
-        //}
+        
     }
 }

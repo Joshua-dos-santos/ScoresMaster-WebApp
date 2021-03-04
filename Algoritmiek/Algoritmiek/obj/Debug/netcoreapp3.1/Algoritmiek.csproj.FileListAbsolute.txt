@@ -1,0 +1,13 @@
+C:\Users\joshu\OneDrive\Bureaublad\Semester 2\IP\Algoritmiek\Algoritmiek\bin\Debug\netcoreapp3.1\Algoritmiek.exe
+C:\Users\joshu\OneDrive\Bureaublad\Semester 2\IP\Algoritmiek\Algoritmiek\bin\Debug\netcoreapp3.1\Algoritmiek.deps.json
+C:\Users\joshu\OneDrive\Bureaublad\Semester 2\IP\Algoritmiek\Algoritmiek\bin\Debug\netcoreapp3.1\Algoritmiek.runtimeconfig.json
+C:\Users\joshu\OneDrive\Bureaublad\Semester 2\IP\Algoritmiek\Algoritmiek\bin\Debug\netcoreapp3.1\Algoritmiek.runtimeconfig.dev.json
+C:\Users\joshu\OneDrive\Bureaublad\Semester 2\IP\Algoritmiek\Algoritmiek\bin\Debug\netcoreapp3.1\Algoritmiek.dll
+C:\Users\joshu\OneDrive\Bureaublad\Semester 2\IP\Algoritmiek\Algoritmiek\bin\Debug\netcoreapp3.1\Algoritmiek.pdb
+C:\Users\joshu\OneDrive\Bureaublad\Semester 2\IP\Algoritmiek\Algoritmiek\obj\Debug\netcoreapp3.1\Algoritmiek.csprojAssemblyReference.cache
+C:\Users\joshu\OneDrive\Bureaublad\Semester 2\IP\Algoritmiek\Algoritmiek\obj\Debug\netcoreapp3.1\Algoritmiek.AssemblyInfoInputs.cache
+C:\Users\joshu\OneDrive\Bureaublad\Semester 2\IP\Algoritmiek\Algoritmiek\obj\Debug\netcoreapp3.1\Algoritmiek.AssemblyInfo.cs
+C:\Users\joshu\OneDrive\Bureaublad\Semester 2\IP\Algoritmiek\Algoritmiek\obj\Debug\netcoreapp3.1\Algoritmiek.csproj.CoreCompileInputs.cache
+C:\Users\joshu\OneDrive\Bureaublad\Semester 2\IP\Algoritmiek\Algoritmiek\obj\Debug\netcoreapp3.1\Algoritmiek.dll
+C:\Users\joshu\OneDrive\Bureaublad\Semester 2\IP\Algoritmiek\Algoritmiek\obj\Debug\netcoreapp3.1\Algoritmiek.pdb
+C:\Users\joshu\OneDrive\Bureaublad\Semester 2\IP\Algoritmiek\Algoritmiek\obj\Debug\netcoreapp3.1\Algoritmiek.genruntimeconfig.cache

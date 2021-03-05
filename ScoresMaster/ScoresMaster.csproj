@@ -167,10 +167,12 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\RegistrationController.cs" />
+    <Compile Include="DatabaseConnections\LoginDatabase.cs" />
+    <Compile Include="DatabaseConnections\RegistrationDatabase.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="LeagueDatabase.cs" />
+    <Compile Include="DatabaseConnections\LeagueDatabase.cs" />
     <Compile Include="Models\Club.cs" />
     <Compile Include="Models\Country.cs" />
     <Compile Include="Models\Database.cs" />

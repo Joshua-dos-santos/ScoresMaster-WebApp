@@ -15,7 +15,14 @@ namespace ScoresMaster.Controllers
         {
             LoginDatabase loginDatabase = new LoginDatabase();
             string apiKey = loginDatabase.authenticate(userLogin);
-            return View();
+            if (apiKey == "")
+            {
+                return View("Login");
+            }
+            else
+            {
+                return View("~/Views/Home/Index.cshtml");
+            }
         }
     }
 }

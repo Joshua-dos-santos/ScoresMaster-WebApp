@@ -9,9 +9,10 @@ namespace ScoresMaster
 {
     public class LeagueDatabase
     {
-        public string GetLeagues()
+        
+        public string GetLeagues(int LeagueID)
         {
-            string getLeagues = "SELECT * FROM `league`";
+            string getLeagues = "SELECT `league_name` FROM `league` WHERE `unique_id`= '"+LeagueID+"'";
             MySqlConnection databaseConnection = new MySqlConnection(Database.DbConnectionString);
             MySqlCommand commandGetLeagues = new MySqlCommand(getLeagues, databaseConnection);
             commandGetLeagues.CommandTimeout = 60;

@@ -10,6 +10,13 @@ namespace ScoresMaster.Controllers
     {
         public ActionResult Index()
         {
+            LeagueDatabase leagueDatabase = new LeagueDatabase();
+            List<string> Leagues = new List<string>();
+            for (int i = 1; i <= 33; i++)
+            {
+                Leagues.Add(leagueDatabase.GetLeagues(i));
+            }
+            ViewBag.League = Leagues;
             return View();
         }
 

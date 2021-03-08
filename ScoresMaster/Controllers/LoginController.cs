@@ -1,27 +1,22 @@
 ﻿using ScoresMaster.DatabaseConnections;
 using ScoresMaster.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-
 namespace ScoresMaster.Controllers
 {
     public class LoginController : Controller
     {
         // GET: Login
-        public ActionResult Login(LoginModel userLogin)
+        public ActionResult Login(LoginModel userLogin, RegistrationModel userRegistration)
         {
             LoginDatabase loginDatabase = new LoginDatabase();
             string apiKey = loginDatabase.authenticate(userLogin);
-            if (apiKey == "")
+            if (!apiKey.Equals(""))
             {
-                return View("Login");
+                return View("~/Views/Profile/MyProfile.cshtml", userLogin);
             }
             else
             {
-                return View("~/Views/Home/Index.cshtml");
+                return View("~/Views/Login/Login.cshtml");
             }
         }
     }

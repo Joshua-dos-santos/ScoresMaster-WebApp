@@ -1,7 +1,61 @@
-﻿
-@{
-    ViewBag.Title = "MyProfile";
-}
+﻿@model ScoresMaster.Models.League
+
 
 <h2>MyProfile</h2>
+<style>
+    .split {
+        height: 100%;
+        width: 50%;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        overflow-x: hidden;
+        padding-top: 20px;
+    }
 
+    /* Control the left side */
+    .left {
+        left: 0;
+        background-color: white;
+    }
+
+    /* Control the right side */
+    .right {
+        right: 0;
+        background-color: white;
+    }
+
+    /* If you want the content centered horizontally and vertically */
+    .centered {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+
+        /* Style the image inside the centered container, if needed */
+        .centered img {
+            width: 150px;
+            border-radius: 50%;
+        }
+</style>
+<div class="split left">
+    <div class="centered">
+        <h2></h2>
+        <p>Some text.</p>
+    </div>
+</div>
+
+<div class="split right">
+    <div class="centered">
+        <img src="~/Images/PremierLeague.png" alt="Avatar">
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Name, new SelectList(ViewBag.League))
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+</div>

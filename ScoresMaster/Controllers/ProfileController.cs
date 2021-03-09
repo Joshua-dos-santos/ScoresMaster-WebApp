@@ -11,7 +11,7 @@ namespace ScoresMaster.Controllers
     public class ProfileController : Controller
     {
         // GET: Profile
-        public ActionResult MyProfile(LoginModel userLogin)
+        public ActionResult MyProfile(LoginModel userLogin, League league)
         {
             LeagueDatabase leagueDatabase = new LeagueDatabase();
             LoginDatabase loginDatabase = new LoginDatabase();
@@ -24,7 +24,7 @@ namespace ScoresMaster.Controllers
             string first_Name = loginDatabase.GetUserName(api_key);
             ViewBag.Name = first_Name;
             ViewBag.League = Leagues;
-            return View("MyProfile"); 
+            return View("MyProfile", league); 
         }
     }
 }

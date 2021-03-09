@@ -57,5 +57,37 @@ namespace ScoresMaster.DatabaseConnections
         {
             return FindByUser(userLogin);
         }
+
+        public string GetUserName(string api_key)
+        {
+            string getName = "SELECT `first_name` FROM `user` where `api_key`= '" + api_key + "';";
+            MySqlConnection databaseConnection = new MySqlConnection(Database.DbConnectionString);
+            MySqlCommand commandGetName = new MySqlCommand(getName, databaseConnection);
+            commandGetName.CommandTimeout = 60;
+            try
+            {
+                databaseConnection.Open();
+                MySqlDataReader executeString = commandGetName.ExecuteReader();
+                while (executeString.Read())
+                {
+                    string firstName = executeString.GetString(0);
+                    if (firstName == "")
+                    {
+                        return "";
+                    }
+                    else
+                    {
+                        return executeString.GetString(0);
+                    }
+                }
+                databaseConnection.Close();
+                return "";
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("error: " + e.Message);
+                return "";
+            }
+        }
     }
 }

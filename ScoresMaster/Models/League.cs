@@ -8,7 +8,7 @@ namespace ScoresMaster.Models
     public class League
     {
         public string Name { get; set; }
-        public string Current_Champion { get; set; }
-        public string Nation { get; set; }
+        public Club Current_Champion { get; set; }
+        public Country Nation { get; set; }
     }
 }

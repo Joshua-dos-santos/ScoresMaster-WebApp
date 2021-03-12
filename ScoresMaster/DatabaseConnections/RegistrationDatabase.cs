@@ -11,7 +11,7 @@ namespace ScoresMaster.DatabaseConnections
 {
     public class RegistrationDatabase
     {
-        public bool StoreUserData(string Fname, string Lname, string Email, string Password, DateTime BirthDay)
+        public bool StoreUserData(string Fname, string Lname, string Email, string Password, string BirthDay)
         {
             string Api_key = RandomString();
             Database.PAPI_Key = Api_key;
@@ -45,7 +45,7 @@ namespace ScoresMaster.DatabaseConnections
             }
             return rnd;
         }
-        internal bool StoreUser(RegistrationModel registration)
+        public bool StoreUser(RegistrationModel registration)
         {
             if (StoreUserData(registration.First_Name, registration.Last_Name, registration.EMail, registration.Password, registration.Birth_Day))
             {
@@ -56,10 +56,7 @@ namespace ScoresMaster.DatabaseConnections
                 return false;
             }
         }
-        public bool Registrate(RegistrationModel registration)
-        {
-            return StoreUser(registration);
-        }
+        
         //public string HashPassword(string password)
         //{
         //    SHA1CryptoServiceProvider SHA1 = new SHA1CryptoServiceProvider();

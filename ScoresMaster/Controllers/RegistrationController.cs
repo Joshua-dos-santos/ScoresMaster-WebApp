@@ -14,7 +14,7 @@ namespace ScoresMaster.Controllers
         public ActionResult Registrate(RegistrationModel registrationModel)
         {
             RegistrationDatabase registrationDatabase = new RegistrationDatabase();
-            Boolean Registration = registrationDatabase.Registrate(registrationModel);
+            Boolean Registration = registrationDatabase.StoreUser(registrationModel);
             if (!Registration)
             {
                 return RedirectToAction("Login", "Login");

@@ -13,6 +13,6 @@ namespace ScoresMaster.Models
         public string Last_Name { get; set; }
         public string EMail { get; set; }
         public string Password { get; set; }
-        public DateTime Birth_Day { get; set; }
+        public string Birth_Day { get; set; }
     }
 }

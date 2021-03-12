@@ -40,7 +40,7 @@ namespace ScoresMaster.DatabaseConnections
                 return "";
             }
         }
-        internal string FindByUser(LoginModel userLogin)
+        public string FindByUser(LoginModel userLogin)
         {
             string Output = CheckLogin(userLogin.Email, userLogin.Password);
             if (!Output.Equals(""))
@@ -53,10 +53,7 @@ namespace ScoresMaster.DatabaseConnections
             }
         }
 
-        public string authenticate(LoginModel userLogin)
-        {
-            return FindByUser(userLogin);
-        }
+       
 
         public string GetUserName(string api_key)
         {

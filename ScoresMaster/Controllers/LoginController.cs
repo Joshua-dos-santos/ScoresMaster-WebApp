@@ -9,7 +9,7 @@ namespace ScoresMaster.Controllers
         public ActionResult Login(LoginModel userLogin, League league)
         {
             LoginDatabase loginDatabase = new LoginDatabase();
-            string apiKey = loginDatabase.authenticate(userLogin);
+            string apiKey = loginDatabase.FindByUser(userLogin);
             if (!apiKey.Equals(""))
             {
                 return View("~/Views/Profile/MyProfile.cshtml", league);

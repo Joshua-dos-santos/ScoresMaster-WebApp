@@ -13,9 +13,9 @@ namespace ScoresMaster.DatabaseConnections
     {
         public bool StoreUserData(string Fname, string Lname, string Email, string Password, string BirthDay)
         {
-            string Api_key = RandomString();
-            Database.PAPI_Key = Api_key;
-            string StoreData = "INSERT INTO `user`(`first_name`, `last_name`, `email`, `password`, `last_login`, `birth_date`, `api_key`) VALUES ('" + Fname + "','" + Lname + "','" + Email + "','" + Password + "', '2020-12-02 14:16:47','" + BirthDay + "', '" + Api_key + "');";
+            string unique_Code = RandomString();
+            Database.PAPI_Key = unique_Code;
+            string StoreData = "INSERT INTO `user`(`first_name`, `last_name`, `email`, `password`, `last_login`, `birth_date`, `api_key`) VALUES ('" + Fname + "','" + Lname + "','" + Email + "','" + Password + "', '2020-12-02 14:16:47','" + BirthDay + "', '" + unique_Code + "');";
             MySqlConnection databaseConnection = new MySqlConnection(Database.DbConnectionString);
             MySqlCommand commandStoreUser = new MySqlCommand(StoreData, databaseConnection);
             commandStoreUser.CommandTimeout = 60;
@@ -56,14 +56,5 @@ namespace ScoresMaster.DatabaseConnections
                 return false;
             }
         }
-        
-        //public string HashPassword(string password)
-        //{
-        //    SHA1CryptoServiceProvider SHA1 = new SHA1CryptoServiceProvider();
-
-        //    byte[] password_bytes = Encoding.ASCII.GetBytes(password);
-        //    byte[] encrypted_bytes = SHA1.ComputeHash(password_bytes);
-        //    return Convert.ToBase64String(encrypted_bytes);
-        //}
     }
 }

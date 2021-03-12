@@ -55,9 +55,9 @@ namespace ScoresMaster.DatabaseConnections
 
        
 
-        public string GetUserName(string api_key)
+        public string GetUserName(string unique_Code)
         {
-            string getName = "SELECT `first_name` FROM `user` where `api_key`= '" + api_key + "';";
+            string getName = "SELECT `first_name` FROM `user` where `api_key`= '" + unique_Code + "';";
             MySqlConnection databaseConnection = new MySqlConnection(Database.DbConnectionString);
             MySqlCommand commandGetName = new MySqlCommand(getName, databaseConnection);
             commandGetName.CommandTimeout = 60;

@@ -21,8 +21,8 @@ namespace ScoresMaster.DatabaseConnections
                 MySqlDataReader executeString = commandCheckLogin.ExecuteReader();
                 while (executeString.Read())
                 {
-                    string output = executeString.GetString(0);
-                    if(output == "")
+                    string outputs = executeString.GetString(0);
+                    if(outputs == "")
                     {
                         return "";
                     }

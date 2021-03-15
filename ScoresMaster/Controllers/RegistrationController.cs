@@ -15,7 +15,7 @@ namespace ScoresMaster.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View("Register");
+                return View("Registration");
             }
             else
             {
@@ -27,7 +27,7 @@ namespace ScoresMaster.Controllers
                 }
                 else
                 {
-                    return View("RegisterError");
+                    return View("Registration");
                 }
             }
         }

@@ -47,10 +47,7 @@ namespace ScoresMaster.DatabaseConnections
             {
                 return Output;
             }
-            else
-            {
-                return "";
-            }
+            return null;
         }
 
        

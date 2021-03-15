@@ -8,15 +8,23 @@ namespace ScoresMaster.Controllers
         // GET: Login
         public ActionResult Login(LoginModel userLogin, League league)
         {
-            LoginDatabase loginDatabase = new LoginDatabase();
-            string apiKey = loginDatabase.FindByUser(userLogin);
-            if (!apiKey.Equals(""))
+            if (ModelState.IsValid)
             {
-                return View("~/Views/Profile/MyProfile.cshtml", league);
+                LoginDatabase loginDatabase = new LoginDatabase();
+                userLogin.unique_id = loginDatabase.FindByUser(userLogin);
+                if (userLogin.unique_id != "0" && userLogin.unique_id != null)
+                {
+                    TempData["unique_id"] = userLogin.unique_id;
+                    return RedirectToAction("", "Home");
+                }
+                else
+                {
+                    return View("Login");
+                }
             }
             else
             {
-                return View("~/Views/Login/Login.cshtml");
+                return View("Login");
             }
         }
     }

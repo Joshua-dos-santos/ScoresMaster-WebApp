@@ -11,17 +11,24 @@ namespace ScoresMaster.Controllers
     public class RegistrationController : Controller
     {
         // GET: Registration
-        public ActionResult Registrate(RegistrationModel registrationModel)
+        public ActionResult Register(RegistrationModel RegistrationModel)
         {
-            RegistrationDatabase registrationDatabase = new RegistrationDatabase();
-            Boolean Registration = registrationDatabase.StoreUser(registrationModel);
-            if (!Registration)
+            if (!ModelState.IsValid)
             {
-                return RedirectToAction("Login", "Login");
+                return View("Register");
             }
             else
             {
-                return View("Registration");
+                RegistrationDatabase registrationDatabase = new RegistrationDatabase();
+                Boolean Registration = registrationDatabase.StoreUser(RegistrationModel);
+                if (Registration)
+                {
+                    return RedirectToAction("", "Home");
+                }
+                else
+                {
+                    return View("RegisterError");
+                }
             }
         }
     }

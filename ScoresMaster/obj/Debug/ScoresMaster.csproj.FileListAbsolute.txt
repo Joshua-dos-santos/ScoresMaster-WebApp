@@ -102,3 +102,9 @@ C:\Users\joshu\OneDrive\Bureaublad\Semester 2\IP\ScoresMaster\ScoresMaster\Score
 C:\Users\joshu\OneDrive\Bureaublad\Semester 2\IP\ScoresMaster\ScoresMaster\ScoresMaster\bin\System.Memory.xml
 C:\Users\joshu\OneDrive\Bureaublad\Semester 2\IP\ScoresMaster\ScoresMaster\ScoresMaster\bin\System.Numerics.Vectors.xml
 C:\Users\joshu\OneDrive\Bureaublad\Semester 2\IP\ScoresMaster\ScoresMaster\ScoresMaster\bin\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\joshu\OneDrive\Bureaublad\Semester 2\IP\ScoresMaster\ScoresMaster\ScoresMaster\bin\System.Net.Http.Formatting.dll
+C:\Users\joshu\OneDrive\Bureaublad\Semester 2\IP\ScoresMaster\ScoresMaster\ScoresMaster\bin\System.Web.Http.dll
+C:\Users\joshu\OneDrive\Bureaublad\Semester 2\IP\ScoresMaster\ScoresMaster\ScoresMaster\bin\System.Web.Http.WebHost.dll
+C:\Users\joshu\OneDrive\Bureaublad\Semester 2\IP\ScoresMaster\ScoresMaster\ScoresMaster\bin\System.Net.Http.Formatting.xml
+C:\Users\joshu\OneDrive\Bureaublad\Semester 2\IP\ScoresMaster\ScoresMaster\ScoresMaster\bin\System.Web.Http.xml
+C:\Users\joshu\OneDrive\Bureaublad\Semester 2\IP\ScoresMaster\ScoresMaster\ScoresMaster\bin\System.Web.Http.WebHost.xml

@@ -22,8 +22,13 @@ namespace ScoresMaster
                 routes.MapRoute(
                 name: "Login",
                 url: "{Login}",
-                defaults: new { controller = "Login", action = "Login", id = UrlParameter.Optional }
+                defaults: new { controller = "Login", action = "Index", id = UrlParameter.Optional }
             );
+            routes.MapRoute(
+               name: "Profile",
+               url: "{profile}",
+               defaults: new { controller = "Login", action = "LoginAction", id = UrlParameter.Optional }
+           );
         }
     }
 }

@@ -10,7 +10,7 @@ namespace ScoresMaster.Controllers
             return View("Login");
         }
         // GET: Login
-        public ActionResult LoginAction(LoginModel userLogin, League league)
+        public ActionResult LoginAction(LoginModel userLogin)
         {
             if (!ModelState.IsValid)
             {

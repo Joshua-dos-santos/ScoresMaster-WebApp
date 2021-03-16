@@ -5,10 +5,10 @@ namespace ScoresMaster.Controllers
 {
     public class LoginController : Controller
     {
-        public ActionResult Index()
-        {
-            return View("Login");
-        }
+        //public ActionResult Index()
+        //{
+        //    return View("Login");
+        //}
         // GET: Login
         public ActionResult LoginAction(LoginModel userLogin)
         {

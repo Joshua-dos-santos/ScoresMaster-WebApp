@@ -20,9 +20,9 @@ namespace ScoresMaster.Controllers
             {
                 Leagues.Add(leagueDatabase.GetLeagues(i));
             }
-            userLogin.unique_id = loginDatabase.FindByUser(userLogin);
-            string first_Name = loginDatabase.GetUserName(userLogin.unique_id);
-            ViewBag.Name = first_Name;
+            string unique_id = (string)TempData["unique_id"];
+            string first_Name = loginDatabase.GetUserName(unique_id);
+            ViewBag.Name = first_Name; 
             ViewBag.League = Leagues;
             return View("MyProfile", league); 
         }

@@ -17,6 +17,7 @@ namespace ScoresMaster.Models
         [Required(ErrorMessage = "This field is required")]
         public string EMail { get; set; }
         [Required(ErrorMessage = "This field is required")]
+        [DataType(DataType.Password)]
         public string Password { get; set; }
         [Required(ErrorMessage = "This field is required")]
         public string Birth_Day { get; set; }

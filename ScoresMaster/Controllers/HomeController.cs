@@ -10,7 +10,7 @@ namespace ScoresMaster.Controllers
     {
         public ActionResult Index()
         {
-            
+            ScoresMaster.Api.Get_Matches_API();
             return View();
         }
 

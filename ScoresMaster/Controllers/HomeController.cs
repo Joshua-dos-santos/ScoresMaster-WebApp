@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,7 +11,8 @@ namespace ScoresMaster.Controllers
     {
         public ActionResult Index()
         {
-            ScoresMaster.Api.Get_Matches_API();
+            dynamic data = JsonConvert.DeserializeObject(Api.Get_Matches_API());
+            ViewBag.Matches = data.data;
             return View();
         }
 

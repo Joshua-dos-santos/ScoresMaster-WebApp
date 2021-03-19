@@ -45,7 +45,7 @@
 <head>
     <title> API</title>
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
-    <script src="~/Scripts/PremierLeagueMatch.js"></script>
+    @*<script src="~/Scripts/PremierLeagueMatch.js"></script>*@
 </head>
 
 <body>
@@ -54,7 +54,9 @@
         <img src="~/Images/PremierLeague.png" alt="Avatar" class="avatar">
         <div id="home" class="home"></div>
         <div id="time" class="time"></div>
-        <div id="away" class="away"></div>
+        <div id="away" class="away">
+            <p>@ViewBag.Matches[0].match_start</p>
+        </div>
     </div>
 </body>
 

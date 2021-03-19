@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Net;
-using System.Web;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using ScoresMaster.Models;
 
 namespace ScoresMaster
 {
@@ -24,8 +26,9 @@ namespace ScoresMaster
                 result = sr.ReadToEnd();
                 sr.Close();
             }
-            /*            result = result.Replace("{\"response_code\":0,\"results\":[", "");
-                        result = result.Remove(result.Length - 2, 2);*/
+
+            dynamic data = JsonConvert.DeserializeObject(result);
+            string matchStart = data.data[3].match_start;
             return result;
         }
     }

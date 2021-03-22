@@ -18,10 +18,15 @@
         border-radius: 5px;
     }
 
-    #wrapper {
+    #Prem {
         display: flex;
         border: 1px solid black;
         background-color: #5C90CD;
+    }
+    #SerieA{
+        display: flex;
+        border: 1px solid black;
+        background-color: #00be1b;
     }
 
     #home {
@@ -54,18 +59,35 @@
 {
 <body>
     <p class="id"></p>
-    <div class="container" id="wrapper">
+    <div class="container" id="Prem">
         <img src="~/Images/PremierLeague.png" alt="Avatar" class="avatar">
         <div id="home" class="home">
-            <img src="@ViewBag.Matches[i].home_team.logo"  class="logo">
-            <p>@ViewBag.Matches[i].home_team.name</p>
+            <img src="@ViewBag.Prem[i].home_team.logo"  class="logo">
+            <p>@ViewBag.Prem[i].home_team.name</p>
         </div>
         <div id="time" class="time">
-            <p>@ViewBag.Matches[i].match_start</p>
+            <p>@ViewBag.Prem[i].match_start</p>
         </div>
         <div id="away" class="away">
-            <img src="@ViewBag.Matches[i].away_team.logo"  class="logo">
-            <p>@ViewBag.Matches[i].away_team.name</p>
+            <img src="@ViewBag.Prem[i].away_team.logo"  class="logo">
+            <p>@ViewBag.Prem[i].away_team.name</p>
+        </div>
+    </div>
+</body>
+<body>
+    <p class="id"></p>
+    <div class="container" id="SerieA">
+        <img src="~/Images/PremierLeague.png" alt="Avatar" class="avatar">
+        <div id="home" class="home">
+            <img src="@ViewBag.SerieA[i].home_team.logo" class="logo">
+            <p>@ViewBag.SerieA[i].home_team.name</p>
+        </div>
+        <div id="time" class="time">
+            <p>@ViewBag.SerieA[i].match_start</p>
+        </div>
+        <div id="away" class="away">
+            <img src="@ViewBag.SerieA[i].away_team.logo" class="logo">
+            <p>@ViewBag.SerieA[i].away_team.name</p>
         </div>
     </div>
 </body>

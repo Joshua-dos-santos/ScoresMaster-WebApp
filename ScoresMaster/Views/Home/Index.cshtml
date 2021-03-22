@@ -1,6 +1,4 @@
-﻿@model ScoresMaster.Models.League
-
-<h2>Match Details</h2>
+﻿<h2>Match Details</h2>
 
 <style>
     .avatar {
@@ -8,6 +6,11 @@
         width: 75px;
         height: 75px;
         border-radius: 50%;
+    }
+    .logo {
+        width: 50px;
+        height: 50px;
+        /*border-radius: 50%;*/
     }
 
     .container {
@@ -47,16 +50,23 @@
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     @*<script src="~/Scripts/PremierLeagueMatch.js"></script>*@
 </head>
-
+@for (int i = 0; i <= 9; i++)
+{
 <body>
     <p class="id"></p>
     <div class="container" id="wrapper">
         <img src="~/Images/PremierLeague.png" alt="Avatar" class="avatar">
-        <div id="home" class="home"></div>
-        <div id="time" class="time"></div>
+        <div id="home" class="home">
+            <img src="@ViewBag.Matches[i].home_team.logo"  class="logo">
+            <p>@ViewBag.Matches[i].home_team.name</p>
+        </div>
+        <div id="time" class="time">
+            <p>@ViewBag.Matches[i].match_start</p>
+        </div>
         <div id="away" class="away">
-            <p>@ViewBag.Matches[0].match_start</p>
+            <img src="@ViewBag.Matches[i].away_team.logo"  class="logo">
+            <p>@ViewBag.Matches[i].away_team.name</p>
         </div>
     </div>
 </body>
-
+}

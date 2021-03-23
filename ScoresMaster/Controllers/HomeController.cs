@@ -12,8 +12,8 @@ namespace ScoresMaster.Controllers
         public ActionResult Index()
         {
             
-            dynamic PLData = JsonConvert.DeserializeObject(Api.GetPremierLeagueMatches());
-            dynamic SerieAData = JsonConvert.DeserializeObject(Api.GetSerieAMatches());
+            dynamic PLData = JsonConvert.DeserializeObject(Api.GetMatches("352"));
+            dynamic SerieAData = JsonConvert.DeserializeObject(Api.GetMatches("619"));
             ViewBag.Prem = PLData.data;
             ViewBag.SerieA = SerieAData.data;
             return View();

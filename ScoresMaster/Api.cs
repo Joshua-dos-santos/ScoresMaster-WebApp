@@ -15,7 +15,7 @@ namespace ScoresMaster
         public static string GetMatches(string id)
         {
             string result = null;
-            string requestString = "https://app.sportdataapi.com/api/v1/soccer/matches?apikey=78b7f4f0-781d-11eb-b7ce-ab513a4a050f&season_id="+id+"&date_from=2021-03-25";
+            string requestString = "https://app.sportdataapi.com/api/v1/soccer/matches?apikey=78b7f4f0-781d-11eb-b7ce-ab513a4a050f&season_id="+id+"&date_from="+DateTime.Now+"";
             WebRequest requestObject = WebRequest.Create(requestString);
             requestObject.Method = "GET";
             HttpWebResponse responseObject = null;

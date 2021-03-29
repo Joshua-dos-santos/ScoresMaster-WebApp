@@ -21,8 +21,11 @@ namespace ScoresMaster.Controllers
                 Leagues.Add(leagueDatabase.GetLeagues(i));
             }
             userLogin.unique_id = (string)TempData.Peek("unique_id");
-            string first_Name = loginDatabase.GetUserName(userLogin.unique_id);
-            ViewBag.Name = first_Name; 
+            ViewBag.first_Name = loginDatabase.GetUserDetails("first_name",userLogin.unique_id);
+            ViewBag.last_name = loginDatabase.GetUserDetails("last_name",userLogin.unique_id);
+            ViewBag.email = loginDatabase.GetUserDetails("email",userLogin.unique_id);
+            ViewBag.password = loginDatabase.GetUserDetails("password",userLogin.unique_id);
+            ViewBag.birth_day = loginDatabase.GetUserDetails("birth_date",userLogin.unique_id);
             ViewBag.League = Leagues;
             return View("MyProfile", league); 
         }

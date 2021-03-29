@@ -52,20 +52,20 @@ namespace ScoresMaster.DatabaseConnections
 
        
 
-        public string GetUserName(string unique_Code)
+        public string GetUserDetails(string Detail, string unique_Code)
         {
-            string getName = "SELECT `first_name` FROM `user` where `api_key`= '" + unique_Code + "';";
+            string getDetails = "SELECT `"+Detail+"` FROM `user` where `api_key`= '" + unique_Code + "';";
             MySqlConnection databaseConnection = new MySqlConnection(Database.DbConnectionString);
-            MySqlCommand commandGetName = new MySqlCommand(getName, databaseConnection);
-            commandGetName.CommandTimeout = 60;
+            MySqlCommand commandGetDetails = new MySqlCommand(getDetails, databaseConnection);
+            commandGetDetails.CommandTimeout = 60;
             try
             {
                 databaseConnection.Open();
-                MySqlDataReader executeString = commandGetName.ExecuteReader();
+                MySqlDataReader executeString = commandGetDetails.ExecuteReader();
                 while (executeString.Read())
                 {
-                    string firstName = executeString.GetString(0);
-                    if (firstName == "")
+                    string userDetail = executeString.GetString(0);
+                    if (userDetail == "")
                     {
                         return "";
                     }

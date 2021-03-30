@@ -179,6 +179,7 @@
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\RegistrationController.cs" />
     <Compile Include="DatabaseConnections\LoginDatabase.cs" />
+    <Compile Include="DatabaseConnections\PlayerDatabase.cs" />
     <Compile Include="DatabaseConnections\RegistrationDatabase.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

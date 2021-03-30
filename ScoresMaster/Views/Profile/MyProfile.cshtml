@@ -45,7 +45,8 @@
         <h2>@ViewBag.first_Name  @ViewBag.last_name</h2>
         <p>@ViewBag.email <br />
            @ViewBag.password <br />
-           @ViewBag.birth_day</p>
+           @ViewBag.birth_day<br />
+           @ViewBag.Squad</p>
     </div>
 </div>
 
@@ -61,7 +62,7 @@
         </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Select League" class="btn btn-default @Html.Action("MyProfile","Profile")" />
+                <input type="submit" value="Select League" class="btn btn-default @*@Html.Action("MyProfile","Profile")*@" />
             </div>
         </div>
     </div>

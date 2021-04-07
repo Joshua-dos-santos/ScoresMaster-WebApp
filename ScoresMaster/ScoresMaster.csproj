@@ -178,6 +178,7 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\RegistrationController.cs" />
+    <Compile Include="Controllers\SquadController.cs" />
     <Compile Include="DatabaseConnections\LoginDatabase.cs" />
     <Compile Include="DatabaseConnections\PlayerDatabase.cs" />
     <Compile Include="DatabaseConnections\RegistrationDatabase.cs" />
@@ -245,6 +246,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Squad\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

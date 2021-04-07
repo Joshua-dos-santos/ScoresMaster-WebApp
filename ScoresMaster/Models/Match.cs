@@ -1,12 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace ScoresMaster.Models
 {
     public class Match
     {
-        public string startTime { get; set; }
-        public string Home_Team { get; set; }
-        public string Away_Team { get; set; }
+        public List<Player> Home_Team { get; set; }
+        public List<Player> Away_Team { get; set; }
     }
 
 }

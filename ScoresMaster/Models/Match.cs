@@ -7,6 +7,7 @@ namespace ScoresMaster.Models
     {
         public List<Player> Home_Team { get; set; }
         public List<Player> Away_Team { get; set; }
+        public int Matchcounter { get; set; }
     }
 
 }

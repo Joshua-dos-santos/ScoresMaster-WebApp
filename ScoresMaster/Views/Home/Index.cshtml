@@ -58,18 +58,18 @@
 {
 <body>
     <p class="id"></p>
-    <div class="container" id="Prem">
+    <div class="container" id="Prem" >
         <img src="~/Images/PremierLeague.png" alt="Avatar" class="avatar">
         <div id="home" class="home">
             <img src="@ViewBag.Prem[i].home_team.logo"  class="logo">
-            <p>@ViewBag.Prem[i].home_team.name</p>
+            <p>@Html.ActionLink((string)ViewBag.Prem[i].home_team.name, "Index", "Profile")</p>
         </div>
         <div id="time" class="time">
             <p>@ViewBag.Prem[i].match_start</p>
         </div>
         <div id="away" class="away">
             <img src="@ViewBag.Prem[i].away_team.logo"  class="logo">
-            <p>@ViewBag.Prem[i].away_team.name</p>
+            <p>@Html.ActionLink((string)ViewBag.Prem[i].away_team.name, "Index", "Profile")</p>
         </div>
     </div>
 </body>

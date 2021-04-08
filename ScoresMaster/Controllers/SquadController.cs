@@ -11,7 +11,7 @@ namespace ScoresMaster.Controllers
         // GET: Squad
         public ActionResult Index()
         {
-            return View();
+            return View("ViewSquad");
         }
     }
 }

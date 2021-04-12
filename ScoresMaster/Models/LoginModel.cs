@@ -8,13 +8,16 @@ namespace ScoresMaster.Models
 {
     public class LoginModel
     {
-        [Required(ErrorMessage = "This field is required")]
+        public string Unique_id { get; set; }
+        public string First_Name { get; set; }
+        public string Last_Name { get; set; }
         [DataType(DataType.EmailAddress)]
+        [Required]
+        [Display(Name = "Enter Email")]
         public string Email { get; set; }
-        [Required(ErrorMessage = "This field is required")]
+        [Required]
         [DataType(DataType.Password)]
+        [Display(Name = "Password")]
         public string Password { get; set; }
-        [Required(ErrorMessage = "This field is required")]
-        public string unique_id { get; set; }
     }
 }

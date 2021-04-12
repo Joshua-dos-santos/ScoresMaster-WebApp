@@ -15,10 +15,10 @@ namespace ScoresMaster.Controllers
             if (!ModelState.IsValid)
             {
                 LoginDatabase loginDatabase = new LoginDatabase();
-                userLogin.unique_id = loginDatabase.FindByUser(userLogin);
-                if (userLogin.unique_id != "" && userLogin.unique_id != null)
+                userLogin.Unique_id = loginDatabase.FindByUser(userLogin);
+                if (userLogin.Unique_id != "" && userLogin.Unique_id != null)
                 {
-                    TempData["unique_id"] = userLogin.unique_id;
+                    TempData["unique_id"] = userLogin.Unique_id;
                     return RedirectToAction("MyProfile", "Profile");
                 }
                 else

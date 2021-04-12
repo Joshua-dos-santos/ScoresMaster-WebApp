@@ -65,14 +65,14 @@
         <img src="~/Images/PremierLeague.png" alt="Avatar" class="avatar">
         <div id="home" class="home">
             <img src="@ViewBag.Prem[i].home_team.logo"  class="logo">
-            <p onclick="@{Model.Matchcounter = i;}">@Html.ActionLink((string)ViewBag.Prem[i].home_team.name, "Index", "Squad")</p>
+            <p >@Html.ActionLink((string)ViewBag.Prem[i].home_team.name, "Index", "Squad")</p>
         </div>
         <div id="time" class="time">
             <p>@ViewBag.Prem[i].match_start</p>
         </div>
         <div id="away" class="away">
             <img src="@ViewBag.Prem[i].away_team.logo"  class="logo">
-            <p onclick="@ViewBag.Matchcounter = i;>@Html.ActionLink((string)ViewBag.Prem[i].away_team.name, "Index", "Squad")</ponclick="@ViewBag.Matchcounter>
+            <p >@Html.ActionLink((string)ViewBag.Prem[i].away_team.name, "Index", "Squad")</p>
         </div>
     </div>
 </body>

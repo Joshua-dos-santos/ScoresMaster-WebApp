@@ -1,4 +1,5 @@
-﻿<h2>Match Details</h2>
+﻿@model ScoresMaster.Models.Match
+<h2>Match Details</h2>
 
 <style>
     .avatar {
@@ -54,22 +55,24 @@
     <title> API</title>
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 </head>
-@for (int i = 0; i <= 9; i++)
-{
-<body>
+
+    @for (int i = 1; i <= 9; i++)
+    {
+        ViewBag.Matchnumber = i;
+    <body>
     <p class="id"></p>
     <div class="container" id="Prem" >
         <img src="~/Images/PremierLeague.png" alt="Avatar" class="avatar">
         <div id="home" class="home">
             <img src="@ViewBag.Prem[i].home_team.logo"  class="logo">
-            <p>@Html.ActionLink((string)ViewBag.Prem[i].home_team.name, "Index", "Profile")</p>
+            <p onclick="@{Model.Matchcounter = i;}">@Html.ActionLink((string)ViewBag.Prem[i].home_team.name, "Index", "Squad")</p>
         </div>
         <div id="time" class="time">
             <p>@ViewBag.Prem[i].match_start</p>
         </div>
         <div id="away" class="away">
             <img src="@ViewBag.Prem[i].away_team.logo"  class="logo">
-            <p>@Html.ActionLink((string)ViewBag.Prem[i].away_team.name, "Index", "Profile")</p>
+            <p onclick="@ViewBag.Matchcounter = i;>@Html.ActionLink((string)ViewBag.Prem[i].away_team.name, "Index", "Squad")</ponclick="@ViewBag.Matchcounter>
         </div>
     </div>
 </body>
@@ -90,4 +93,4 @@
         </div>
     </div>
 </body>
-}
+        }

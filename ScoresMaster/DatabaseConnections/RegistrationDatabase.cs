@@ -11,26 +11,30 @@ namespace ScoresMaster.DatabaseConnections
 {
     public class RegistrationDatabase
     {
-        public bool StoreUserData(string Fname, string Lname, string Email, string Password, string BirthDay)
+        public static RegistrationModel StoreUserData(RegistrationModel registrationModel)
         {
             string unique_Code = RandomString();
             Database.PAPI_Key = unique_Code;
-            string StoreData = "INSERT INTO `user`(`first_name`, `last_name`, `email`, `password`, `last_login`, `birth_date`, `api_key`) VALUES ('" + Fname + "','" + Lname + "','" + Email + "','" + Password + "', '2020-12-02 14:16:47','" + BirthDay + "', '" + unique_Code + "');";
             MySqlConnection databaseConnection = new MySqlConnection(Database.DbConnectionString);
-            MySqlCommand commandStoreUser = new MySqlCommand(StoreData, databaseConnection);
-            commandStoreUser.CommandTimeout = 60;
+            MySqlCommand insertUserData = new MySqlCommand("INSERT INTO `user`(`first_name`, `last_name`, `email`, `password`, `birth_date`, `api_key`) VALUES (@val1,@val2,@val3,@val4,@val5,@val6);", databaseConnection);
+            insertUserData.Parameters.AddWithValue("@val1", registrationModel.First_Name);
+            insertUserData.Parameters.AddWithValue("@val2", registrationModel.Last_Name);
+            insertUserData.Parameters.AddWithValue("@val3", registrationModel.EMail);
+            insertUserData.Parameters.AddWithValue("@val4", registrationModel.Password);
+            insertUserData.Parameters.AddWithValue("@val5", registrationModel.Birth_Day);
+            insertUserData.Parameters.AddWithValue("@val6", unique_Code);
             try
             {
                 databaseConnection.Open();
-                MySqlDataReader executeString = commandStoreUser.ExecuteReader();
+                insertUserData.Prepare();
+                var executeString = insertUserData.ExecuteReader();
                 databaseConnection.Close();
-                return true;
             }
             catch (Exception e)
             {
                 Console.WriteLine("error: " + e.Message);
-                return false;
             }
+            return registrationModel;
         }
         public static string RandomString()
         {
@@ -44,17 +48,6 @@ namespace ScoresMaster.DatabaseConnections
                 rnd = rnd + b.ElementAt(a);
             }
             return rnd;
-        }
-        public bool StoreUser(RegistrationModel registration)
-        {
-            if (StoreUserData(registration.First_Name, registration.Last_Name, registration.EMail, registration.Password, registration.Birth_Day))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
         }
     }
 }

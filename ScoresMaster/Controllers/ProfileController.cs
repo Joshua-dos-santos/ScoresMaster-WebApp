@@ -13,21 +13,20 @@ namespace ScoresMaster.Controllers
         // GET: Profile
         public ActionResult MyProfile(LoginModel userLogin, League league)
         {
-            LeagueDatabase leagueDatabase = new LeagueDatabase();
-            LoginDatabase loginDatabase = new LoginDatabase();
+            
 
             List<string> Leagues = new List<string>();
             for (int i = 1; i <= 33; i++)
             {
-                Leagues.Add(leagueDatabase.GetLeagues(i));
+                league = LeagueDatabase.GetLeagues(i, league);
+                Leagues.Add(league.Name);
             }
             
-            userLogin.unique_id = (string)TempData.Peek("unique_id");
-            ViewBag.first_Name = loginDatabase.GetUserDetails("first_name",userLogin.unique_id);
-            ViewBag.last_name = loginDatabase.GetUserDetails("last_name",userLogin.unique_id);
-            ViewBag.email = loginDatabase.GetUserDetails("email",userLogin.unique_id);
-            ViewBag.password = loginDatabase.GetUserDetails("password",userLogin.unique_id);
-            ViewBag.birth_day = loginDatabase.GetUserDetails("birth_date",userLogin.unique_id);
+            userLogin.Unique_id = (string)TempData.Peek("unique_id");
+            userLogin = LoginDatabase.GetUserDetails(userLogin);
+            ViewBag.first_Name = userLogin.First_Name;
+            ViewBag.last_name = userLogin.Last_Name;
+            ViewBag.email = userLogin.Email;
             ViewBag.League = Leagues;
             
             

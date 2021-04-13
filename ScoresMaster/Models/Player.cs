@@ -9,7 +9,7 @@ namespace ScoresMaster.Models
     {
         public string First_Name { get; set; }
         public string Last_Name { get; set; }
-        public int Shirt_Number { get; set; }
+        public string Shirt_Number { get; set; }
         public Position Position { get; set; }
         public Country Nationality { get; set; }
         public Club Club { get; set; }

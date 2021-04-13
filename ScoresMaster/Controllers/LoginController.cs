@@ -10,15 +10,14 @@ namespace ScoresMaster.Controllers
         //    return View("Login");
         //}
         // GET: Login
-        public ActionResult LoginAction(LoginModel userLogin)
+        public ActionResult LoginAction(LoginModel loginModel)
         {
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                LoginDatabase loginDatabase = new LoginDatabase();
-                userLogin.Unique_id = loginDatabase.FindByUser(userLogin);
-                if (userLogin.Unique_id != "" && userLogin.Unique_id != null)
+                loginModel = LoginDatabase.CheckLogin(loginModel);
+                if (loginModel.Unique_id != "" && loginModel.Unique_id != null)
                 {
-                    TempData["unique_id"] = userLogin.Unique_id;
+                    TempData["unique_id"] = loginModel.Unique_id;
                     return RedirectToAction("MyProfile", "Profile");
                 }
                 else

@@ -10,30 +10,27 @@ namespace ScoresMaster
     public class LeagueDatabase
     {
         
-        public string GetLeagues(int LeagueID)
+        public static League GetLeagues(int LeagueID, League league)
         {
-            string getLeagues = "SELECT `league_name` FROM `league` WHERE `unique_id`= '"+LeagueID+"'";
             MySqlConnection databaseConnection = new MySqlConnection(Database.DbConnectionString);
-            MySqlCommand commandGetLeagues = new MySqlCommand(getLeagues, databaseConnection);
-            commandGetLeagues.CommandTimeout = 60;
+            MySqlCommand getLeagues = new MySqlCommand("SELECT * FROM `league` WHERE `unique_id`=@val1", databaseConnection);
+            getLeagues.Parameters.AddWithValue("@val1", LeagueID);
             try
             {
                 databaseConnection.Open();
-                MySqlDataReader executeString = commandGetLeagues.ExecuteReader();
+                getLeagues.Prepare();
+                var executeString = getLeagues.ExecuteReader();
                 while (executeString.Read())
                 {
-                    string Leagues = executeString.GetString(0);
-                    string allLeagues = Leagues;
-                    databaseConnection.Close();
-                    return allLeagues;
+                    league.Name = executeString.GetString(1);
                 }
-                return "";
+                databaseConnection.Close();
             }
             catch (Exception e)
             {
                 Console.WriteLine("error: " + e.Message);
-                return "";
             }
+            return league;
         }
     }
 }

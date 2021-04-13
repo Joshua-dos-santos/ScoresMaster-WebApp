@@ -9,79 +9,56 @@ namespace ScoresMaster.DatabaseConnections
 {
     public class LoginDatabase
     {
-        public string CheckLogin(string Uname, string Password)
+        public static LoginModel CheckLogin(LoginModel loginModel)
         {
-            string checkLogin = "SELECT `api_key` FROM `user` WHERE `email` = '" + Uname + "' AND `password`= '" + Password + "';";
             MySqlConnection databaseConnection = new MySqlConnection(Database.DbConnectionString);
-            MySqlCommand commandCheckLogin = new MySqlCommand(checkLogin, databaseConnection);
-            commandCheckLogin.CommandTimeout = 60;
+            MySqlCommand getUserData = new MySqlCommand("SELECT `api_key` FROM user WHERE email=@val1 AND password=@val2", databaseConnection);
+            getUserData.Parameters.AddWithValue("@val1", loginModel.Email);
+            getUserData.Parameters.AddWithValue("@val2", loginModel.Password);
             try
             {
                 databaseConnection.Open();
-                MySqlDataReader executeString = commandCheckLogin.ExecuteReader();
+                getUserData.Prepare();
+                var executeString = getUserData.ExecuteReader();
                 while (executeString.Read())
                 {
-                    string outputs = executeString.GetString(0);
-                    if(outputs == "")
-                    {
-                        return "";
-                    }
-                    else
-                    {
-                        return executeString.GetString(0);
-                    }
+                    loginModel.Unique_id = executeString.GetString(0); 
                 }
                 databaseConnection.Close();
-                return "";
             }
             catch (Exception e)
             {
                 Console.WriteLine("error: " + e.Message);
-                return "";
             }
-        }
-        public string FindByUser(LoginModel userLogin)
-        {
-            string Output = CheckLogin(userLogin.Email, userLogin.Password);
-            if (!Output.Equals(""))
-            {
-                return Output;
-            }
-            return null;
+            return loginModel;
         }
 
-       
 
-        public string GetUserDetails(string Detail, string unique_Code)
+
+
+        public static LoginModel GetUserDetails(LoginModel loginModel)
         {
-            string getDetails = "SELECT `"+Detail+"` FROM `user` where `api_key`= '" + unique_Code + "';";
             MySqlConnection databaseConnection = new MySqlConnection(Database.DbConnectionString);
-            MySqlCommand commandGetDetails = new MySqlCommand(getDetails, databaseConnection);
-            commandGetDetails.CommandTimeout = 60;
+            MySqlCommand getUserDetails = new MySqlCommand("SELECT * FROM `user` WHERE `api_key`=@val2", databaseConnection);
+            getUserDetails.Parameters.AddWithValue("@val2", loginModel.Unique_id);
             try
             {
                 databaseConnection.Open();
-                MySqlDataReader executeString = commandGetDetails.ExecuteReader();
+                getUserDetails.Prepare();
+                var executeString = getUserDetails.ExecuteReader();
                 while (executeString.Read())
                 {
-                    string userDetail = executeString.GetString(0);
-                    if (userDetail == "")
-                    {
-                        return "";
-                    }
-                    else
-                    {
-                        return executeString.GetString(0);
-                    }
+                    loginModel.First_Name = executeString.GetString(1);
+                    loginModel.Last_Name = executeString.GetString(2);
+                    loginModel.Email = executeString.GetString(3);
                 }
                 databaseConnection.Close();
-                return "";
             }
             catch (Exception e)
             {
                 Console.WriteLine("error: " + e.Message);
-                return "";
             }
+            return loginModel;
         }
     }
 }

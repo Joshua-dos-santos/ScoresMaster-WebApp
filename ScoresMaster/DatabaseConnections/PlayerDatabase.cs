@@ -9,29 +9,30 @@ namespace ScoresMaster.DatabaseConnections
 {
     public class PlayerDatabase
     {
-        public string GetPlayers(int PlayerID, int ClubID)
+        public static Player GetPlayers(int PlayerID, Player player)
         {
-            string getFirstName = "SELECT `first_name` FROM `player` WHERE `unique_id`= '" + PlayerID + "'AND `club`= '"+ClubID+"'";
             MySqlConnection databaseConnection = new MySqlConnection(Database.DbConnectionString);
-            MySqlCommand commandGetPlayer = new MySqlCommand(getFirstName, databaseConnection);
-            commandGetPlayer.CommandTimeout = 60;
+            MySqlCommand getLeagues = new MySqlCommand("SELECT * FROM `league` WHERE `unique_id`=@val1", databaseConnection);
+            getLeagues.Parameters.AddWithValue("@val1", PlayerID);
             try
             {
                 databaseConnection.Open();
-                MySqlDataReader executeString = commandGetPlayer.ExecuteReader();
+                getLeagues.Prepare();
+                var executeString = getLeagues.ExecuteReader();
                 while (executeString.Read())
                 {
-                    string Players = executeString.GetString(0);
-                    databaseConnection.Close();
-                    return Players;
+                    player.First_Name = executeString.GetString(1);
+                    player.Last_Name = executeString.GetString(2);
+                    player.Shirt_Number = executeString.GetString(3);
+                    player.Birth_Day = executeString.GetDateTime(7);
                 }
-                return "";
+                databaseConnection.Close();
             }
             catch (Exception e)
             {
                 Console.WriteLine("error: " + e.Message);
-                return "";
             }
+            return player;
         }
     }
 }

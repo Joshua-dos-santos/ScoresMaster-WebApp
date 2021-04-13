@@ -11,7 +11,7 @@ namespace ScoresMaster.Controllers
     public class RegistrationController : Controller
     {
         // GET: Registration
-        public ActionResult Register(RegistrationModel RegistrationModel)
+        public ActionResult Register(RegistrationModel registrationModel)
         {
             if (!ModelState.IsValid)
             {
@@ -19,9 +19,8 @@ namespace ScoresMaster.Controllers
             }
             else
             {
-                RegistrationDatabase registrationDatabase = new RegistrationDatabase();
-                Boolean Registration = registrationDatabase.StoreUser(RegistrationModel);
-                if (Registration)
+                registrationModel = RegistrationDatabase.StoreUserData(registrationModel);
+                if (registrationModel != null)
                 {
                     return RedirectToAction("", "Home");
                 }

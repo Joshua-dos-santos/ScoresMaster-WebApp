@@ -1,96 +1,46 @@
-﻿@model ScoresMaster.Models.Match
-<h2>Match Details</h2>
+﻿@model IEnumerable<ScoresMaster.Models.Match>
 
-<style>
-    .avatar {
-        vertical-align: middle;
-        width: 75px;
-        height: 75px;
-        border-radius: 50%;
-    }
-    .logo {
-        width: 50px;
-        height: 50px;
-        /*border-radius: 50%;*/
-    }
+@{
+    ViewBag.Title = "MatchDetails";
+}
 
-    .container {
-        padding: 2px 16px;
-        border-radius: 5px;
-    }
+<h2>MatchDetails</h2>
 
-    #Prem {
-        display: flex;
-        border: 1px solid black;
-        background-color: #5C90CD;
-    }
-    #SerieA{
-        display: flex;
-        border: 1px solid black;
-        background-color: #00be1b;
-    }
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Home_Team)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Match_Start)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Away_Team)
+        </th>
+        <th></th>
+    </tr>
 
-    #home {
-        border: 50px transparent;
-        margin-left: 100px;
-        margin-top: 25px;
-        margin-bottom: 25px;
-    }
-
-    #away {
-        border: 50px transparent;
-        margin-top: 25px;
-        margin-bottom: 25px;
-    }
-
-    #time {
-        margin-left: 50px;
-        margin-right: 50px;
-        margin-top: 25px;
-        margin-bottom: 25px;
-    }
-</style>
-
-<head>
-    <title> API</title>
-    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
-</head>
-
-    @for (int i = 1; i <= 9; i++)
+    @foreach (var item in Model)
     {
-        ViewBag.Matchnumber = i;
-    <body>
-    <p class="id"></p>
-    <div class="container" id="Prem" >
-        <img src="~/Images/PremierLeague.png" alt="Avatar" class="avatar">
-        <div id="home" class="home">
-            <img src="@ViewBag.Prem[i].home_team.logo"  class="logo">
-            <p >@Html.ActionLink((string)ViewBag.Prem[i].home_team.name, "Index", "Squad")</p>
-        </div>
-        <div id="time" class="time">
-            <p>@ViewBag.Prem[i].match_start</p>
-        </div>
-        <div id="away" class="away">
-            <img src="@ViewBag.Prem[i].away_team.logo"  class="logo">
-            <p >@Html.ActionLink((string)ViewBag.Prem[i].away_team.name, "Index", "Squad")</p>
-        </div>
-    </div>
-</body>
-<body>
-    <p class="id"></p>
-    <div class="container" id="SerieA">
-        <img src="~/Images/PremierLeague.png" alt="Avatar" class="avatar">
-        <div id="home" class="home">
-            <img src="@ViewBag.SerieA[i].home_team.logo" class="logo">
-            <p>@ViewBag.SerieA[i].home_team.name</p>
-        </div>
-        <div id="time" class="time">
-            <p>@ViewBag.SerieA[i].match_start</p>
-        </div>
-        <div id="away" class="away">
-            <img src="@ViewBag.SerieA[i].away_team.logo" class="logo">
-            <p>@ViewBag.SerieA[i].away_team.name</p>
-        </div>
-    </div>
-</body>
-        }
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Home_Team)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Match_Start)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Away_Team)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+    }
+
+</table>

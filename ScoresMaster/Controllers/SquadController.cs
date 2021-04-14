@@ -10,14 +10,11 @@ namespace ScoresMaster.Controllers
 {
     public class SquadController : Controller
     {
-        // GET: Squad
-        public ActionResult Index(Match match)
+        public ActionResult Index(int matchnumber)
         {
-            dynamic PLData = JsonConvert.DeserializeObject(Api.GetMatches("352"));
-            dynamic SerieAData = JsonConvert.DeserializeObject(Api.GetMatches("619"));
-            ViewBag.Prem = PLData.data;
-            ViewBag.SerieA = SerieAData.data;
-            return View("ViewSquad", match);
+
+            ViewBag.MatchNumber = matchnumber;
+            return View("ViewSquad");
         }
     }
 }

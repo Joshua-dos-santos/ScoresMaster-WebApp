@@ -27,6 +27,14 @@ namespace ScoresMaster.Controllers
                 match.Away_Team = ViewBag.Prem[i].away_team.name;
                 matchList.Add(match);
             }
+            for (int i = 0; i <= 9; i++)
+            {
+                Match match = new Match();
+                match.Home_Team = ViewBag.SerieA[i].home_team.name;
+                match.Match_Start = ViewBag.SerieA[i].match_start;
+                match.Away_Team = ViewBag.SerieA[i].away_team.name;
+                matchList.Add(match);
+            }
 
             return View("", matchList);
         }

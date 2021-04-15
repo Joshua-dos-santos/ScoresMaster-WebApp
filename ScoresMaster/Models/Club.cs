@@ -7,8 +7,8 @@ namespace ScoresMaster.Models
 {
     public class Club
     {
+        public int ClubID { get; set; }
         public string Name { get; set; }
         public League League { get; set; }
-        public int Year_of_Origin { get; set; }
     }
 }

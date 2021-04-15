@@ -9,22 +9,25 @@ namespace ScoresMaster.DatabaseConnections
 {
     public class PlayerDatabase
     {
-        public static Player GetPlayers(int PlayerID, Player player)
+        public static List<Player> GetPlayers(Club club, Player player)
         {
+            List<Player> Players = new List<Player>();
             MySqlConnection databaseConnection = new MySqlConnection(Database.DbConnectionString);
-            MySqlCommand getLeagues = new MySqlCommand("SELECT * FROM `league` WHERE `unique_id`=@val1", databaseConnection);
-            getLeagues.Parameters.AddWithValue("@val1", PlayerID);
+            MySqlCommand getPlayers = new MySqlCommand("SELECT * FROM `player` WHERE `club`=@val1", databaseConnection);
+            getPlayers.Parameters.AddWithValue("@val1", club.ClubID);
             try
             {
                 databaseConnection.Open();
-                getLeagues.Prepare();
-                var executeString = getLeagues.ExecuteReader();
+                getPlayers.Prepare();
+                var executeString = getPlayers.ExecuteReader();
                 while (executeString.Read())
                 {
-                    player.First_Name = executeString.GetString(1);
-                    player.Last_Name = executeString.GetString(2);
-                    player.Shirt_Number = executeString.GetString(3);
-                    player.Birth_Day = executeString.GetDateTime(7);
+                    Player newPlayer = new Player();
+                    newPlayer.First_Name = executeString.GetString(1);
+                    newPlayer.Last_Name = executeString.GetString(2);
+                    newPlayer.Shirt_Number = executeString.GetString(3);
+                    newPlayer.Birth_Day = executeString.GetDateTime(7);
+                    Players.Add(newPlayer);
                 }
                 databaseConnection.Close();
             }
@@ -32,7 +35,7 @@ namespace ScoresMaster.DatabaseConnections
             {
                 Console.WriteLine("error: " + e.Message);
             }
-            return player;
+            return Players;
         }
     }
 }

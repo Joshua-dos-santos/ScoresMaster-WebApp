@@ -6,9 +6,7 @@
 
 <h2>MatchDetails</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
 <table class="table">
     <tr>
         <th>
@@ -36,9 +34,9 @@
                 @Html.DisplayFor(modelItem => item.Away_Team)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.ActionLink("See Home Squad", "Home_team", "Squad", item, new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("See League Info", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("See Away Squad", "Away_team", "Squad", item, new { /* id=item.PrimaryKey */ })
             </td>
         </tr>
     }

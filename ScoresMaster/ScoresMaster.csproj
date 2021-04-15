@@ -176,6 +176,7 @@
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\RegistrationController.cs" />
     <Compile Include="Controllers\SquadController.cs" />
+    <Compile Include="DatabaseConnections\ClubDatabase.cs" />
     <Compile Include="DatabaseConnections\LoginDatabase.cs" />
     <Compile Include="DatabaseConnections\MatchDatabase.cs" />
     <Compile Include="DatabaseConnections\PlayerDatabase.cs" />
@@ -238,8 +239,9 @@
     <Content Include="Views\Registration\Registration.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\Profile\MyProfile.cshtml" />
-    <Content Include="Views\Squad\ViewSquad.cshtml" />
     <Content Include="Views\Home\MatchDetails.cshtml" />
+    <Content Include="Views\Squad\ViewHomeSquad.cshtml" />
+    <Content Include="Views\Squad\ViewAwaySquad.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

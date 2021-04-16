@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CircusTrein
 {
-    class Dier
+     public class Dier
     {
         public VoedingTypen Voeding { get; set; }
         public Grootte GrootteDier { get; set; }

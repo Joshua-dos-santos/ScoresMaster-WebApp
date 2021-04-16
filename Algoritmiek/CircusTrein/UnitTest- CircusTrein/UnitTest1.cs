@@ -8,6 +8,7 @@ namespace UnitTest__CircusTrein
         [TestMethod]
         public void TestMethod1()
         {
+            
         }
     }
 }

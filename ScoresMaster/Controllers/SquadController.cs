@@ -13,6 +13,7 @@ namespace ScoresMaster.Controllers
     {
         public ActionResult Home_team(Club club, Match match, Player player)
         {
+            ViewBag.Home_Team = match.Home_Team;
             club = ClubDatabase.GetHome_Team(club, match);
             List<Player> playerList = PlayerDatabase.GetPlayers(club, player);
             

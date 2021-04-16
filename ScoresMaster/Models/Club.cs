@@ -10,5 +10,6 @@ namespace ScoresMaster.Models
         public int ClubID { get; set; }
         public string Name { get; set; }
         public League League { get; set; }
+
     }
 }

@@ -10,7 +10,7 @@ namespace CircusTrein
 
         public List<Wagon> AlleWagons() => Wagons;
 
-        Wagon wagon = new Wagon();
+        
         public bool ZitWagonVol(Dier dier)
         {
             foreach(Wagon wagon in Wagons)
@@ -22,7 +22,7 @@ namespace CircusTrein
             }
             return false;
         }
-        public void PutAnimalsInWagons(List<Dier> AlleDieren)
+        public void DierenVerplaatsenNaarWagons(List<Dier> AlleDieren)
         {
             foreach (Dier dier in AlleDieren)
             {

@@ -37,7 +37,8 @@ namespace CircusTrein
             Dier Beer = new Dier { DierSoort = "Beer", GrootteDier = Grootte.Groot, Voeding = VoedingTypen.Vleeseter };
             Dier Geit = new Dier { DierSoort = "Geit", GrootteDier = Grootte.Middelgroot, Voeding = VoedingTypen.PlantenEter };
             Dier slang = new Dier { DierSoort = "Slang", GrootteDier = Grootte.Klein, Voeding = VoedingTypen.Vleeseter };
-            List<Dier> AlleDieren = new List<Dier> { Leeuw, Muis, Aap, Giraffe, Tijger, Cavia, Luipaard, Beer, Geit, slang };
+            Dier Olifant = new Dier { DierSoort = "Olifant", GrootteDier = Grootte.Groot, Voeding = VoedingTypen.PlantenEter };
+            List<Dier> AlleDieren = new List<Dier> { Leeuw, Muis, Aap, Giraffe, Tijger, Cavia, Luipaard, Beer, Geit, slang, Olifant };
             return AlleDieren;
         }
     }

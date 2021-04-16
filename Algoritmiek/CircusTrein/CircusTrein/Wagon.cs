@@ -50,7 +50,7 @@ namespace CircusTrein
         {
             foreach(Dier dier in Dieren)
             {
-                if(diertoevoegen.Voeding == Dier.VoedingTypen.Vleeseter && dier.Voeding == Dier.VoedingTypen.Vleeseter)
+                if(dier.Voeding == Dier.VoedingTypen.Vleeseter && diertoevoegen.Voeding  == Dier.VoedingTypen.Vleeseter)
                 {
                     return false;
                 }

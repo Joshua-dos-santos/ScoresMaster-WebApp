@@ -15,9 +15,9 @@ namespace ScoresMaster.Models
         public string Last_Name { get; set; }
         [DisplayName("Shirt Number")]
         public string Shirt_Number { get; set; }
-        //public Position Position { get; set; }
+        public Position Position { get; set; }
         //public Country Nationality { get; set; }
-        
+
         public DateTime Birth_Day { get; set; } 
        
     }

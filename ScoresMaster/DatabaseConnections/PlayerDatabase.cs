@@ -24,11 +24,12 @@ namespace ScoresMaster.DatabaseConnections
                 while (executeString.Read())
                 {
                     Player newPlayer = new Player();
+                    Position newPosition = new Position();
                     newPlayer.First_Name = executeString.GetString(1);
                     newPlayer.Last_Name = executeString.GetString(2);
                     newPlayer.Shirt_Number = executeString.GetString(3);
-                    position.unique_id = executeString.GetInt32(4);
-                    position = PositionDatabase.GetPosition(position);
+                    newPosition.unique_id = executeString.GetInt32(4);
+                    position = PositionDatabase.GetPosition(newPosition);
                     newPlayer.Position = position;
                     newPlayer.Birth_Day = executeString.GetDateTime(7);
                     Players.Add(newPlayer);

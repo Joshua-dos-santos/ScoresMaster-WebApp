@@ -7,5 +7,7 @@ namespace ScoresMaster.Models
 {
     public class Continent
     {
+        public int ContinentID { get; set; }
+        public string Continents { get; set; }
     }
 }

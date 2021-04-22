@@ -48,7 +48,7 @@
                 @Html.DisplayFor(modelItem => item.Shirt_Number)
             </td>
             <td style="color: @item.Nationality.primary_Color.Colors">
-                @Html.DisplayFor(modelItem => item.Nationality.Name)
+                @Html.ActionLink(item.Nationality.Name,"Index", "Home", item, new { })
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Birth_Day)

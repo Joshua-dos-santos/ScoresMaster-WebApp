@@ -84,18 +84,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ContinentDTO.cs" />
-    <Compile Include="GeographicalDatabaseContext.cs" />
+    <Compile Include="DTO\ContinentDTO.cs" />
+    <Compile Include="DatabaseLogic\GeographicalDatabaseContext.cs" />
     <Compile Include="DataManager.cs" />
-    <Compile Include="CountryDTO.cs" />
-    <Compile Include="GeographicalRepository.cs" />
-    <Compile Include="IGeographicalContext.cs" />
-    <Compile Include="Primary_ColorDTO.cs" />
+    <Compile Include="DTO\CountryDTO.cs" />
+    <Compile Include="DTO\DatabaseDTO.cs" />
+    <Compile Include="Repositories\GeographicalRepository.cs" />
+    <Compile Include="Interfaces\IGeographicalContext.cs" />
+    <Compile Include="DTO\Primary_ColorDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

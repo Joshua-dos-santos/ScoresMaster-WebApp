@@ -14,14 +14,34 @@ namespace DataManager.Data
             this.context = context;
         }   
 
-        public List<CountryDTO> GetAllCountries()
+        public List<CountryDTO> GetAllCountries(CountryDTO country)
         {
-            return context.GetAllCountries().ToList();
+            return context.GetAllCountries(country).ToList();
         }
 
-        public CountryDTO GetCountry(int id)
+        public CountryDTO GetCountry(int id, CountryDTO country)
         {
-            return context.GetCountry(id);
+            return context.GetCountry(id, country);
+        }
+
+        public List<ContinentDTO> GetAllContinents(ContinentDTO continent)
+        {
+            return context.GetAllContinents(continent).ToList();
+        }
+
+        public ContinentDTO GetContinent(int id, ContinentDTO continent)
+        {
+            return context.GetContinent(id, continent);
+        }
+
+        public List<Primary_ColorDTO> GetAllColors(Primary_ColorDTO primary_Color)
+        {
+            return context.GetAllColors(primary_Color).ToList();
+        }
+
+        public Primary_ColorDTO GetPrimary_Color(int id, Primary_ColorDTO primary_Color)
+        {
+            return context.GetPrimary_Color(id, primary_Color);
         }
     }
 }

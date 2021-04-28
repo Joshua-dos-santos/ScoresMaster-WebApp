@@ -8,9 +8,9 @@ namespace DataManager.Data.DTO
 {
     class LeagueDTO
     {
+        public int LeagueID { get; set; }
         public string Name { get; set; }
         //public Club Current_Champion { get; set; }
         //public Country Nation { get; set; }
-        public int MatchId { get; set; }
     }
 }

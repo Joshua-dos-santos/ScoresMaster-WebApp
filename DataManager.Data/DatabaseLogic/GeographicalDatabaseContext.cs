@@ -14,7 +14,27 @@ namespace DataManager.Data
 
         public IEnumerable<Primary_ColorDTO> GetAllColors(Primary_ColorDTO primary_Color)
         {
-            throw new NotImplementedException();
+            List<Primary_ColorDTO> Colors = new List<Primary_ColorDTO>();
+            MySqlConnection databaseConnection = new MySqlConnection(DatabaseDTO.DbConnectionString);
+            MySqlCommand getColor = new MySqlCommand("SELECT * FROM `primary_color`", databaseConnection);
+            try
+            {
+                databaseConnection.Open();
+                getColor.Prepare();
+                var executeString = getColor.ExecuteReader();
+                while (executeString.Read())
+                {
+                    primary_Color.ColorID = executeString.GetInt32(0);
+                    primary_Color.Colors = executeString.GetString(1);
+                    Colors.Add(primary_Color);
+                }
+                databaseConnection.Close();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("error: " + e.Message);
+            }
+            return Colors;
         }
 
         public IEnumerable<ContinentDTO> GetAllContinents(ContinentDTO continent)
@@ -29,6 +49,7 @@ namespace DataManager.Data
                 var executeString = getContinent.ExecuteReader();
                 while (executeString.Read())
                 {
+                    continent.ContinentID = executeString.GetInt32(0);
                     continent.Continents = executeString.GetString(1);
                     continents.Add(continent);
                 }
@@ -55,6 +76,7 @@ namespace DataManager.Data
                 {
                     ContinentDTO newContinent = new ContinentDTO();
                     Primary_ColorDTO newPrimary_Color = new Primary_ColorDTO();
+                    country.CountryID = executeString.GetInt32(0);
                     country.Name = executeString.GetString(1);
                     newContinent.ContinentID = executeString.GetInt32(2);
                     newContinent = geographicalDatabaseContext.GetContinent(executeString.GetInt32(2), newContinent);
@@ -73,9 +95,9 @@ namespace DataManager.Data
             return countries;
         }
 
-        public ContinentDTO GetContinent(int id, ContinentDTO continent)
+        public ContinentDTO GetContinent(int id, ContinentDTO continentDTO)
         {
-            var result = GetAllContinents(continent).FirstOrDefault(c => c.ContinentID == id);
+            var result = GetAllContinents(continentDTO).FirstOrDefault(continent => continent.ContinentID == id);
             return result;
         }
 
@@ -87,7 +109,8 @@ namespace DataManager.Data
 
         public Primary_ColorDTO GetPrimary_Color(int id, Primary_ColorDTO primary_Color)
         {
-            throw new NotImplementedException();
+            var result = GetAllColors(primary_Color).FirstOrDefault(color => color.ColorID == id);
+            return result;
         }
     }
 }

@@ -84,11 +84,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTO\ClubDTO.cs" />
     <Compile Include="DTO\ContinentDTO.cs" />
     <Compile Include="DatabaseLogic\GeographicalDatabaseContext.cs" />
     <Compile Include="DataManager.cs" />
     <Compile Include="DTO\CountryDTO.cs" />
     <Compile Include="DTO\DatabaseDTO.cs" />
+    <Compile Include="DTO\LeagueDTO.cs" />
+    <Compile Include="DTO\LoginDTO.cs" />
+    <Compile Include="DTO\PlayerDTO.cs" />
+    <Compile Include="DTO\PositionDTO.cs" />
+    <Compile Include="DTO\RegisterDTO.cs" />
     <Compile Include="Repositories\GeographicalRepository.cs" />
     <Compile Include="Interfaces\IGeographicalContext.cs" />
     <Compile Include="DTO\Primary_ColorDTO.cs" />

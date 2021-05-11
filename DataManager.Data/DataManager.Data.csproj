@@ -84,10 +84,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DatabaseLogic\LeagueDatabaseContext.cs" />
+    <Compile Include="Interfaces\IClubContext.cs" />
+    <Compile Include="Logic\ClubDatabaseContext.cs" />
+    <Compile Include="Logic\LeagueDatabaseContext.cs" />
     <Compile Include="DTO\ClubDTO.cs" />
     <Compile Include="DTO\ContinentDTO.cs" />
-    <Compile Include="DatabaseLogic\GeographicalDatabaseContext.cs" />
+    <Compile Include="Logic\GeographicalDatabaseContext.cs" />
     <Compile Include="DataManager.cs" />
     <Compile Include="DTO\CountryDTO.cs" />
     <Compile Include="DTO\DatabaseDTO.cs" />
@@ -97,6 +99,7 @@
     <Compile Include="DTO\PositionDTO.cs" />
     <Compile Include="DTO\RegisterDTO.cs" />
     <Compile Include="Interfaces\ILeagueContext.cs" />
+    <Compile Include="Repositories\ClubRepository.cs" />
     <Compile Include="Repositories\LeagueRepository.cs" />
     <Compile Include="Repositories\GeographicalRepository.cs" />
     <Compile Include="Interfaces\IGeographicalContext.cs" />

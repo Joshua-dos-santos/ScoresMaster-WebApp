@@ -8,12 +8,6 @@ namespace DataManager.Data
 {
     class CountryDTO
     {
-        public CountryDTO(int id, string name)
-        {
-            CountryID = id;
-            Name = name;
-        }
-
         public int CountryID { get; set; }
         public string Name { get; set; }
         public ContinentDTO continent { get; set; }

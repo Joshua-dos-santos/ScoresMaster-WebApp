@@ -85,6 +85,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Interfaces\IClubContext.cs" />
+    <Compile Include="Interfaces\IPlayerContext.cs" />
     <Compile Include="Logic\ClubDatabaseContext.cs" />
     <Compile Include="Logic\LeagueDatabaseContext.cs" />
     <Compile Include="DTO\ClubDTO.cs" />
@@ -99,12 +100,14 @@
     <Compile Include="DTO\PositionDTO.cs" />
     <Compile Include="DTO\RegisterDTO.cs" />
     <Compile Include="Interfaces\ILeagueContext.cs" />
+    <Compile Include="Logic\PlayerDatabaseContext.cs" />
     <Compile Include="Repositories\ClubRepository.cs" />
     <Compile Include="Repositories\LeagueRepository.cs" />
     <Compile Include="Repositories\GeographicalRepository.cs" />
     <Compile Include="Interfaces\IGeographicalContext.cs" />
     <Compile Include="DTO\Primary_ColorDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\PlayerRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

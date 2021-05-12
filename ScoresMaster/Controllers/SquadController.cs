@@ -11,20 +11,21 @@ namespace ScoresMaster.Controllers
 {
     public class SquadController : Controller
     {
-        public ActionResult Home_team(Club club, Match match, Player player)
+        public ActionResult Home_team(Club club, Match match, Position position)
         {
             ViewBag.Home_Team = match.Home_Team;
             club = ClubDatabase.GetHome_Team(club, match);
-            List<Player> playerList = PlayerDatabase.GetPlayers(club, player);
+            List<Player> playerList = PlayerDatabase.GetPlayers(club, position);
             
 
             return View("ViewHomeSquad", playerList);
         }
 
-        public ActionResult Away_team(Club club, Match match, Player player)
+        public ActionResult Away_team(Club club, Match match, Position position)
         {
             ViewBag.Away_Team = match.Away_Team;
-            List<Player> playerList = PlayerDatabase.GetPlayers(club, player);
+            club = ClubDatabase.GetAway_Team(club, match);
+            List<Player> playerList = PlayerDatabase.GetPlayers(club, position);
             return View("ViewAwaySquad", playerList);
         }
     }

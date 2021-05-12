@@ -14,25 +14,23 @@ namespace ScoresMaster.Controllers
         {
             dynamic PLData = JsonConvert.DeserializeObject(Api.GetMatches("352"));
             dynamic SerieAData = JsonConvert.DeserializeObject(Api.GetMatches("619"));
-            ViewBag.Prem = PLData.data;
-            ViewBag.SerieA = SerieAData.data;
 
             List<Match> matchList = new List<Match>();
 
             for (int i = 0; i <= 9; i++)
             {
                 Match match = new Match();
-                match.Home_Team = ViewBag.Prem[i].home_team.name;
-                match.Match_Start = ViewBag.Prem[i].match_start;
-                match.Away_Team = ViewBag.Prem[i].away_team.name;
+                match.Home_Team = PLData.data[i].home_team.name;
+                match.Match_Start = PLData.data[i].match_start;
+                match.Away_Team = PLData.data[i].away_team.name;
                 matchList.Add(match);
             }
             for (int i = 0; i <= 9; i++)
             {
                 Match match = new Match();
-                match.Home_Team = ViewBag.SerieA[i].home_team.name;
-                match.Match_Start = ViewBag.SerieA[i].match_start;
-                match.Away_Team = ViewBag.SerieA[i].away_team.name;
+                match.Home_Team = SerieAData.data[i].home_team.name;
+                match.Match_Start = SerieAData.data[i].match_start;
+                match.Away_Team = SerieAData.data[i].away_team.name;
                 matchList.Add(match);
             }
 

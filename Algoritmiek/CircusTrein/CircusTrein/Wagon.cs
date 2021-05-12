@@ -5,7 +5,7 @@ using System.Text;
 
 namespace CircusTrein
 {
-    class Wagon
+    public class Wagon
     {
         public List<Dier> Dieren { get; set; }
         public int Maximale_Ruimte { get; set; }
@@ -28,10 +28,10 @@ namespace CircusTrein
             {
                 if (diertoevoegen.Voeding == Dier.VoedingTypen.Vleeseter && diertoevoegen.GrootteDier >= dier.GrootteDier)
                 {
-                    return false;
+                    return true;
                 }
             }
-            return true;
+            return false;
         }
 
         public bool IsPlanteneterGroter_Of_GelijkAanVleeseter(Dier diertoevoegen)
@@ -60,7 +60,7 @@ namespace CircusTrein
 
         public bool KloppenAlleEisen(Dier diertoevoegen)
         {
-            if(IsPlanteneterGroter_Of_GelijkAanVleeseter(diertoevoegen) && IsVleeseterGroterDanElkAnderDier(diertoevoegen) && ZijnErTweeVleeseters(diertoevoegen) && (int)diertoevoegen.GrootteDier + ActueleRuimte < Maximale_Ruimte)
+            if(IsPlanteneterGroter_Of_GelijkAanVleeseter(diertoevoegen) && !IsVleeseterGroterDanElkAnderDier(diertoevoegen) && ZijnErTweeVleeseters(diertoevoegen) && (int)diertoevoegen.GrootteDier + ActueleRuimte < Maximale_Ruimte)
             {
                 Dieren.Add(diertoevoegen);
                 return true;

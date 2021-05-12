@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CircusTrein
 {
-    class Trein
+    public class Trein
     {
         public List<Wagon> Wagons { get; set; } = new List<Wagon>();
 

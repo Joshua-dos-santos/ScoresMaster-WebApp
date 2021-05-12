@@ -39,14 +39,9 @@ namespace DataManager.Data.Logic
             return clubs;
         }
 
-        public IEnumerable<ClubDTO> GetAllClubs(ClubDTO clubDTO)
+        public ClubDTO GetClub(string name, ClubDTO clubDTO, LeagueDTO leagueDTO)
         {
-            throw new NotImplementedException();
-        }
-
-        public ClubDTO GetClub(string name, ClubDTO clubDTO)
-        {
-            var result = GetAllClubs(clubDTO).FirstOrDefault(club => club.Name == name);
+            var result = GetAllClubs(clubDTO, leagueDTO).FirstOrDefault(club => club.Name == name);
             return result;
         }
     }

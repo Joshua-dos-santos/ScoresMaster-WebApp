@@ -9,7 +9,7 @@ namespace DataManager.Data.Interfaces
 {
     interface IClubContext
     {
-        IEnumerable<ClubDTO> GetAllClubs(ClubDTO clubDTO);
-        ClubDTO GetClub(string name, ClubDTO clubDTO);
+        IEnumerable<ClubDTO> GetAllClubs(ClubDTO clubDTO, LeagueDTO leagueDTO);
+        ClubDTO GetClub(string name, ClubDTO clubDTO, LeagueDTO leagueDTO);
     }
 }

@@ -17,14 +17,14 @@ namespace DataManager.Data.Repositories
             this.context = context;
         }
 
-        public List<ClubDTO> GetAllclubs(ClubDTO clubDTO)
+        public List<ClubDTO> GetAllclubs(ClubDTO clubDTO, LeagueDTO leagueDTO)
         {
-            return context.GetAllClubs(clubDTO).ToList();
+            return context.GetAllClubs(clubDTO, leagueDTO).ToList();
         }
 
-        public ClubDTO GetClub(string name, ClubDTO clubDTO)
+        public ClubDTO GetClub(string name, ClubDTO clubDTO, LeagueDTO leagueDTO)
         {
-            return context.GetClub(name, clubDTO);
+            return context.GetClub(name, clubDTO, leagueDTO);
         }
     }
 }

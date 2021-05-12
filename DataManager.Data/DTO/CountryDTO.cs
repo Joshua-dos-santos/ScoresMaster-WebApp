@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataManager.Data
 {
-    class CountryDTO
+    public class CountryDTO
     {
         public int CountryID { get; set; }
         public string Name { get; set; }

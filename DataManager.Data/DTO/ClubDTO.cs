@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace DataManager.Data.DTO
 {
-    class ClubDTO
+    public class ClubDTO
     {
         public int ClubID { get; set; }
         public string Name { get; set; }
         public LeagueDTO League { get; set; }
 
+        
     }
 }

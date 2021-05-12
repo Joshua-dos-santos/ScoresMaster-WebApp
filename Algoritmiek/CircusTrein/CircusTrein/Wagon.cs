@@ -40,10 +40,10 @@ namespace CircusTrein
             {
                 if (diertoevoegen.Voeding == Dier.VoedingTypen.PlantenEter && dier.Voeding == Dier.VoedingTypen.Vleeseter && diertoevoegen.GrootteDier <= dier.GrootteDier)
                 {
-                    return false;
+                    return true;
                 }
             }
-            return true;
+            return false;
         }
 
         public bool ZijnErTweeVleeseters(Dier diertoevoegen)
@@ -60,7 +60,7 @@ namespace CircusTrein
 
         public bool KloppenAlleEisen(Dier diertoevoegen)
         {
-            if(IsPlanteneterGroter_Of_GelijkAanVleeseter(diertoevoegen) && !IsVleeseterGroterDanElkAnderDier(diertoevoegen) && ZijnErTweeVleeseters(diertoevoegen) && (int)diertoevoegen.GrootteDier + ActueleRuimte < Maximale_Ruimte)
+            if(!IsPlanteneterGroter_Of_GelijkAanVleeseter(diertoevoegen) && !IsVleeseterGroterDanElkAnderDier(diertoevoegen) && ZijnErTweeVleeseters(diertoevoegen) && (int)diertoevoegen.GrootteDier + ActueleRuimte < Maximale_Ruimte)
             {
                 Dieren.Add(diertoevoegen);
                 return true;

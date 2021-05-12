@@ -29,12 +29,28 @@ namespace UnitTest__CircusTrein
             List<Dier> dieren = new List<Dier>();
             dieren.Add(new Dier { Voeding = Dier.VoedingTypen.PlantenEter, GrootteDier = Dier.Grootte.Groot });
             dieren.Add(new Dier { Voeding = Dier.VoedingTypen.Vleeseter, GrootteDier = Dier.Grootte.Middelgroot });
-            //dieren.Add(new Dier { Voeding = Dier.VoedingTypen.PlantenEter, GrootteDier = Dier.Grootte.Middelgroot });
+            dieren.Add(new Dier { Voeding = Dier.VoedingTypen.PlantenEter, GrootteDier = Dier.Grootte.Middelgroot });
 
             Wagon wagon = new Wagon();
             foreach(Dier dier in dieren)
             {
                 result = wagon.IsVleeseterGroterDanElkAnderDier(dier);
+            }
+            Assert.IsFalse(result);
+        }
+
+        [TestMethod]
+        public void Wagon_IsPlanteneterGroter_Of_GelijkAanVleeseter_False_PlanteneterIsKleiner()
+        {
+            var result = true;
+            List<Dier> dieren = new List<Dier>();
+            dieren.Add(new Dier { GrootteDier = Dier.Grootte.Klein, Voeding = Dier.VoedingTypen.PlantenEter });
+            dieren.Add(new Dier { GrootteDier = Dier.Grootte.Groot, Voeding = Dier.VoedingTypen.Vleeseter });
+
+            Wagon wagon = new Wagon();
+            foreach(Dier dier in dieren)
+            {
+                result = wagon.IsPlanteneterGroter_Of_GelijkAanVleeseter(dier);
             }
             Assert.IsFalse(result);
         }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataManager.Data.DTO
 {
-    class DatabaseDTO
+    class DatabaseDAO
     {
         private static string dbIp = "127.0.0.1";
         private static string dbPort = "3306";

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataManager.Data.DTO
 {
-    class MatchDTO
+    class MatchDAO
     {
         public int MatchID { get; set; }
         public string Home_Team { get; set; }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataManager.Data.DTO
 {
-    class PositionDTO
+    class PositionDAO
     {
         public int unique_id { get; set; }
         public string Positions { get; set; }

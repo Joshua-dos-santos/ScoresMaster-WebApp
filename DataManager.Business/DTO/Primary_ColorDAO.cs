@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataManager.Data
 {
-    class Primary_ColorDTO
+    class Primary_ColorDAO
     {
         public int ColorID { get; set; }
         public string Colors { get; set; }

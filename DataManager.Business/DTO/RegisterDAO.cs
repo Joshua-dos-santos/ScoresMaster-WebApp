@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataManager.Data.DTO
 {
-    class RegisterDTO
+    class RegisterDAO
     {
         public string First_Name { get; set; }
         public string Last_Name { get; set; }

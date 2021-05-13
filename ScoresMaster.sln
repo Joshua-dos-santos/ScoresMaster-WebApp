@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScoresMaster", "ScoresMaste
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataManager.Data", "DataManager.Data\DataManager.Data.csproj", "{18DA9533-73D7-4C61-B012-31911ADA374A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataManager.Business", "DataManager.Business\DataManager.Business.csproj", "{0F42629C-AF8C-46B8-B2C7-74DFC82F9611}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{18DA9533-73D7-4C61-B012-31911ADA374A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{18DA9533-73D7-4C61-B012-31911ADA374A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{18DA9533-73D7-4C61-B012-31911ADA374A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F42629C-AF8C-46B8-B2C7-74DFC82F9611}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F42629C-AF8C-46B8-B2C7-74DFC82F9611}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F42629C-AF8C-46B8-B2C7-74DFC82F9611}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F42629C-AF8C-46B8-B2C7-74DFC82F9611}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

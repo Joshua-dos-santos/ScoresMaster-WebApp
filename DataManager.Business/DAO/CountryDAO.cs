@@ -18,8 +18,8 @@ namespace DataManager.Business.DAO
         {
             CountryID = countryDTO.CountryID;
             Name = countryDTO.Name;
-            //continent = countryDTO.continent;
-            //primary_Color = 
+            continent = countryDTO.continent;
+            primary_Color = countryDTO.Primary_Color;
         }
     }
 }

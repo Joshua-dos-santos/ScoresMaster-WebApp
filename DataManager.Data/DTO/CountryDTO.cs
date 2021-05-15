@@ -11,6 +11,6 @@ namespace DataManager.Data
         public int CountryID { get; set; }
         public string Name { get; set; }
         public ContinentDTO continent { get; set; }
-        public Primary_ColorDTO primary_Color { get; set; }
+        public Primary_ColorDTO Primary_Color { get; set; }
     }
 }

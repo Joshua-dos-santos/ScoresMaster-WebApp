@@ -83,7 +83,7 @@ namespace DataManager.Data
                     country.continent = newContinent;
                     newPrimary_Color.ColorID = executeString.GetInt32(3);
                     newPrimary_Color = geographicalDatabaseContext.GetPrimary_Color(executeString.GetInt32(3), newPrimary_Color);
-                    country.primary_Color = newPrimary_Color;
+                    country.Primary_Color = newPrimary_Color;
                     countries.Add(country);
                 }
                 databaseConnection.Close();

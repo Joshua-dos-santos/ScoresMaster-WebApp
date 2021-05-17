@@ -13,6 +13,10 @@ namespace DataManager.Data
         {
             this.context = context;
         }   
+        public GeographicalRepository()
+        {
+
+        }
 
         public List<CountryDTO> GetAllCountries(CountryDTO country)
         {

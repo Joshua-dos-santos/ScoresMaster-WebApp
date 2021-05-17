@@ -12,12 +12,10 @@ namespace DataManager.Data.Logic
 {
     class PlayerDatabaseContext : IPlayerContext
     {
-        private IPlayerContext playercontext;
-        private IGeographicalContext context;
         public IEnumerable<PlayerDTO> GetAllPlayers(PlayerDTO playerDTO, PositionDTO positionDTO, CountryDTO countryDTO)
         {
-            PlayerRepository playerRepository = new PlayerRepository(playercontext);
-            GeographicalRepository geographicalRepository = new GeographicalRepository(context);
+            PlayerRepository playerRepository = new PlayerRepository();
+            GeographicalRepository geographicalRepository = new GeographicalRepository();
             List<PlayerDTO> Players = new List<PlayerDTO>();
             MySqlConnection databaseConnection = new MySqlConnection(DatabaseDTO.DbConnectionString);
             MySqlCommand getPlayers = new MySqlCommand("SELECT * FROM `player`", databaseConnection);

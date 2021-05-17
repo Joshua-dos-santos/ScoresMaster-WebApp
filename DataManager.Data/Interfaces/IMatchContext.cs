@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace DataManager.Data.Interfaces
 {
-    interface IMatchContext
+    public interface IMatchContext
     {
-        IEnumerable<MatchDTO> GetAllMatches(int id, MatchDTO matchDTO);
+        IEnumerable<MatchDTO> GetAllMatches(int id);
     }
 }

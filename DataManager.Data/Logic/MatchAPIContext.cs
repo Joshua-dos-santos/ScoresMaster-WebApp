@@ -11,9 +11,9 @@ using System.Threading.Tasks;
 
 namespace DataManager.Data.Logic
 {
-    class MatchAPIContext : IMatchContext
+    public class MatchAPIContext : IMatchContext
     {
-        public IEnumerable<MatchDTO> GetAllMatches(int id, MatchDTO matchDTO)
+        public IEnumerable<MatchDTO> GetAllMatches(int id)
         {
             string result = null;
             string requestString = "https://app.sportdataapi.com/api/v1/soccer/matches?apikey=78b7f4f0-781d-11eb-b7ce-ab513a4a050f&season_id=" + id + "&date_from=" + DateTime.Now + "";
@@ -32,6 +32,7 @@ namespace DataManager.Data.Logic
             for (int i = 0; i <= 9; i++)
             {
                 MatchDTO match = new MatchDTO();
+                match.MatchID = matchData.data[i].match_id;
                 match.Home_Team = matchData.data[i].home_team.name;
                 match.Match_Start = matchData.data[i].match_start;
                 match.Away_Team = matchData.data[i].away_team.name;

@@ -1,5 +1,6 @@
 ﻿using DataManager.Data.DTO;
 using DataManager.Data.Interfaces;
+using DataManager.Data.Logic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,13 +9,18 @@ using System.Threading.Tasks;
 
 namespace DataManager.Data.Repositories
 {
-    class MatchRepository
+    public class MatchRepository
     {
         private IMatchContext context;
-
-        public List<MatchDTO>GetAllMatches(int id, MatchDTO matchDTO)
+        
+        public MatchRepository(MatchAPIContext context)
         {
-            return context.GetAllMatches(id, matchDTO).ToList();
+            this.context = context;
+        }
+
+        public List<MatchDTO>GetAllMatches(int id)
+        {
+            return context.GetAllMatches(id).ToList();
         }
     }
 }

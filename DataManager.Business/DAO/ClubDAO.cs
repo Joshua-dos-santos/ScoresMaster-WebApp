@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataManager.Business.DAO
 {
-    class ClubDAO
+    public class ClubDAO
     {
         public int ClubID { get; set; }
         public string Name { get; set; }
@@ -15,9 +15,11 @@ namespace DataManager.Business.DAO
 
         public ClubDAO(ClubDTO clubDTO)
         {
+            LeagueDTO leagueDTO = new LeagueDTO();
+            LeagueDAO leagueDAO = new LeagueDAO(leagueDTO);
             ClubID = clubDTO.ClubID;
             Name = clubDTO.Name;
-            League = clubDTO.League;
+            League = leagueDAO;
         }
     }
 }

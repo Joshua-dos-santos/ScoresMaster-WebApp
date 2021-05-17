@@ -89,3 +89,8 @@ C:\Users\joshu\OneDrive\Bureaublad\Semester 2\IP\ScoresMaster\ScoresMaster\Score
 C:\Users\joshu\OneDrive\Bureaublad\Semester 2\IP\ScoresMaster\ScoresMaster\ScoresMaster\bin\roslyn\System.Memory.dll
 C:\Users\joshu\OneDrive\Bureaublad\Semester 2\IP\ScoresMaster\ScoresMaster\ScoresMaster\bin\roslyn\System.Numerics.Vectors.dll
 C:\Users\joshu\OneDrive\Bureaublad\Semester 2\IP\ScoresMaster\ScoresMaster\ScoresMaster\bin\roslyn\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\joshu\OneDrive\Bureaublad\Semester 2\IP\ScoresMaster\ScoresMaster\ScoresMaster\bin\DataManager.Business.dll
+C:\Users\joshu\OneDrive\Bureaublad\Semester 2\IP\ScoresMaster\ScoresMaster\ScoresMaster\bin\DataManager.Data.dll
+C:\Users\joshu\OneDrive\Bureaublad\Semester 2\IP\ScoresMaster\ScoresMaster\ScoresMaster\bin\DataManager.Business.pdb
+C:\Users\joshu\OneDrive\Bureaublad\Semester 2\IP\ScoresMaster\ScoresMaster\ScoresMaster\bin\DataManager.Data.pdb
+C:\Users\joshu\OneDrive\Bureaublad\Semester 2\IP\ScoresMaster\ScoresMaster\ScoresMaster\bin\DataManager.Data.dll.config

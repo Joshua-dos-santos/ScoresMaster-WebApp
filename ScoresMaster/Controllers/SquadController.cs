@@ -14,7 +14,7 @@ namespace ScoresMaster.Controllers
         public ActionResult Home_team(Club club, Match match, Position position)
         {
             ViewBag.Home_Team = match.Home_Team;
-            club = ClubDatabase.GetHome_Team(club, match);
+            //club = ClubDatabase.GetHome_Team(club, match);
             List<Player> playerList = PlayerDatabase.GetPlayers(club, position);
             
 

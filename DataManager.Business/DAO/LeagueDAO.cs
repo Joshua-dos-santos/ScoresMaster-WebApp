@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataManager.Business.DAO
 {
-    class LeagueDAO
+    public class LeagueDAO
     {
         public int LeagueID { get; set; }
         public string Name { get; set; }

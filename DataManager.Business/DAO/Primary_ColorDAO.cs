@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataManager.Business.DAO
 {
-    class Primary_ColorDAO
+    public class Primary_ColorDAO
     {
         public int ColorID { get; set; }
         public string Colors { get; set; }

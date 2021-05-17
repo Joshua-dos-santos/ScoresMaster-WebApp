@@ -1,5 +1,6 @@
 ﻿using DataManager.Data.DTO;
 using DataManager.Data.Interfaces;
+using DataManager.Data.Logic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace DataManager.Data.Repositories
 {
-    class PlayerRepository
+    public class PlayerRepository
     {
         private IPlayerContext context;
 
-        public PlayerRepository(IPlayerContext context)
+        public PlayerRepository(PlayerDatabaseContext context)
         {
             this.context = context;
         }
@@ -21,21 +22,21 @@ namespace DataManager.Data.Repositories
 
         }
 
-        public List<PlayerDTO> GetAllPlayers(PlayerDTO playerDTO, PositionDTO positionDTO, CountryDTO countryDTO)
+        public List<PlayerDTO> GetAllPlayers(int id)
         {
-            return context.GetAllPlayers(playerDTO, positionDTO, countryDTO).ToList();
+            return context.GetAllPlayers(id).ToList();
         }
-        public PlayerDTO GetPlayer(int id, PlayerDTO playerDTO, PositionDTO position, CountryDTO countryDTO)
+        public PlayerDTO GetPlayer(int clubID, int id)
         {
-            return context.GetPlayer(id, playerDTO, position, countryDTO);
+            return context.GetPlayer(clubID, id);
         }
-        public List<PositionDTO> GetAllPositions(PositionDTO positionDTO)
+        public List<PositionDTO> GetAllPositions()
         {
-            return context.GetAllPositions(positionDTO).ToList();
+            return context.GetAllPositions().ToList();
         }
-        public PositionDTO GetPosition(int id, PositionDTO positionDTO)
+        public PositionDTO GetPosition(int id)
         {
-            return context.GetPosition(id, positionDTO);
+            return context.GetPosition(id);
         }
     }
 }

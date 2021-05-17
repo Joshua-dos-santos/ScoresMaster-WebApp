@@ -10,15 +10,16 @@ using System.Threading.Tasks;
 
 namespace DataManager.Data.Logic
 {
-    class PlayerDatabaseContext : IPlayerContext
+    public class PlayerDatabaseContext : IPlayerContext
     {
-        public IEnumerable<PlayerDTO> GetAllPlayers(PlayerDTO playerDTO, PositionDTO positionDTO, CountryDTO countryDTO)
+        public IEnumerable<PlayerDTO> GetAllPlayers(int id)
         {
             PlayerRepository playerRepository = new PlayerRepository();
             GeographicalRepository geographicalRepository = new GeographicalRepository();
             List<PlayerDTO> Players = new List<PlayerDTO>();
             MySqlConnection databaseConnection = new MySqlConnection(DatabaseDTO.DbConnectionString);
-            MySqlCommand getPlayers = new MySqlCommand("SELECT * FROM `player`", databaseConnection);
+            MySqlCommand getPlayers = new MySqlCommand("SELECT * FROM `player` WHERE `unique_id` = @val1", databaseConnection);
+            getPlayers.Parameters.AddWithValue("@val1", id);
             try
             {
                 databaseConnection.Open();
@@ -27,16 +28,17 @@ namespace DataManager.Data.Logic
 
                 while (executeString.Read())
                 {
+                    PlayerDTO playerDTO = new PlayerDTO();
                     PositionDTO newPosition = new PositionDTO();
                     CountryDTO newCountry = new CountryDTO();
                     playerDTO.First_Name = executeString.GetString(1);
                     playerDTO.Last_Name = executeString.GetString(2);
                     playerDTO.Shirt_Number = executeString.GetString(3);
                     newPosition.unique_id = executeString.GetInt32(4);
-                    positionDTO = playerRepository.GetPosition(newPosition.unique_id, positionDTO);
-                    playerDTO.Position = positionDTO;
+                    newPosition = playerRepository.GetPosition(newPosition.unique_id);
+                    playerDTO.Position = newPosition;
                     newCountry.CountryID = executeString.GetInt32(5);
-                    newCountry = geographicalRepository.GetCountry(newCountry.CountryID, countryDTO);
+                    newCountry = geographicalRepository.GetCountry(newCountry.CountryID, newCountry);
                     playerDTO.Nationality = newCountry;
                     playerDTO.Birth_Day = executeString.GetDateTime(7);
                     Players.Add(playerDTO);
@@ -50,9 +52,10 @@ namespace DataManager.Data.Logic
             return Players;
         }
 
-        public IEnumerable<PositionDTO> GetAllPositions(PositionDTO positionDTO)
+        public IEnumerable<PositionDTO> GetAllPositions()
         {
             List<PositionDTO> positions = new List<PositionDTO>();
+            PositionDTO positionDTO = new PositionDTO();
             MySqlConnection databaseConnection = new MySqlConnection(DatabaseDTO.DbConnectionString);
             MySqlCommand getPosition = new MySqlCommand("SELECT * FROM `position`", databaseConnection);
             try
@@ -75,15 +78,15 @@ namespace DataManager.Data.Logic
             return positions;
         }
 
-        public PlayerDTO GetPlayer(int id, PlayerDTO playerDTO, PositionDTO positionDTO, CountryDTO countryDTO)
+        public PlayerDTO GetPlayer(int clubID, int id)
         {
-            var result = GetAllPlayers(playerDTO, positionDTO, countryDTO).FirstOrDefault(player => player.PlayerID == id);
+            var result = GetAllPlayers(clubID).FirstOrDefault(player => player.PlayerID == id);
             return result;
         }
 
-        public PositionDTO GetPosition(int id, PositionDTO positionDTO)
+        public PositionDTO GetPosition(int id)
         {
-            var result = GetAllPositions(positionDTO).FirstOrDefault(position => position.unique_id == id);
+            var result = GetAllPositions().FirstOrDefault(position => position.unique_id == id);
             return result;
         }
     }

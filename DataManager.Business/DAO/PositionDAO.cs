@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataManager.Business.DAO
 {
-    class PositionDAO
+    public class PositionDAO
     {
         public int unique_id { get; set; }
         public string Positions { get; set; }

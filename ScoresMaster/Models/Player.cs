@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataManager.Business.DAO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -18,6 +19,16 @@ namespace ScoresMaster.Models
         public Position Position { get; set; }
         public Country Nationality { get; set; }
         public DateTime Birth_Day { get; set; } 
+
+        public Player(PlayerDAO playerDAO)
+        {
+            Position position = new Position();
+            PlayerID = playerDAO.PlayerID;
+            First_Name = playerDAO.First_Name;
+            Last_Name = playerDAO.Last_Name;
+            Shirt_Number = playerDAO.Shirt_Number;
+            Position = position;
+        }
        
     }
 }

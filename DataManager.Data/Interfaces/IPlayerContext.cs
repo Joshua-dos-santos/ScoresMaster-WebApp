@@ -9,9 +9,9 @@ namespace DataManager.Data.Interfaces
 {
     interface IPlayerContext
     {
-        IEnumerable<PlayerDTO> GetAllPlayers(PlayerDTO playerDTO, PositionDTO position, CountryDTO countryDTO);
-        PlayerDTO GetPlayer(int id, PlayerDTO playerDTO, PositionDTO position, CountryDTO countryDTO);
-        IEnumerable<PositionDTO> GetAllPositions(PositionDTO positionDTO);
-        PositionDTO GetPosition(int id, PositionDTO positionDTO);
+        IEnumerable<PlayerDTO> GetAllPlayers(int id);
+        PlayerDTO GetPlayer(int clubID, int id);
+        IEnumerable<PositionDTO> GetAllPositions();
+        PositionDTO GetPosition(int id);
     }
 }

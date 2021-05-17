@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataManager.Business.DAO
 {
-    class ContinentDAO
+    public class ContinentDAO
     {
         public int ContinentID { get; set; }
         public string Continents { get; set; }

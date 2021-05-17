@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace DataManager.Business.DAO
 {
-    class CountryDAO
+    public class CountryDAO
     {
         public int CountryID { get; set; }
         public string Name { get; set; }
-        public ContinentDAO continent { get; set; }
-        public Primary_ColorDAO primary_Color { get; set; }
+        public ContinentDAO Continent { get; set; }
+        public Primary_ColorDAO Primary_Color { get; set; }
 
         public CountryDAO(CountryDTO countryDTO)
         {
@@ -24,8 +24,8 @@ namespace DataManager.Business.DAO
 
             CountryID = countryDTO.CountryID;
             Name = countryDTO.Name;
-            continent = continentDAO;
-            primary_Color = primary_ColorDAO;
+            Continent = continentDAO;
+            Primary_Color = primary_ColorDAO;
         }
     }
 }

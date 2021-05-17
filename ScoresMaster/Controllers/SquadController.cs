@@ -13,12 +13,15 @@ namespace ScoresMaster.Controllers
     public class SquadController : Controller
     {
             ClubContainerFE clubContainerFE = new ClubContainerFE();
+        PlayerContainerFE PlayerContainerFE = new PlayerContainerFE();
+
         public ActionResult Home_team(Club club, Match match, Position position)
         {
             club.Name = match.Home_Team;
             ViewBag.Home_Team = match.Home_Team;
             club = clubContainerFE.GetClub(club.Name);
-            List<Player> playerList = PlayerDatabase.GetPlayers(club, position);
+            int id = club.ClubID;
+            List<Player> playerList = PlayerContainerFE.GetAllPlayers(id);
             
 
             return View("ViewHomeSquad", playerList);

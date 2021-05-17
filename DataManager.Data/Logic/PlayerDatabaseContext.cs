@@ -18,7 +18,7 @@ namespace DataManager.Data.Logic
             GeographicalRepository geographicalRepository = new GeographicalRepository();
             List<PlayerDTO> Players = new List<PlayerDTO>();
             MySqlConnection databaseConnection = new MySqlConnection(DatabaseDTO.DbConnectionString);
-            MySqlCommand getPlayers = new MySqlCommand("SELECT * FROM `player` WHERE `unique_id` = @val1", databaseConnection);
+            MySqlCommand getPlayers = new MySqlCommand("SELECT * FROM `player` WHERE `club` = @val1", databaseConnection);
             getPlayers.Parameters.AddWithValue("@val1", id);
             try
             {

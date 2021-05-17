@@ -12,7 +12,7 @@ namespace ScoresMaster.Containers
         DataManager.Business.Containers.PlayerContainer playerContainer = new DataManager.Business.Containers.PlayerContainer();
 
 
-        public List<Player> GetAllMatches(int id)
+        public List<Player> GetAllPlayers(int id)
         {
             List<Player> players = new List<Player>();
             var player = playerContainer.GetAllPlayers(id);

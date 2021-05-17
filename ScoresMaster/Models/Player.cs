@@ -29,6 +29,10 @@ namespace ScoresMaster.Models
             Shirt_Number = playerDAO.Shirt_Number;
             Position = position;
         }
+        public Player()
+        {
+
+        }
        
     }
 }

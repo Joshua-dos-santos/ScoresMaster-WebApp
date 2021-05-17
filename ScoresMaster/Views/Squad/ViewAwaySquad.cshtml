@@ -4,7 +4,7 @@
     ViewBag.Title = "ViewAwaySquad";
 }
 
-<h2>ViewAwaySquad</h2>
+<h2>@ViewBag.Away_Team</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -48,7 +48,7 @@
                 @Html.DisplayFor(modelItem => item.Shirt_Number)
             </td>
             <td style="color: @item.Nationality.primary_Color.Colors">
-                @Html.ActionLink(item.Nationality.Name,"Index", "Home", item, new { })
+                @Html.DisplayFor(modelItem => item.Nationality.Name)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Birth_Day)
@@ -62,4 +62,3 @@
     }
 
 </table>
- 

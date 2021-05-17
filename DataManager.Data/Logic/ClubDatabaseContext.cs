@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace DataManager.Data.Logic
 {
-    class ClubDatabaseContext : IClubContext
+    public class ClubDatabaseContext : IClubContext
     {
-        public IEnumerable<ClubDTO> GetAllClubs(ClubDTO clubDTO, LeagueDTO leagueDTO)
+        public IEnumerable<ClubDTO> GetAllClubs()
         {
             LeagueDatabaseContext leagueDatabaseContext = new LeagueDatabaseContext();
             List<ClubDTO> clubs = new List<ClubDTO>();
@@ -25,6 +25,8 @@ namespace DataManager.Data.Logic
                 var executeString = getLeagues.ExecuteReader();
                 while (executeString.Read())
                 {
+                    ClubDTO clubDTO = new ClubDTO();
+                    LeagueDTO leagueDTO = new LeagueDTO();
                     clubDTO.ClubID = executeString.GetInt32(0);
                     clubDTO.Name = executeString.GetString(1);
                     clubDTO.League = leagueDatabaseContext.GetLeague(leagueDTO.LeagueID, leagueDTO);
@@ -39,10 +41,32 @@ namespace DataManager.Data.Logic
             return clubs;
         }
 
-        public ClubDTO GetClub(string name, ClubDTO clubDTO, LeagueDTO leagueDTO)
+        public ClubDTO GetClub(string name)
         {
-            var result = GetAllClubs(clubDTO, leagueDTO).FirstOrDefault(club => club.Name == name);
-            return result;
+            ClubDTO club = new ClubDTO();
+            MatchDTO matchDTO = new MatchDTO();
+            LeagueDTO league = new LeagueDTO();
+            MySqlConnection databaseConnection = new MySqlConnection(DatabaseDTO.DbConnectionString);
+            MySqlCommand getClubs = new MySqlCommand("SELECT * FROM `club` WHERE `club_name`=@val1", databaseConnection);
+            getClubs.Parameters.AddWithValue("@val1", name);
+            try
+            {
+                databaseConnection.Open();
+                getClubs.Prepare();
+                var executeString = getClubs.ExecuteReader();
+                while (executeString.Read())
+                {
+                    club.ClubID = executeString.GetInt32(0);
+                    club.Name = matchDTO.Home_Team;
+                    club.League = league;
+                }
+                databaseConnection.Close();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("error: " + e.Message);
+            }
+            return club;
         }
     }
 }

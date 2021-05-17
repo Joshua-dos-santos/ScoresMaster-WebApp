@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace DataManager.Data.Interfaces
 {
-    interface IClubContext
+    public interface IClubContext
     {
-        IEnumerable<ClubDTO> GetAllClubs(ClubDTO clubDTO, LeagueDTO leagueDTO);
-        ClubDTO GetClub(string name, ClubDTO clubDTO, LeagueDTO leagueDTO);
+        IEnumerable<ClubDTO> GetAllClubs();
+        ClubDTO GetClub(string name);
     }
 }

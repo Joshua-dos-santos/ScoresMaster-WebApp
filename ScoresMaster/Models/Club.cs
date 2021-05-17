@@ -14,9 +14,14 @@ namespace ScoresMaster.Models
 
         public Club(ClubDAO clubDAO)
         {
+            League league = new League(new LeagueDAO());
             ClubID = clubDAO.ClubID;
             Name = clubDAO.Name;
-            //League = clubDAO.League;
+            League = league;
+        }
+        public Club()
+        {
+
         }
 
     }

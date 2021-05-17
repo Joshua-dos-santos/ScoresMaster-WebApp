@@ -94,3 +94,4 @@ C:\Users\joshu\OneDrive\Bureaublad\Semester 2\IP\ScoresMaster\ScoresMaster\Score
 C:\Users\joshu\OneDrive\Bureaublad\Semester 2\IP\ScoresMaster\ScoresMaster\ScoresMaster\bin\DataManager.Business.pdb
 C:\Users\joshu\OneDrive\Bureaublad\Semester 2\IP\ScoresMaster\ScoresMaster\ScoresMaster\bin\DataManager.Data.pdb
 C:\Users\joshu\OneDrive\Bureaublad\Semester 2\IP\ScoresMaster\ScoresMaster\ScoresMaster\bin\DataManager.Data.dll.config
+C:\Users\joshu\OneDrive\Bureaublad\Semester 2\IP\ScoresMaster\ScoresMaster\ScoresMaster\bin\DataManager.Business.dll.config

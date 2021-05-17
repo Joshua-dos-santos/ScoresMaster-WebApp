@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Containers\ClubContainer.cs" />
     <Compile Include="Containers\MatchContainer.cs" />
     <Compile Include="DAO\ClubDAO.cs" />
     <Compile Include="DAO\ContinentDAO.cs" />
@@ -57,6 +58,9 @@
       <Project>{18da9533-73d7-4c61-b012-31911ada374a}</Project>
       <Name>DataManager.Data</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

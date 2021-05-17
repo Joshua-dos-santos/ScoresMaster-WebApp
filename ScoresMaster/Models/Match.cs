@@ -22,6 +22,10 @@ namespace ScoresMaster.Models
             Match_Start = matchDAO.Match_Start;
             Away_Team = matchDAO.Away_Team;
         }
+        public Match()
+        {
+
+        }
 
     }
 

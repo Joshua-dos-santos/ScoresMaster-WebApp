@@ -1,5 +1,6 @@
 ﻿using DataManager.Data.DTO;
 using DataManager.Data.Interfaces;
+using DataManager.Data.Logic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,23 +9,23 @@ using System.Threading.Tasks;
 
 namespace DataManager.Data.Repositories
 {
-    class ClubRepository
+    public class ClubRepository
     {
         private IClubContext context;
 
-        public ClubRepository(IClubContext context)
+        public ClubRepository(ClubDatabaseContext context)
         {
             this.context = context;
         }
 
-        public List<ClubDTO> GetAllclubs(ClubDTO clubDTO, LeagueDTO leagueDTO)
+        public List<ClubDTO> GetAllclubs()
         {
-            return context.GetAllClubs(clubDTO, leagueDTO).ToList();
+            return context.GetAllClubs().ToList();
         }
 
-        public ClubDTO GetClub(string name, ClubDTO clubDTO, LeagueDTO leagueDTO)
+        public ClubDTO GetClub(string name)
         {
-            return context.GetClub(name, clubDTO, leagueDTO);
+            return context.GetClub(name);
         }
     }
 }

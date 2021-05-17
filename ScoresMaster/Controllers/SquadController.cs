@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using ScoresMaster.Containers;
 using ScoresMaster.DatabaseConnections;
 using ScoresMaster.Models;
 using System;
@@ -11,10 +12,12 @@ namespace ScoresMaster.Controllers
 {
     public class SquadController : Controller
     {
+            ClubContainerFE clubContainerFE = new ClubContainerFE();
         public ActionResult Home_team(Club club, Match match, Position position)
         {
+            club.Name = match.Home_Team;
             ViewBag.Home_Team = match.Home_Team;
-            //club = ClubDatabase.GetHome_Team(club, match);
+            club = clubContainerFE.GetClub(club.Name);
             List<Player> playerList = PlayerDatabase.GetPlayers(club, position);
             
 
@@ -23,8 +26,9 @@ namespace ScoresMaster.Controllers
 
         public ActionResult Away_team(Club club, Match match, Position position)
         {
+            club.Name = match.Away_Team;
             ViewBag.Away_Team = match.Away_Team;
-            club = ClubDatabase.GetAway_Team(club, match);
+            club = clubContainerFE.GetClub(club.Name);
             List<Player> playerList = PlayerDatabase.GetPlayers(club, position);
             return View("ViewAwaySquad", playerList);
         }

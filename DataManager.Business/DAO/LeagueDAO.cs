@@ -17,5 +17,9 @@ namespace DataManager.Business.DAO
             LeagueID = leagueDTO.LeagueID;
             Name = leagueDTO.Name;
         }
+        public LeagueDAO()
+        {
+
+        }
     }
 }

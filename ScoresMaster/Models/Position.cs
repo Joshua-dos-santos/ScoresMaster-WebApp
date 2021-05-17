@@ -9,5 +9,10 @@ namespace ScoresMaster.Models
     {
         public int unique_id { get; set; }
         public string Positions { get; set; }
+
+        public Position()
+        {
+
+        }
     }
 }

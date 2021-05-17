@@ -23,5 +23,26 @@ namespace DataManager.Business.Containers
             }
             return players;
         }
+
+        public List<PositionDAO> GetAllPositions()
+        {
+            Data.Repositories.PlayerRepository repo = new Data.Repositories.PlayerRepository();
+
+            List<PositionDAO> positions = new List<PositionDAO>();
+            var positiondto = repo.GetAllPositions();
+            foreach(var position in positiondto)
+            {
+                positions.Add(new PositionDAO(position));
+            }
+            return positions;
+        }
+
+        public PositionDAO GetPosition(int id)
+        {
+            Data.Repositories.PlayerRepository repo = new Data.Repositories.PlayerRepository();
+            var position = repo.GetPosition(id);
+            PositionDAO positionDAO = new PositionDAO(position);
+            return positionDAO;
+        }
     }
 }

@@ -12,10 +12,11 @@ namespace DataManager.Data.Logic
 {
     public class PlayerDatabaseContext : IPlayerContext
     {
+
+        GeographicalDatabaseContext GeographicalDatabaseContext = new GeographicalDatabaseContext();
         public IEnumerable<PlayerDTO> GetAllPlayers(int id)
         {
-            PlayerRepository playerRepository = new PlayerRepository();
-            GeographicalRepository geographicalRepository = new GeographicalRepository();
+            
             List<PlayerDTO> Players = new List<PlayerDTO>();
             MySqlConnection databaseConnection = new MySqlConnection(DatabaseDTO.DbConnectionString);
             MySqlCommand getPlayers = new MySqlCommand("SELECT * FROM `player` WHERE `club` = @val1", databaseConnection);
@@ -31,14 +32,15 @@ namespace DataManager.Data.Logic
                     PlayerDTO playerDTO = new PlayerDTO();
                     PositionDTO newPosition = new PositionDTO();
                     CountryDTO newCountry = new CountryDTO();
+                    playerDTO.PlayerID = executeString.GetInt32(0);
                     playerDTO.First_Name = executeString.GetString(1);
                     playerDTO.Last_Name = executeString.GetString(2);
                     playerDTO.Shirt_Number = executeString.GetString(3);
                     newPosition.unique_id = executeString.GetInt32(4);
-                    newPosition = playerRepository.GetPosition(newPosition.unique_id);
+                    newPosition = GetPosition(newPosition.unique_id);
                     playerDTO.Position = newPosition;
                     newCountry.CountryID = executeString.GetInt32(5);
-                    newCountry = geographicalRepository.GetCountry(newCountry.CountryID, newCountry);
+                    newCountry = GeographicalDatabaseContext.GetCountry(newCountry.CountryID);
                     playerDTO.Nationality = newCountry;
                     playerDTO.Birth_Day = executeString.GetDateTime(7);
                     Players.Add(playerDTO);
@@ -86,8 +88,27 @@ namespace DataManager.Data.Logic
 
         public PositionDTO GetPosition(int id)
         {
-            var result = GetAllPositions().FirstOrDefault(position => position.unique_id == id);
-            return result;
+            PositionDTO positionDTO = new PositionDTO();
+            MySqlConnection databaseConnection = new MySqlConnection(DatabaseDTO.DbConnectionString);
+            MySqlCommand getPosition = new MySqlCommand("SELECT * FROM `position` WHERE unique_id= @val1", databaseConnection);
+            getPosition.Parameters.AddWithValue("@val1", id);
+            try
+            {
+                databaseConnection.Open();
+                getPosition.Prepare();
+                var executeString = getPosition.ExecuteReader();
+                while (executeString.Read())
+                {
+                    positionDTO.unique_id = executeString.GetInt32(0);
+                    positionDTO.Positions = executeString.GetString(1);
+                }
+                databaseConnection.Close();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("error: " + e.Message);
+            }
+            return positionDTO;
         }
     }
 }

@@ -26,7 +26,7 @@ namespace DataManager.Business.Containers
 
         public List<PositionDAO> GetAllPositions()
         {
-            Data.Repositories.PlayerRepository repo = new Data.Repositories.PlayerRepository();
+            Data.Repositories.PlayerRepository repo = new Data.Repositories.PlayerRepository(context);
 
             List<PositionDAO> positions = new List<PositionDAO>();
             var positiondto = repo.GetAllPositions();
@@ -39,7 +39,7 @@ namespace DataManager.Business.Containers
 
         public PositionDAO GetPosition(int id)
         {
-            Data.Repositories.PlayerRepository repo = new Data.Repositories.PlayerRepository();
+            Data.Repositories.PlayerRepository repo = new Data.Repositories.PlayerRepository(context);
             var position = repo.GetPosition(id);
             PositionDAO positionDAO = new PositionDAO(position);
             return positionDAO;

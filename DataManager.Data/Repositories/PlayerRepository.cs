@@ -17,10 +17,6 @@ namespace DataManager.Data.Repositories
         {
             this.context = context;
         }
-        public PlayerRepository()
-        {
-
-        }
 
         public List<PlayerDTO> GetAllPlayers(int id)
         {

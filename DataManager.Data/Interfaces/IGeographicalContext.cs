@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace DataManager.Data
 {
-    interface IGeographicalContext
+    public interface IGeographicalContext
     {
-        IEnumerable<CountryDTO> GetAllCountries(CountryDTO country);
-        CountryDTO GetCountry(int id, CountryDTO country);
-        IEnumerable<ContinentDTO> GetAllContinents(ContinentDTO continent);
-        ContinentDTO GetContinent(int id, ContinentDTO continent);
-        IEnumerable<Primary_ColorDTO> GetAllColors(Primary_ColorDTO primary_Color);
-        Primary_ColorDTO GetPrimary_Color(int id, Primary_ColorDTO primary_Color);
+        IEnumerable<CountryDTO> GetAllCountries();
+        CountryDTO GetCountry(int id);
+        IEnumerable<ContinentDTO> GetAllContinents();
+        ContinentDTO GetContinent(int id);
+        IEnumerable<Primary_ColorDTO> GetAllColors();
+        Primary_ColorDTO GetPrimary_Color(int id);
     }
 }

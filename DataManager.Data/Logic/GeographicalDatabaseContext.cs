@@ -8,11 +8,10 @@ using System.Threading.Tasks;
 
 namespace DataManager.Data
 {
-    class GeographicalDatabaseContext : IGeographicalContext
+    public class GeographicalDatabaseContext : IGeographicalContext
     {
-        GeographicalDatabaseContext geographicalDatabaseContext = new GeographicalDatabaseContext();
 
-        public IEnumerable<Primary_ColorDTO> GetAllColors(Primary_ColorDTO primary_Color)
+        public IEnumerable<Primary_ColorDTO> GetAllColors()
         {
             List<Primary_ColorDTO> Colors = new List<Primary_ColorDTO>();
             MySqlConnection databaseConnection = new MySqlConnection(DatabaseDTO.DbConnectionString);
@@ -24,6 +23,7 @@ namespace DataManager.Data
                 var executeString = getColor.ExecuteReader();
                 while (executeString.Read())
                 {
+                    Primary_ColorDTO primary_Color = new Primary_ColorDTO();
                     primary_Color.ColorID = executeString.GetInt32(0);
                     primary_Color.Colors = executeString.GetString(1);
                     Colors.Add(primary_Color);
@@ -37,7 +37,7 @@ namespace DataManager.Data
             return Colors;
         }
 
-        public IEnumerable<ContinentDTO> GetAllContinents(ContinentDTO continent)
+        public IEnumerable<ContinentDTO> GetAllContinents()
         {
             List<ContinentDTO> continents = new List<ContinentDTO>();
             MySqlConnection databaseConnection = new MySqlConnection(DatabaseDTO.DbConnectionString);
@@ -49,6 +49,7 @@ namespace DataManager.Data
                 var executeString = getContinent.ExecuteReader();
                 while (executeString.Read())
                 {
+                    ContinentDTO continent = new ContinentDTO();
                     continent.ContinentID = executeString.GetInt32(0);
                     continent.Continents = executeString.GetString(1);
                     continents.Add(continent);
@@ -62,7 +63,7 @@ namespace DataManager.Data
             return continents;
         }
 
-        public IEnumerable<CountryDTO> GetAllCountries(CountryDTO country)
+        public IEnumerable<CountryDTO> GetAllCountries()
         {
             List<CountryDTO> countries = new List<CountryDTO>();
             MySqlConnection databaseConnection = new MySqlConnection(DatabaseDTO.DbConnectionString);
@@ -74,15 +75,16 @@ namespace DataManager.Data
                 var executeString = getCountry.ExecuteReader();
                 while (executeString.Read())
                 {
+                    CountryDTO country = new CountryDTO();
                     ContinentDTO newContinent = new ContinentDTO();
                     Primary_ColorDTO newPrimary_Color = new Primary_ColorDTO();
                     country.CountryID = executeString.GetInt32(0);
                     country.Name = executeString.GetString(1);
                     newContinent.ContinentID = executeString.GetInt32(2);
-                    newContinent = geographicalDatabaseContext.GetContinent(executeString.GetInt32(2), newContinent);
+                    newContinent = GetContinent(executeString.GetInt32(2));
                     country.continent = newContinent;
                     newPrimary_Color.ColorID = executeString.GetInt32(3);
-                    newPrimary_Color = geographicalDatabaseContext.GetPrimary_Color(executeString.GetInt32(3), newPrimary_Color);
+                    newPrimary_Color = GetPrimary_Color(executeString.GetInt32(3));
                     country.Primary_Color = newPrimary_Color;
                     countries.Add(country);
                 }
@@ -95,21 +97,48 @@ namespace DataManager.Data
             return countries;
         }
 
-        public ContinentDTO GetContinent(int id, ContinentDTO continentDTO)
+        public ContinentDTO GetContinent(int id)
         {
-            var result = GetAllContinents(continentDTO).FirstOrDefault(continent => continent.ContinentID == id);
+            var result = GetAllContinents().FirstOrDefault(continent => continent.ContinentID == id);
             return result;
         }
 
-        public CountryDTO GetCountry(int id, CountryDTO countryDTO)
+        public CountryDTO GetCountry(int id)
         {
-            var result = GetAllCountries(countryDTO).FirstOrDefault(country => country.CountryID == id);
-            return result;
+            CountryDTO country = new CountryDTO();
+            ContinentDTO newContinent = new ContinentDTO();
+            Primary_ColorDTO newPrimary_Color = new Primary_ColorDTO();
+            MySqlConnection databaseConnection = new MySqlConnection(DatabaseDTO.DbConnectionString);
+            MySqlCommand getPosition = new MySqlCommand("SELECT * FROM `country` WHERE unique_id= @val1", databaseConnection);
+            getPosition.Parameters.AddWithValue("@val1", id);
+            try
+            {
+                databaseConnection.Open();
+                getPosition.Prepare();
+                var executeString = getPosition.ExecuteReader();
+                while (executeString.Read())
+                {
+                    country.CountryID = executeString.GetInt32(0);
+                    country.Name = executeString.GetString(1);
+                    newContinent.ContinentID = executeString.GetInt32(2);
+                    newContinent = GetContinent(executeString.GetInt32(2));
+                    country.continent = newContinent;
+                    newPrimary_Color.ColorID = executeString.GetInt32(3);
+                    newPrimary_Color = GetPrimary_Color(executeString.GetInt32(3));
+                    country.Primary_Color = newPrimary_Color;
+                }
+                databaseConnection.Close();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("error: " + e.Message);
+            }
+            return country;
         }
 
-        public Primary_ColorDTO GetPrimary_Color(int id, Primary_ColorDTO primary_Color)
+        public Primary_ColorDTO GetPrimary_Color(int id)
         {
-            var result = GetAllColors(primary_Color).FirstOrDefault(color => color.ColorID == id);
+            var result = GetAllColors().FirstOrDefault(color => color.ColorID == id);
             return result;
         }
     }

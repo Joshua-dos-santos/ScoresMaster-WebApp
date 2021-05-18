@@ -6,46 +6,42 @@ using System.Threading.Tasks;
 
 namespace DataManager.Data
 {
-    class GeographicalRepository
+    public class GeographicalRepository
     {
         private IGeographicalContext context;
         public GeographicalRepository(IGeographicalContext context)
         {
             this.context = context;
         }   
-        public GeographicalRepository()
-        {
 
+        public List<CountryDTO> GetAllCountries()
+        {
+            return context.GetAllCountries().ToList();
         }
 
-        public List<CountryDTO> GetAllCountries(CountryDTO country)
+        public CountryDTO GetCountry(int id)
         {
-            return context.GetAllCountries(country).ToList();
+            return context.GetCountry(id);
         }
 
-        public CountryDTO GetCountry(int id, CountryDTO country)
+        public List<ContinentDTO> GetAllContinents()
         {
-            return context.GetCountry(id, country);
+            return context.GetAllContinents().ToList();
         }
 
-        public List<ContinentDTO> GetAllContinents(ContinentDTO continent)
+        public ContinentDTO GetContinent(int id)
         {
-            return context.GetAllContinents(continent).ToList();
+            return context.GetContinent(id);
         }
 
-        public ContinentDTO GetContinent(int id, ContinentDTO continent)
+        public List<Primary_ColorDTO> GetAllColors()
         {
-            return context.GetContinent(id, continent);
+            return context.GetAllColors().ToList();
         }
 
-        public List<Primary_ColorDTO> GetAllColors(Primary_ColorDTO primary_Color)
+        public Primary_ColorDTO GetPrimary_Color(int id)
         {
-            return context.GetAllColors(primary_Color).ToList();
-        }
-
-        public Primary_ColorDTO GetPrimary_Color(int id, Primary_ColorDTO primary_Color)
-        {
-            return context.GetPrimary_Color(id, primary_Color);
+            return context.GetPrimary_Color(id);
         }
     }
 }

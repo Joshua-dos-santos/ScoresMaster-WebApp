@@ -25,12 +25,13 @@ namespace ScoresMaster.Controllers
             return View("ViewHomeSquad", playerList);
         }
 
-        public ActionResult Away_team(Club club, Match match, Position position)
+        public ActionResult Away_team(Club club, Match match)
         {
             club.Name = match.Away_Team;
             ViewBag.Away_Team = match.Away_Team;
             club = clubContainerFE.GetClub(club.Name);
-            List<Player> playerList = PlayerDatabase.GetPlayers(club, position);
+            int id = club.ClubID;
+            List<Player> playerList = PlayerContainerFE.GetAllPlayers(id);
             return View("ViewAwaySquad", playerList);
         }
     }

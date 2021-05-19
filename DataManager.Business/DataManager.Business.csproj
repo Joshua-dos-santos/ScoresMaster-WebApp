@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Containers\ClubContainer.cs" />
     <Compile Include="Containers\GeographicalContainer.cs" />
+    <Compile Include="Containers\LeagueContainer.cs" />
     <Compile Include="Containers\MatchContainer.cs" />
     <Compile Include="Containers\PlayerContainer.cs" />
     <Compile Include="DAO\ClubDAO.cs" />

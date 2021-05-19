@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace DataManager.Data.Interfaces
 {
-    interface ILeagueContext
+    public interface ILeagueContext
     {
-        IEnumerable<LeagueDTO> GetAllLeagues(LeagueDTO leagueDTO);
-        LeagueDTO GetLeague(int id, LeagueDTO leagueDTO);
+        IEnumerable<LeagueDTO> GetAllLeagues();
+        LeagueDTO GetLeague(int id);
     }
 }

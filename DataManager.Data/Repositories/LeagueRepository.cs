@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataManager.Data.Repositories
 {
-    class LeagueRepository
+    public class LeagueRepository
     {
         private ILeagueContext context;
 
@@ -17,14 +17,14 @@ namespace DataManager.Data.Repositories
             this.context = context;
         }
 
-        public List<LeagueDTO> GetAllLeagues(LeagueDTO leagueDTO)
+        public List<LeagueDTO> GetAllLeagues()
         {
-            return context.GetAllLeagues(leagueDTO).ToList();
+            return context.GetAllLeagues().ToList();
         }
 
-        public LeagueDTO GetLeague(int id, LeagueDTO leagueDTO)
+        public LeagueDTO GetLeague(int id)
         {
-            return context.GetLeague(id, leagueDTO);
+            return context.GetLeague(id);
         }
     }
 }

@@ -172,6 +172,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Containers\ClubContainerFE.cs" />
     <Compile Include="Containers\GeographicalContainerFE.cs" />
+    <Compile Include="Containers\LeagueContainerFE.cs" />
     <Compile Include="Containers\MatchContainerFE.cs" />
     <Compile Include="Containers\PlayerContainerFE.cs" />
     <Compile Include="Controllers\CountryController.cs" />
@@ -180,12 +181,7 @@
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\RegistrationController.cs" />
     <Compile Include="Controllers\SquadController.cs" />
-    <Compile Include="DatabaseConnections\ColorDatabase.cs" />
-    <Compile Include="DatabaseConnections\ContinentDatabase.cs" />
-    <Compile Include="DatabaseConnections\CountyDatabase.cs" />
     <Compile Include="DatabaseConnections\LoginDatabase.cs" />
-    <Compile Include="DatabaseConnections\PlayerDatabase.cs" />
-    <Compile Include="DatabaseConnections\PositionDatabase.cs" />
     <Compile Include="DatabaseConnections\RegistrationDatabase.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

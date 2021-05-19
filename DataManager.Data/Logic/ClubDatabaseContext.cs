@@ -29,7 +29,7 @@ namespace DataManager.Data.Logic
                     LeagueDTO leagueDTO = new LeagueDTO();
                     clubDTO.ClubID = executeString.GetInt32(0);
                     clubDTO.Name = executeString.GetString(1);
-                    clubDTO.League = leagueDatabaseContext.GetLeague(leagueDTO.LeagueID, leagueDTO);
+                    clubDTO.League = leagueDatabaseContext.GetLeague(leagueDTO.LeagueID);
                     clubs.Add(clubDTO);
                 }
                 databaseConnection.Close();

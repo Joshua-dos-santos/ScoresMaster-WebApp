@@ -1,4 +1,5 @@
-﻿using ScoresMaster.DatabaseConnections;
+﻿using ScoresMaster.Containers;
+using ScoresMaster.DatabaseConnections;
 using ScoresMaster.Models;
 using System;
 using System.Collections.Generic;
@@ -11,15 +12,16 @@ namespace ScoresMaster.Controllers
     public class ProfileController : Controller
     {
         // GET: Profile
-        public ActionResult MyProfile(LoginModel userLogin, League league)
+        public ActionResult MyProfile(LoginModel userLogin)
         {
-            
 
-            List<string> Leagues = new List<string>();
-            for (int i = 1; i <= 33; i++)
+            LeagueContainerFE leagueContainerFE = new LeagueContainerFE();
+            List<League> Leagues = new List<League>();
+            List<string> leagueNames = new List<string>();
+                Leagues = leagueContainerFE.GetAllLeagues();
+            for(int i = 1; i <= Leagues.Count(); i++)
             {
-                league = LeagueDatabase.GetLeagues(i, league);
-                Leagues.Add(league.Name);
+                leagueNames.Add(Leagues[i - 1].Name);
             }
             
             userLogin.Unique_id = (string)TempData.Peek("unique_id");
@@ -27,10 +29,10 @@ namespace ScoresMaster.Controllers
             ViewBag.first_Name = userLogin.First_Name;
             ViewBag.last_name = userLogin.Last_Name;
             ViewBag.email = userLogin.Email;
-            ViewBag.League = Leagues;
+            ViewBag.League = leagueNames;
             
             
-            return View("MyProfile", league); 
+            return View("MyProfile"); 
         }
     }
 }

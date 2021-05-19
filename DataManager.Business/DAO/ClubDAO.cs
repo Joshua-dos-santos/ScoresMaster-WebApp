@@ -21,5 +21,9 @@ namespace DataManager.Business.DAO
             Name = clubDTO.Name;
             League = leagueDAO;
         }
+        public ClubDAO()
+        {
+
+        }
     }
 }

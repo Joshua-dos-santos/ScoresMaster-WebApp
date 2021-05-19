@@ -27,5 +27,9 @@ namespace DataManager.Business.DAO
             Continent = continentDAO;
             Primary_Color = primary_ColorDAO;
         }
+        public CountryDAO()
+        {
+
+        }
     }
 }

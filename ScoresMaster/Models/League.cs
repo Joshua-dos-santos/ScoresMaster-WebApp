@@ -15,8 +15,12 @@ namespace ScoresMaster.Models
 
         public League(LeagueDAO leagueDAO)
         {
+            //Club club = new Club();
+            Country country = new Country();
             LeagueID = leagueDAO.LeagueID;
             Name = leagueDAO.Name;
+            //Current_Champion = club;
+            //Nation = country;
         }
     }
 }

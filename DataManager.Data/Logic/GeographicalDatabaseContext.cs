@@ -41,7 +41,7 @@ namespace DataManager.Data
         {
             List<ContinentDTO> continents = new List<ContinentDTO>();
             MySqlConnection databaseConnection = new MySqlConnection(DatabaseDTO.DbConnectionString);
-            MySqlCommand getContinent = new MySqlCommand("SELECT * FROM `primary_color`", databaseConnection);
+            MySqlCommand getContinent = new MySqlCommand("SELECT * FROM `continent`", databaseConnection);
             try
             {
                 databaseConnection.Open();

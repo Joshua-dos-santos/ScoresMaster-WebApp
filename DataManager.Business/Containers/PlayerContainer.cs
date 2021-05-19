@@ -10,6 +10,7 @@ namespace DataManager.Business.Containers
     public class PlayerContainer
     {
         Data.Logic.PlayerDatabaseContext context = new Data.Logic.PlayerDatabaseContext();
+        GeographicalContainer geographicalContainer = new GeographicalContainer();
 
         public List<PlayerDAO> GetAllPlayers(int id)
         {
@@ -19,7 +20,7 @@ namespace DataManager.Business.Containers
             var playerdto = repo.GetAllPlayers(id);
             foreach (var dto in playerdto)
             {
-                players.Add(new PlayerDAO(dto));
+                players.Add(new PlayerDAO(dto) { Position = GetPosition(dto.Position.unique_id), Nationality = geographicalContainer.GetCountry(dto.Nationality.CountryID) });
             }
             return players;
         }

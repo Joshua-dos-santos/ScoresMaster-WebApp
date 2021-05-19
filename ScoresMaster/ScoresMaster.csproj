@@ -171,6 +171,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Containers\ClubContainerFE.cs" />
+    <Compile Include="Containers\GeographicalContainerFE.cs" />
     <Compile Include="Containers\MatchContainerFE.cs" />
     <Compile Include="Containers\PlayerContainerFE.cs" />
     <Compile Include="Controllers\CountryController.cs" />

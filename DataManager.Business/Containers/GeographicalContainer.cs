@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataManager.Business.Containers
 {
-    class GeographicalContainer
+    public class GeographicalContainer
     {
         Data.GeographicalDatabaseContext GeographicalDatabaseContext = new Data.GeographicalDatabaseContext();
 
@@ -18,7 +18,7 @@ namespace DataManager.Business.Containers
             var country = repo.GetAllCountries();
             foreach(var c in country)
             {
-                countries.Add(new CountryDAO(c));
+                countries.Add(new CountryDAO(c) { Continent = GetContinent(c.continent.ContinentID), Primary_Color = GetPrimary_Color(c.Primary_Color.ColorID) });
             }
             return countries;
         }
@@ -27,7 +27,7 @@ namespace DataManager.Business.Containers
         {
             Data.GeographicalRepository repo = new Data.GeographicalRepository(GeographicalDatabaseContext);
             var country = repo.GetCountry(id);
-            CountryDAO countryDAO = new CountryDAO(country);
+            CountryDAO countryDAO = new CountryDAO(country) { Continent = GetContinent(country.continent.ContinentID), Primary_Color = GetPrimary_Color(country.Primary_Color.ColorID)};
             return countryDAO;
         }
 

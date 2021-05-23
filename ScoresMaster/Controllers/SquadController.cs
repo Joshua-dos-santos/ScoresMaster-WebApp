@@ -20,8 +20,7 @@ namespace ScoresMaster.Controllers
             club.Name = match.Home_Team;
             ViewBag.Home_Team = match.Home_Team;
             club = clubContainerFE.GetClub(club.Name);
-            int id = club.ClubID;
-            List<Player> playerList = PlayerContainerFE.GetAllPlayers(id);
+            List<Player> playerList = PlayerContainerFE.GetAllPlayers(club.ClubID);
             return View("ViewHomeSquad", playerList);
         }
 
@@ -30,8 +29,7 @@ namespace ScoresMaster.Controllers
             club.Name = match.Away_Team;
             ViewBag.Away_Team = match.Away_Team;
             club = clubContainerFE.GetClub(club.Name);
-            int id = club.ClubID;
-            List<Player> playerList = PlayerContainerFE.GetAllPlayers(id);
+            List<Player> playerList = PlayerContainerFE.GetAllPlayers(club.ClubID);
             return View("ViewAwaySquad", playerList);
         }
     }

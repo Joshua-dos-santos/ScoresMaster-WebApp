@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataManager.Data.DTO
 {
-    class LoginDTO
+    public class LoginDTO
     {
         public string Unique_id { get; set; }
         public string First_Name { get; set; }

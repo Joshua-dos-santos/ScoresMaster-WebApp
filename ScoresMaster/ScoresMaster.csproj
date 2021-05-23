@@ -186,7 +186,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="DatabaseConnections\LeagueDatabase.cs" />
     <Compile Include="Models\Club.cs" />
     <Compile Include="Models\Continent.cs" />
     <Compile Include="Models\Country.cs" />

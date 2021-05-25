@@ -173,15 +173,16 @@
     <Compile Include="Containers\ClubContainerFE.cs" />
     <Compile Include="Containers\GeographicalContainerFE.cs" />
     <Compile Include="Containers\LeagueContainerFE.cs" />
+    <Compile Include="Containers\LoginContainerFE.cs" />
     <Compile Include="Containers\MatchContainerFE.cs" />
     <Compile Include="Containers\PlayerContainerFE.cs" />
+    <Compile Include="Containers\RegisterContainerFE.cs" />
     <Compile Include="Controllers\CountryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\RegistrationController.cs" />
     <Compile Include="Controllers\SquadController.cs" />
-    <Compile Include="DatabaseConnections\LoginDatabase.cs" />
     <Compile Include="DatabaseConnections\RegistrationDatabase.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

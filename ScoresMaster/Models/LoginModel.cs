@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataManager.Business.DAO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -19,5 +20,18 @@ namespace ScoresMaster.Models
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string Password { get; set; }
+
+        public LoginModel(LoginDAO login)
+        {
+            Unique_id = login.Unique_id;
+            First_Name = login.First_Name;
+            Last_Name = login.Last_Name;
+            Email = login.Email;
+            Password = login.Password;
+        }
+        public LoginModel()
+        {
+
+        }
     }
 }

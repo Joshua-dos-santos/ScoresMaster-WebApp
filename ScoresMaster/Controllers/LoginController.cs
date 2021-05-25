@@ -1,4 +1,5 @@
-﻿using ScoresMaster.DatabaseConnections;
+﻿using ScoresMaster.Containers;
+using ScoresMaster.DatabaseConnections;
 using ScoresMaster.Models;
 using System.Web.Mvc;
 namespace ScoresMaster.Controllers
@@ -12,9 +13,10 @@ namespace ScoresMaster.Controllers
         // GET: Login
         public ActionResult LoginAction(LoginModel loginModel)
         {
+            LoginContainerFE loginContainerFE = new LoginContainerFE();
             if (ModelState.IsValid)
             {
-                loginModel = LoginDatabase.CheckLogin(loginModel);
+                loginModel = loginContainerFE.CheckLogin(loginModel.Email, loginModel.Password);
                 if (loginModel.Unique_id != "" && loginModel.Unique_id != null)
                 {
                     TempData["unique_id"] = loginModel.Unique_id;

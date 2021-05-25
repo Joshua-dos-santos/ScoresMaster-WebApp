@@ -1,4 +1,5 @@
-﻿using ScoresMaster.DatabaseConnections;
+﻿using ScoresMaster.Containers;
+using ScoresMaster.DatabaseConnections;
 using ScoresMaster.Models;
 using System;
 using System.Collections.Generic;
@@ -13,13 +14,14 @@ namespace ScoresMaster.Controllers
         // GET: Registration
         public ActionResult Register(RegistrationModel registrationModel)
         {
+            RegisterContainerFE registerContainer = new RegisterContainerFE();
             if (!ModelState.IsValid)
             {
                 return View("Registration");
             }
             else
             {
-                registrationModel = RegistrationDatabase.StoreUserData(registrationModel);
+                registrationModel = registerContainer.StoreUserData(registrationModel.First_Name, registrationModel.Last_Name, registrationModel.EMail, registrationModel.Password, registrationModel.Birth_Day);
                 if (registrationModel != null)
                 {
                     return RedirectToAction("", "Home");

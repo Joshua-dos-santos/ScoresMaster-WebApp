@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace DataManager.Data.Interfaces
 {
-    public interface ILoginContext
+    public interface IRegisterContext
     {
-        LoginDTO CheckLogin(string email, string password);
-        LoginDTO GetUserDetails(string id);
+        RegisterDTO StoreUserData(string Fname, string Lname, string email, string password, string birthdate);
+        string RandomString();
     }
 }

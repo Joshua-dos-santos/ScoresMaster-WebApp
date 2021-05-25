@@ -14,7 +14,7 @@ namespace ScoresMaster.Controllers
         // GET: Profile
         public ActionResult MyProfile(LoginModel userLogin)
         {
-
+            LoginContainerFE loginContainerFE = new LoginContainerFE();
             LeagueContainerFE leagueContainerFE = new LeagueContainerFE();
             List<League> Leagues = new List<League>();
             List<string> leagueNames = new List<string>();
@@ -25,7 +25,7 @@ namespace ScoresMaster.Controllers
             }
             
             userLogin.Unique_id = (string)TempData.Peek("unique_id");
-            userLogin = LoginDatabase.GetUserDetails(userLogin);
+            userLogin = loginContainerFE.GetUserDetails(userLogin.Unique_id);
             ViewBag.first_Name = userLogin.First_Name;
             ViewBag.last_name = userLogin.Last_Name;
             ViewBag.email = userLogin.Email;

@@ -92,6 +92,7 @@
     <Compile Include="Interfaces\ILoginContext.cs" />
     <Compile Include="Interfaces\IMatchContext.cs" />
     <Compile Include="Interfaces\IPlayerContext.cs" />
+    <Compile Include="Interfaces\IRegisterContext.cs" />
     <Compile Include="Logic\ClubDatabaseContext.cs" />
     <Compile Include="Logic\LeagueDatabaseContext.cs" />
     <Compile Include="DTO\ClubDTO.cs" />
@@ -109,6 +110,7 @@
     <Compile Include="Logic\LoginDatabaseContext.cs" />
     <Compile Include="Logic\MatchAPIContext.cs" />
     <Compile Include="Logic\PlayerDatabaseContext.cs" />
+    <Compile Include="Logic\RegisterDatabaseContext.cs" />
     <Compile Include="Repositories\ClubRepository.cs" />
     <Compile Include="Repositories\LeagueRepository.cs" />
     <Compile Include="Repositories\GeographicalRepository.cs" />
@@ -118,6 +120,7 @@
     <Compile Include="Repositories\LoginRepository.cs" />
     <Compile Include="Repositories\MatchRepository.cs" />
     <Compile Include="Repositories\PlayerRepository.cs" />
+    <Compile Include="Repositories\RegisterRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

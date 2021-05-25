@@ -8,16 +8,16 @@ namespace ScoresMaster.Containers
     {
         ClubContainer clubContainer = new ClubContainer();
 
-        public List<Club> GetAllClubs()
-        {
-            List<Club> clubs = new List<Club>();
-            var clubdao = clubContainer.GetAllClubs();
-            foreach (var club in clubdao)
-            {
-                clubs.Add(new Club(club));
-            }
-            return clubs;
-        }
+        //public List<Club> GetAllClubs()
+        //{
+        //    List<Club> clubs = new List<Club>();
+        //    var clubdao = clubContainer.GetAllClubs();
+        //    foreach (var club in clubdao)
+        //    {
+        //        clubs.Add(new Club(club));
+        //    }
+        //    return clubs;
+        //}
 
         public Club GetClub(string name)
         {

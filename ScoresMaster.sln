@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataManager.Data", "DataMan
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataManager.Business", "DataManager.Business\DataManager.Business.csproj", "{0F42629C-AF8C-46B8-B2C7-74DFC82F9611}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest_ScoresMaster", "UnitTest_ScoresMaster\UnitTest_ScoresMaster.csproj", "{C9E27444-C947-4A58-B784-656BFEFFD153}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{0F42629C-AF8C-46B8-B2C7-74DFC82F9611}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0F42629C-AF8C-46B8-B2C7-74DFC82F9611}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0F42629C-AF8C-46B8-B2C7-74DFC82F9611}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9E27444-C947-4A58-B784-656BFEFFD153}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9E27444-C947-4A58-B784-656BFEFFD153}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9E27444-C947-4A58-B784-656BFEFFD153}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9E27444-C947-4A58-B784-656BFEFFD153}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

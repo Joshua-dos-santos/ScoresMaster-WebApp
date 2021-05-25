@@ -1,5 +1,4 @@
 ﻿using ScoresMaster.Containers;
-using ScoresMaster.DatabaseConnections;
 using ScoresMaster.Models;
 using System.Web.Mvc;
 namespace ScoresMaster.Controllers

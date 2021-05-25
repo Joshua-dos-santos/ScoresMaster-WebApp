@@ -11,29 +11,14 @@ namespace DataManager.Data
             this.context = context;
         }   
 
-        public List<CountryDTO> GetAllCountries()
-        {
-            return context.GetAllCountries().ToList();
-        }
-
         public CountryDTO GetCountry(int id)
         {
             return context.GetCountry(id);
         }
 
-        public List<ContinentDTO> GetAllContinents()
-        {
-            return context.GetAllContinents().ToList();
-        }
-
         public ContinentDTO GetContinent(int id)
         {
             return context.GetContinent(id);
-        }
-
-        public List<Primary_ColorDTO> GetAllColors()
-        {
-            return context.GetAllColors().ToList();
         }
 
         public Primary_ColorDTO GetPrimary_Color(int id)

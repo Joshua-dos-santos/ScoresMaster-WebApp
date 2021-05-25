@@ -51,38 +51,6 @@ namespace DataManager.Data.Logic
             return Players;
         }
 
-        public IEnumerable<PositionDTO> GetAllPositions()
-        {
-            List<PositionDTO> positions = new List<PositionDTO>();
-            PositionDTO positionDTO = new PositionDTO();
-            MySqlConnection databaseConnection = new MySqlConnection(DatabaseDTO.DbConnectionString);
-            MySqlCommand getPosition = new MySqlCommand("SELECT * FROM `position`", databaseConnection);
-            try
-            {
-                databaseConnection.Open();
-                getPosition.Prepare();
-                var executeString = getPosition.ExecuteReader();
-                while (executeString.Read())
-                {
-                    positionDTO.unique_id = executeString.GetInt32(0);
-                    positionDTO.Positions = executeString.GetString(1);
-                    positions.Add(positionDTO);
-                }
-                databaseConnection.Close();
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("error: " + e.Message);
-            }
-            return positions;
-        }
-
-        public PlayerDTO GetPlayer(int clubID, int id)
-        {
-            var result = GetAllPlayers(clubID).FirstOrDefault(player => player.PlayerID == id);
-            return result;
-        }
-
         public PositionDTO GetPosition(int id)
         {
             PositionDTO positionDTO = new PositionDTO();

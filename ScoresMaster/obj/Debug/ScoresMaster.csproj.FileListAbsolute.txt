@@ -95,3 +95,11 @@ C:\Users\joshu\OneDrive\Bureaublad\Semester 2\IP\ScoresMaster\ScoresMaster\Score
 C:\Users\joshu\OneDrive\Bureaublad\Semester 2\IP\ScoresMaster\ScoresMaster\ScoresMaster\bin\DataManager.Data.pdb
 C:\Users\joshu\OneDrive\Bureaublad\Semester 2\IP\ScoresMaster\ScoresMaster\ScoresMaster\bin\DataManager.Data.dll.config
 C:\Users\joshu\OneDrive\Bureaublad\Semester 2\IP\ScoresMaster\ScoresMaster\ScoresMaster\bin\DataManager.Business.dll.config
+C:\Users\joshu\OneDrive\Bureaublad\Semester 2\IP\ScoresMaster\ScoresMaster\ScoresMaster\bin\System.Security.AccessControl.dll
+C:\Users\joshu\OneDrive\Bureaublad\Semester 2\IP\ScoresMaster\ScoresMaster\ScoresMaster\bin\System.Security.Permissions.dll
+C:\Users\joshu\OneDrive\Bureaublad\Semester 2\IP\ScoresMaster\ScoresMaster\ScoresMaster\bin\System.Security.Principal.Windows.dll
+C:\Users\joshu\OneDrive\Bureaublad\Semester 2\IP\ScoresMaster\ScoresMaster\ScoresMaster\bin\System.Security.AccessControl.xml
+C:\Users\joshu\OneDrive\Bureaublad\Semester 2\IP\ScoresMaster\ScoresMaster\ScoresMaster\bin\System.Security.Permissions.xml
+C:\Users\joshu\OneDrive\Bureaublad\Semester 2\IP\ScoresMaster\ScoresMaster\ScoresMaster\bin\System.Security.Principal.Windows.xml
+C:\Users\joshu\OneDrive\Bureaublad\Semester 2\IP\ScoresMaster\ScoresMaster\ScoresMaster\bin\System.Configuration.ConfigurationManager.dll
+C:\Users\joshu\OneDrive\Bureaublad\Semester 2\IP\ScoresMaster\ScoresMaster\ScoresMaster\bin\System.Configuration.ConfigurationManager.xml

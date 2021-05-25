@@ -22,5 +22,9 @@ namespace ScoresMaster.Models
             //Current_Champion = club;
             //Nation = country;
         }
+        public League()
+        {
+
+        }
     }
 }

@@ -19,14 +19,7 @@ namespace DataManager.Data.Repositories
         {
             return context.GetAllPlayers(id).ToList();
         }
-        public PlayerDTO GetPlayer(int clubID, int id)
-        {
-            return context.GetPlayer(clubID, id);
-        }
-        public List<PositionDTO> GetAllPositions()
-        {
-            return context.GetAllPositions().ToList();
-        }
+       
         public PositionDTO GetPosition(int id)
         {
             return context.GetPosition(id);

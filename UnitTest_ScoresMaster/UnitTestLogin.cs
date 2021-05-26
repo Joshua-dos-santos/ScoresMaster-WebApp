@@ -7,7 +7,7 @@ using System.Collections.Generic;
 namespace UnitTest_ScoresMaster
 {
     [TestClass]
-    public class UnitTest1
+    public class UnitTestLogin
     {
         ClubContainerFE clubContainerFE = new ClubContainerFE();
         GeographicalContainerFE geographicalContainerFE = new GeographicalContainerFE();
@@ -135,7 +135,9 @@ namespace UnitTest_ScoresMaster
         [TestMethod]
         public void RegisterContainerFE_StoreUserDetails_True_InsertedDetails()
         {
-
+            RegistrationModel registration = new RegistrationModel { First_Name = "Joost", Last_Name = "Koe", EMail = "joostK@test.nl", Password = "password", Birth_Day = "2001-09-31" };
+            RegistrationModel newRegistration = registerContainerFE.StoreUserData(registration.First_Name, registration.Last_Name, registration.EMail, registration.Password, registration.Birth_Day);
+            Assert.IsNotNull(newRegistration);
         }
     }
 }

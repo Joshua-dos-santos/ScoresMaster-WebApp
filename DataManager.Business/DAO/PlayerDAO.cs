@@ -12,7 +12,7 @@ namespace DataManager.Business.DAO
         public string Shirt_Number { get; set; }
         public PositionDAO Position { get; set; }
         public CountryDAO Nationality { get; set; }
-        public DateTime Birth_Day { get; set; }
+        public string Birth_Day { get; set; }
 
         public PlayerDAO(PlayerDTO playerDTO)
         {

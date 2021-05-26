@@ -39,7 +39,7 @@ namespace DataManager.Data.Logic
                     newCountry.CountryID = executeString.GetInt32(5);
                     newCountry = GeographicalDatabaseContext.GetCountry(newCountry.CountryID);
                     playerDTO.Nationality = newCountry;
-                    playerDTO.Birth_Day = executeString.GetDateTime(7);
+                    playerDTO.Birth_Day = executeString.GetString(7);
                     Players.Add(playerDTO);
                 }
                 databaseConnection.Close();

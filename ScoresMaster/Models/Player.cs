@@ -18,16 +18,19 @@ namespace ScoresMaster.Models
         public string Shirt_Number { get; set; }
         public Position Position { get; set; }
         public Country Nationality { get; set; }
-        public DateTime Birth_Day { get; set; } 
+        public string Birth_Day { get; set; } 
 
         public Player(PlayerDAO playerDAO)
         {
             Position position = new Position();
+            Country country = new Country();
             PlayerID = playerDAO.PlayerID;
             First_Name = playerDAO.First_Name;
             Last_Name = playerDAO.Last_Name;
             Shirt_Number = playerDAO.Shirt_Number;
             Position = position;
+            Nationality = country;
+            Birth_Day = playerDAO.Birth_Day;
         }
         public Player()
         {

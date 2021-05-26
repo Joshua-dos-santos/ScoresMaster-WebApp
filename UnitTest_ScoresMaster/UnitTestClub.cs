@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace UnitTest_ScoresMaster
 {
     [TestClass]
-    class UnitTestClub
+    public class UnitTestClub
     {
         ClubContainerFE clubContainerFE = new ClubContainerFE();
 

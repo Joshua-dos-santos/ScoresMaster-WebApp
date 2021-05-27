@@ -50,6 +50,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Birth_Day)
             </td>
+            <td>
+                @Html.ActionLink("See Country Squad", "Home_team", "Squad", item, new { /* id=item.PrimaryKey */ })
+            </td>
         </tr>
     }
 

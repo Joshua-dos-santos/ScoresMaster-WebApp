@@ -14,7 +14,10 @@ namespace ScoresMaster.Controllers
         public ActionResult Index()
         {
             MatchContainerFE matchContainer = new MatchContainerFE();
-            return View("", matchContainer.GetAllMatches(352));
+            List<Match> matchesPL = matchContainer.GetAllMatches(352);
+            List<Match> matchesSerieA = matchContainer.GetAllMatches(619);
+            var allMatches = matchesPL.Concat(matchesSerieA);
+            return View("", allMatches);
         }
 
         public ActionResult About()

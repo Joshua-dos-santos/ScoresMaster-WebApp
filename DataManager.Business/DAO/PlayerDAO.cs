@@ -27,7 +27,6 @@ namespace DataManager.Business.DAO
             Position = positionDAO;
             Nationality = countryDAO;
             Birth_Day = playerDTO.Birth_Day;
-
         }
     }
 }

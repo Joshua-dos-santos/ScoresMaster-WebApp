@@ -31,5 +31,10 @@ namespace ScoresMaster.Controllers
             List<Player> playerList = PlayerContainerFE.GetAllPlayers(club.ClubID);
             return View("ViewAwaySquad", playerList);
         }
+
+        public ActionResult CountrySquad()
+        {
+            return View();
+        }
     }
 }

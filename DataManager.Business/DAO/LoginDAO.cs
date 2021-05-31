@@ -9,14 +9,17 @@ namespace DataManager.Business.DAO
         public string Last_Name { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
+        public ClubDAO Favorite_Club {get; set;}
 
         public LoginDAO(LoginDTO loginDTO)
         {
+            ClubDAO clubDAO = new ClubDAO();
             Unique_id = loginDTO.Unique_id;
             First_Name = loginDTO.First_Name;
             Last_Name = loginDTO.Last_Name;
             Email = loginDTO.Email;
             Password = loginDTO.Password;
+            Favorite_Club = clubDAO;
         }
     }
 }

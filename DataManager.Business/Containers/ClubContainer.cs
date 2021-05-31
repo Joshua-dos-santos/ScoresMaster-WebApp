@@ -20,11 +20,19 @@ namespace DataManager.Business.Containers
             return clubs;
         }
 
-        public ClubDAO GetClub(string name)
+        public ClubDAO GetClubByName(string name)
         {
             Data.Repositories.ClubRepository repo = new Data.Repositories.ClubRepository(context);
-            var club = repo.GetClub(name);
+            var club = repo.GetClubByName(name);
            ClubDAO clubDAO = new ClubDAO(club);
+            return clubDAO;
+        }
+
+        public ClubDAO GetClubByID(int id)
+        {
+            Data.Repositories.ClubRepository repo = new Data.Repositories.ClubRepository(context);
+            var club = repo.GetClubByID(id);
+            ClubDAO clubDAO = new ClubDAO(club);
             return clubDAO;
         }
     }

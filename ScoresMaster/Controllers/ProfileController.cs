@@ -14,13 +14,12 @@ namespace ScoresMaster.Controllers
         public ActionResult MyProfile(LoginModel userLogin)
         {
             LoginContainerFE loginContainerFE = new LoginContainerFE();
-            LeagueContainerFE leagueContainerFE = new LeagueContainerFE();
-            List<League> Leagues = new List<League>();
-            List<string> leagueNames = new List<string>();
-                Leagues = leagueContainerFE.GetAllLeagues();
-            for(int i = 1; i <= Leagues.Count(); i++)
+            ClubContainerFE clubContainerFE = new ClubContainerFE();
+            List<string> clubnames = new List<string>();
+            List<Club> clubs = clubContainerFE.GetAllClubs();
+            for(int i = 1; i <= clubs.Count(); i++)
             {
-                leagueNames.Add(Leagues[i - 1].Name);
+                clubnames.Add(clubs[i - 1].Name);
             }
             
             userLogin.Unique_id = (string)TempData.Peek("unique_id");
@@ -28,7 +27,8 @@ namespace ScoresMaster.Controllers
             ViewBag.first_Name = userLogin.First_Name;
             ViewBag.last_name = userLogin.Last_Name;
             ViewBag.email = userLogin.Email;
-            ViewBag.League = leagueNames;
+            ViewData["Logo"] = userLogin.Favorite_Club.Name+".png";
+            ViewBag.Clubs = clubnames;
             
             
             return View("MyProfile"); 

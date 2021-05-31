@@ -41,34 +41,43 @@
             width: 150px;
             border-radius: 50%;
         }
-</style>
-<div class="split left">
-    <div class="centered">
-        <h2>@ViewBag.first_Name  @ViewBag.last_name</h2>
-        <p>
-            @ViewBag.email <br />
-        @*@ViewBag.password <br />*@
-        @ViewBag.birth_day@*<br />*@
-        @*@ViewBag.Squad*@
-    </p>
-</div>
-</div>
 
-<div class="split right">
-    <div class="centered">
-        <img src="~/Images/PremierLeague.png" alt="Avatar">
-        <div class="form-group">
-            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownListFor(model => model.Name, new SelectList(ViewBag.League))
-                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
-            </div>
+    body {
+        background-image: url("~/Images/Badges/Manchester United.png");
+        background-color: #cccccc;
+        background-size: 300px 100px;
+    }
+    #UpdateButton{
+        margin-top: auto; 
+    }
+</style>
+<body>
+    <div class="split left">
+        <div class="centered">
+            <h2>@ViewBag.first_Name  @ViewBag.last_name</h2>
+            <p>
+                @ViewBag.email <br />
+                @ViewBag.birth_day
+            </p>
         </div>
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Select League" class="btn btn-default @*@Html.Action(" MyProfile","Profile")*@" />
+    </div>
+
+    <div class="split right">
+        <div class="centered">
+            <img src="~/Images/Badges/@ViewData["Logo"]" alt="Avatar">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.Name, new SelectList(ViewBag.Clubs))
+                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <a href="@Url.Action("UpdateClub", "Profile")" class="btn btn-primary">Update Favorite Club</a>
+                </div>
             </div>
         </div>
     </div>
-</div>
+</body>
 

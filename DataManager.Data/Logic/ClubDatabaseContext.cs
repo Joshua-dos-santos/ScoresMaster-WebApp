@@ -14,7 +14,7 @@ namespace DataManager.Data.Logic
             LeagueDatabaseContext leagueDatabaseContext = new LeagueDatabaseContext();
             List<ClubDTO> clubs = new List<ClubDTO>();
             MySqlConnection databaseConnection = new MySqlConnection(DatabaseDTO.DbConnectionString);
-            MySqlCommand getLeagues = new MySqlCommand("SELECT * FROM `league`", databaseConnection);
+            MySqlCommand getLeagues = new MySqlCommand("SELECT * FROM `club`", databaseConnection);
             try
             {
                 databaseConnection.Open();
@@ -26,6 +26,7 @@ namespace DataManager.Data.Logic
                     LeagueDTO leagueDTO = new LeagueDTO();
                     clubDTO.ClubID = executeString.GetInt32(0);
                     clubDTO.Name = executeString.GetString(1);
+                    leagueDTO.LeagueID = executeString.GetInt32(2);
                     clubDTO.League = leagueDatabaseContext.GetLeague(leagueDTO.LeagueID);
                     clubs.Add(clubDTO);
                 }
@@ -38,7 +39,7 @@ namespace DataManager.Data.Logic
             return clubs;
         }
 
-        public ClubDTO GetClub(string name)
+        public ClubDTO GetClubByName(string name)
         {
             ClubDTO club = new ClubDTO();
             MatchDTO matchDTO = new MatchDTO();
@@ -56,6 +57,34 @@ namespace DataManager.Data.Logic
                     club.ClubID = executeString.GetInt32(0);
                     club.Name = matchDTO.Home_Team;
                     club.League = league;
+                }
+                databaseConnection.Close();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("error: " + e.Message);
+            }
+            return club;
+        }
+
+        public ClubDTO GetClubByID(int id)
+        {
+            ClubDTO club = new ClubDTO();
+            LeagueDTO league = new LeagueDTO();
+            LeagueDatabaseContext context = new LeagueDatabaseContext();
+            MySqlConnection databaseConnection = new MySqlConnection(DatabaseDTO.DbConnectionString);
+            MySqlCommand getClubs = new MySqlCommand("SELECT * FROM `club` WHERE `unique_id`=@val1", databaseConnection);
+            getClubs.Parameters.AddWithValue("@val1", id);
+            try
+            {
+                databaseConnection.Open();
+                getClubs.Prepare();
+                var executeString = getClubs.ExecuteReader();
+                while (executeString.Read())
+                {
+                    club.ClubID = executeString.GetInt32(0);
+                    club.Name = executeString.GetString(1);
+                    club.League = context.GetLeague(executeString.GetInt32(2));
                 }
                 databaseConnection.Close();
             }

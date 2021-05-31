@@ -20,14 +20,17 @@ namespace ScoresMaster.Models
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string Password { get; set; }
+        public Club Favorite_Club { get; set; }
 
         public LoginModel(LoginDAO login)
         {
+            Club club = new Club();
             Unique_id = login.Unique_id;
             First_Name = login.First_Name;
             Last_Name = login.Last_Name;
             Email = login.Email;
             Password = login.Password;
+            Favorite_Club = club;
         }
         public LoginModel()
         {

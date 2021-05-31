@@ -7,9 +7,10 @@ namespace DataManager.Data.Logic
 {
     public class LoginDatabaseContext : ILoginContext
     {
+            ClubDTO clubDTO = new ClubDTO();
+            LoginDTO login = new LoginDTO();
         public LoginDTO CheckLogin(string email, string password)
         {
-            LoginDTO login = new LoginDTO();
             MySqlConnection databaseConnection = new MySqlConnection(DatabaseDTO.DbConnectionString);
             MySqlCommand getUserData = new MySqlCommand("SELECT `api_key` FROM user WHERE email=@val1 AND password=@val2", databaseConnection);
             getUserData.Parameters.AddWithValue("@val1", email);
@@ -34,7 +35,8 @@ namespace DataManager.Data.Logic
 
         public LoginDTO GetUserDetails(string id)
         {
-            LoginDTO login = new LoginDTO();
+            ClubDatabaseContext clubDatabaseContext = new ClubDatabaseContext();
+            ClubDTO clubDTO = new ClubDTO();
             MySqlConnection databaseConnection = new MySqlConnection(DatabaseDTO.DbConnectionString);
             MySqlCommand getUserDetails = new MySqlCommand("SELECT * FROM `user` WHERE `api_key`=@val2", databaseConnection);
             getUserDetails.Parameters.AddWithValue("@val2", id);
@@ -49,6 +51,8 @@ namespace DataManager.Data.Logic
                     login.Last_Name = executeString.GetString(2);
                     login.Email = executeString.GetString(3);
                     login.Password = executeString.GetString(4);
+                    clubDTO.ClubID = executeString.GetInt32(8);
+                    login.Favorite_Club = clubDatabaseContext.GetClubByID(clubDTO.ClubID); 
                 }
                 databaseConnection.Close();
             }

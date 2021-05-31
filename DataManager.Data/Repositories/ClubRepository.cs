@@ -20,9 +20,14 @@ namespace DataManager.Data.Repositories
             return context.GetAllClubs().ToList();
         }
 
-        public ClubDTO GetClub(string name)
+        public ClubDTO GetClubByName(string name)
         {
-            return context.GetClub(name);
+            return context.GetClubByName(name);
+        }
+
+        public ClubDTO GetClubByID(int id)
+        {
+            return context.GetClubByID(id);
         }
     }
 }

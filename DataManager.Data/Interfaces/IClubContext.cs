@@ -6,6 +6,7 @@ namespace DataManager.Data.Interfaces
     public interface IClubContext
     {
         IEnumerable<ClubDTO> GetAllClubs();
-        ClubDTO GetClub(string name);
+        ClubDTO GetClubByName(string name);
+        ClubDTO GetClubByID(int id);
     }
 }

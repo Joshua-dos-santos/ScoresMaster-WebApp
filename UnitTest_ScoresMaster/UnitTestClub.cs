@@ -19,7 +19,7 @@ namespace UnitTest_ScoresMaster
         {
 
             Club club = new Club { Name = "Manchester United" };
-            Club newClub = clubContainerFE.GetClub(club.Name);
+            Club newClub = clubContainerFE.GetClubByName(club.Name);
             Assert.AreEqual(152, newClub.ClubID);
         }
     }

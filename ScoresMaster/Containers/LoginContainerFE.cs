@@ -15,8 +15,9 @@ namespace ScoresMaster.Containers
         }
         public LoginModel GetUserDetails(string id)
         {
+            ClubContainerFE clubContainerFE = new ClubContainerFE();
             var login = loginContainer.GetUserDetails(id);
-            LoginModel loginM = new LoginModel(login);
+            LoginModel loginM = new LoginModel(login) { Favorite_Club = clubContainerFE.GetClubByID(login.Favorite_Club.ClubID)};
             return loginM;
         }
     }

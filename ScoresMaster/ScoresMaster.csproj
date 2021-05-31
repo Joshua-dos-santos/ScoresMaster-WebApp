@@ -233,6 +233,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Images\Badges\Manchester United.png" />
+    <Content Include="Images\Badges\Real Madrid CF.png" />
     <Content Include="Images\PremierLeague.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -278,12 +279,12 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Registration\Registration.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\Profile\MyProfile.cshtml" />
     <Content Include="Views\Squad\ViewHomeSquad.cshtml" />
     <Content Include="Views\Squad\ViewAwaySquad.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

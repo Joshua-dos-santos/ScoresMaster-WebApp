@@ -18,8 +18,9 @@ namespace DataManager.Business.Containers
         public LoginDAO GetUserDetails(string id)
         {
             LoginRepository repo = new LoginRepository(context);
+            ClubContainer clubContainer = new ClubContainer();
             var login = repo.GetUserDetails(id);
-            LoginDAO loginDAO = new LoginDAO(login);
+            LoginDAO loginDAO = new LoginDAO(login) {Favorite_Club =  clubContainer.GetClubByID(login.Favorite_Club.ClubID)};
             return loginDAO;
         }
     }

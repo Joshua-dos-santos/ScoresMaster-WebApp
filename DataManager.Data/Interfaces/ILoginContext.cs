@@ -6,5 +6,6 @@ namespace DataManager.Data.Interfaces
     {
         LoginDTO CheckLogin(string email, string password);
         LoginDTO GetUserDetails(string id);
+        void UpdateFavoriteClub(int clubId, string userId);
     }
 }

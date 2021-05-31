@@ -20,5 +20,9 @@ namespace ScoresMaster.Containers
             LoginModel loginM = new LoginModel(login) { Favorite_Club = clubContainerFE.GetClubByID(login.Favorite_Club.ClubID)};
             return loginM;
         }
+        public void UpdateFavoriteClub(int clubId, string userId)
+        {
+            loginContainer.UpdateFavoriteClub(clubId, userId);
+        }
     }
 }

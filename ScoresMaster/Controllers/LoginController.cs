@@ -19,7 +19,7 @@ namespace ScoresMaster.Controllers
                 if (loginModel.Unique_id != "" && loginModel.Unique_id != null)
                 {
                     TempData["unique_id"] = loginModel.Unique_id;
-                    return RedirectToAction("MyProfile", "Profile");
+                    return RedirectToAction("ShowMyProfile", "Profile");
                 }
                 else
                 {

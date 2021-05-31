@@ -23,5 +23,10 @@ namespace DataManager.Business.Containers
             LoginDAO loginDAO = new LoginDAO(login) {Favorite_Club =  clubContainer.GetClubByID(login.Favorite_Club.ClubID)};
             return loginDAO;
         }
+        public void UpdateFavoriteClub(int clubId, string userId)
+        {
+            LoginRepository repo = new LoginRepository(context);
+            repo.UpdateFavoriteClub(clubId, userId);
+        }
     }
 }

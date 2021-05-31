@@ -1,11 +1,10 @@
-﻿@model ScoresMaster.Models.League
+﻿@model IEnumerable<ScoresMaster.Models.Club>
 
 
 <h2>MyProfile</h2>
 <style>
     .split {
         height: 100%;
-        width: 50%;
         position: fixed;
         z-index: 1;
         top: 0;
@@ -17,14 +16,16 @@
     .left {
         left: 0;
         background-color: white;
-        margin-top: 50px
+        margin-top: 50px;
+        width: 25%;
     }
 
     /* Control the right side */
     .right {
         right: 0;
         background-color: white;
-        margin-top: 50px
+        margin-top: 50px;
+        width: 75%
     }
 
     /* If you want the content centered horizontally and vertically */
@@ -47,13 +48,22 @@
         background-color: #cccccc;
         background-size: 300px 100px;
     }
-    #UpdateButton{
-        margin-top: auto; 
+
+    #UpdateButton {
+        margin-top: auto;
     }
 </style>
 <body>
     <div class="split left">
         <div class="centered">
+            @if (ViewBag.FavoriteClub.Name == null)
+            {
+                <img src="~/Images/NoProfilePicture.png" alt="Avatar">
+            }
+            else
+            {
+                <img src="~/Images/Badges/@ViewData["Logo"]" alt="Avatar">
+            }
             <h2>@ViewBag.first_Name  @ViewBag.last_name</h2>
             <p>
                 @ViewBag.email <br />
@@ -63,21 +73,38 @@
     </div>
 
     <div class="split right">
-        <div class="centered">
-            <img src="~/Images/Badges/@ViewData["Logo"]" alt="Avatar">
-            <div class="form-group">
-                @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.DropDownListFor(model => model.Name, new SelectList(ViewBag.Clubs))
-                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <a href="@Url.Action("UpdateClub", "Profile")" class="btn btn-primary">Update Favorite Club</a>
-                </div>
-            </div>
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ClubID)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.League)
+                    </th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ClubID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.League.Name)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Update Favorite Club", "UpdateClub", "Profile", item, new { /* id=item.PrimaryKey */ }) |
+                        </td>
+                    </tr>
+                }
+
+            </table>
         </div>
-    </div>
-</body>
+ </body>
 

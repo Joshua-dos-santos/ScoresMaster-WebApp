@@ -62,6 +62,27 @@ namespace DataManager.Data.Logic
             }
             return login;
         }
+        public void UpdateFavoriteClub(int clubId, string userId)
+        {
+            ClubDatabaseContext clubDatabaseContext = new ClubDatabaseContext();
+            MySqlConnection databaseConnection = new MySqlConnection(DatabaseDTO.DbConnectionString);
+            MySqlCommand updateFavoriteClub = new MySqlCommand("UPDATE `user` SET `favorite_club`=@val1 WHERE `api_key`=@val2", databaseConnection);
+            updateFavoriteClub.Parameters.AddWithValue("@val1", clubId);
+            updateFavoriteClub.Parameters.AddWithValue("@val2", userId);
+            try
+            {
+                databaseConnection.Open();
+                updateFavoriteClub.Prepare();
+                var executeString = updateFavoriteClub.ExecuteReader();
+                executeString.Read();
+                databaseConnection.Close();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("error: " + e.Message);
+            }
+        }
+        }
     }
-    }
+    
 

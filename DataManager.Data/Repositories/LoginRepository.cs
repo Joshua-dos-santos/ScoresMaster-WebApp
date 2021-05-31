@@ -22,5 +22,9 @@ namespace DataManager.Data.Repositories
         {
             return context.GetUserDetails(id);
         }
+        public void UpdateFavoriteClub(int clubId, string userId)
+        {
+            context.UpdateFavoriteClub(clubId, userId);
+        }
     }
 }

@@ -18,20 +18,34 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    @Html.ActionLink("Match Details", "Index", "Home", null, new { @class = "nav-link" })
-                </li>
-                <li class="nav-item">
-                    @Html.ActionLink("Login", "LoginAction", "Login", null, new { @class = "nav-link" })
-                </li>
-                <li class="nav-item">
-                    @Html.ActionLink("Registration", "Register", "Registration", null, new { @class = "nav-link" })
-                </li>
-                <li class="nav-item">
-                    @Html.ActionLink("MyProfile", "MyProfile", "Profile", null, new { @class = "nav-link" })
-                </li> 
+                @{
+                    var userId = (string)TempData.Peek("unique_id");
+                    if (userId == null)
+                    {
+                        <li class="nav-item">
+                            @Html.ActionLink("Match Details", "Index", "Home", null, new { @class = "nav-link" })
+                        </li>
+                        <li class="nav-item" style="float: right; text-align: right">
+                            @Html.ActionLink("Login", "LoginAction", "Login", null, new { @class = "nav-link" })
+                        </li>
+                        <li class="nav-item" style="float: right; text-align: right">
+                            @Html.ActionLink("Registrate", "Register", "Registration", null, new { @class = "nav-link" })
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            @Html.ActionLink("Match Details", "Index", "Home", null, new { @class = "nav-link" })
+                        </li>
+                        <li class="nav-item">
+                            @Html.ActionLink("My Profile", "ShowMyProfile", "Profile", null, new { @class = "nav-link" })
+                        </li>
+                        <li class="nav-item" style="float: right; text-align: right">
+                            @Html.ActionLink("Logout", "Logout", "Login", null, new { @class = "nav-link" })
+                        </li>
+                    }}
             </ul>
         </div>
     </nav>

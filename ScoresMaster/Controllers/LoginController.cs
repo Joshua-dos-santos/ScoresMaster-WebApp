@@ -31,5 +31,10 @@ namespace ScoresMaster.Controllers
                 return View("Login");
             }
         }
+        public ActionResult Logout()
+        {
+            TempData["unique_id"] = null;
+            return View("Login");
+        }
     }
 }

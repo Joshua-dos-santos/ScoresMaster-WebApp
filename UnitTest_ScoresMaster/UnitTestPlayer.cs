@@ -32,6 +32,14 @@ namespace UnitTest_ScoresMaster
             Assert.IsFalse(result);
         }
         [TestMethod]
+        public void PlayerContainerFE_GetPlayer_GotPlayer_GotMarcusRashford()
+        {
+            Player player = new Player { PlayerID = 27 };
+            Player newPlayer = playerContainerFE.GetPlayer(player.PlayerID);
+            Assert.AreEqual("Marcus", newPlayer.First_Name);
+        }
+
+        [TestMethod]
         public void PlayerContainerFE_GetPosition_IsNotNull_GotLW()
         {
             Position position = new Position { unique_id = 13 };

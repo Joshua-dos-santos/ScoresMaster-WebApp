@@ -33,6 +33,37 @@ namespace DataManager.Data
             return continent;
         }
 
+        public IEnumerable<CountryDTO> GetAllCountries()
+        {
+            List<CountryDTO> countries = new List<CountryDTO>();
+            MySqlConnection databaseConnection = new MySqlConnection(DatabaseDTO.DbConnectionString);
+            MySqlCommand getCountries = new MySqlCommand("SELECT * FROM `country`", databaseConnection);
+            try
+            {
+                databaseConnection.Open();
+                getCountries.Prepare();
+                var executeString = getCountries.ExecuteReader();
+                while (executeString.Read())
+                {
+                    CountryDTO countryDTO = new CountryDTO();
+                    ContinentDTO continentDTO = new ContinentDTO();
+                    Primary_ColorDTO primary_ColorDTO = new Primary_ColorDTO();
+                    countryDTO.CountryID = executeString.GetInt32(0);
+                    countryDTO.Name = executeString.GetString(1);
+                    continentDTO = GetContinent(executeString.GetInt32(2));
+                    countryDTO.continent = continentDTO;
+                    primary_ColorDTO = GetPrimary_Color(executeString.GetInt32(3));
+                    countryDTO.Primary_Color = primary_ColorDTO;
+                    countries.Add(countryDTO);
+                }
+                databaseConnection.Close();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("error: " + e.Message);
+            }
+            return countries;
+        }
         public CountryDTO GetCountry(int id)
         {
             CountryDTO country = new CountryDTO();

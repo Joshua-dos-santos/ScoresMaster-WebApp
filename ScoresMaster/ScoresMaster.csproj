@@ -290,6 +290,7 @@
     <Content Include="Views\Squad\ViewAwaySquad.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Squad\CountrySquad.cshtml" />
+    <Content Include="Views\Squad\AllCountries.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

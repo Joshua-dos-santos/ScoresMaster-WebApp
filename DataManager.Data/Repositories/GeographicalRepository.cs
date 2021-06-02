@@ -16,6 +16,11 @@ namespace DataManager.Data
             return context.GetCountry(id);
         }
 
+        public List<CountryDTO> GetAllCountries()
+        {
+            return context.GetAllCountries().ToList();
+        }
+
         public ContinentDTO GetContinent(int id)
         {
             return context.GetContinent(id);

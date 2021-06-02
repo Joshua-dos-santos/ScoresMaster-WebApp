@@ -1,4 +1,5 @@
 ﻿using DataManager.Business.DAO;
+using DataManager.Data;
 using System.Collections.Generic;
 
 namespace DataManager.Business.Containers
@@ -13,6 +14,18 @@ namespace DataManager.Business.Containers
             var country = repo.GetCountry(id);
             CountryDAO countryDAO = new CountryDAO(country) { Continent = GetContinent(country.continent.ContinentID), Primary_Color = GetPrimary_Color(country.Primary_Color.ColorID)};
             return countryDAO;
+        }
+
+        public List<CountryDAO> GetAllCountries()
+        {
+            GeographicalRepository repo = new GeographicalRepository(GeographicalDatabaseContext);
+            List<CountryDAO> countries = new List<CountryDAO>();
+            var Countries = repo.GetAllCountries();
+            foreach(var country in Countries)
+            {
+                countries.Add(new CountryDAO(country) { Continent = GetContinent(country.continent.ContinentID), Primary_Color = GetPrimary_Color(country.Primary_Color.ColorID) });
+            }
+            return countries;
         }
 
         public ContinentDAO GetContinent(int id)

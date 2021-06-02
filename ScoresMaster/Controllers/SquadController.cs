@@ -36,12 +36,20 @@ namespace ScoresMaster.Controllers
 
         public ActionResult CountrySquad(Country country, Player player)
         {
-            Player newPlayer = playerContainerFE.GetPlayer(player.PlayerID);
-            country = newPlayer.Nationality;
+            //Player newPlayer = playerContainerFE.GetPlayer(player.PlayerID);
+            //country = newPlayer.Nationality;
             ViewBag.Country = country.Name;
             var players = playerContainerFE.GetAllPlayersByCountry(country.CountryID).OrderBy(c => c.Position.unique_id).ToList();
 
             return View("CountrySquad", players);
+        }
+
+        public ActionResult CountryList()
+        {
+            GeographicalContainerFE geographicalContainerFE = new GeographicalContainerFE();
+            List<Country> countries = new List<Country>();
+            countries = geographicalContainerFE.GetAllCountries();
+            return View("AllCountries", countries);
         }
     }
 }

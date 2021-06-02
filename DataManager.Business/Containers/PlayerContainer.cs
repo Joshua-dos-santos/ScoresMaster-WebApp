@@ -11,7 +11,7 @@ namespace DataManager.Business.Containers
 
         public List<PlayerDAO> GetAllPlayersByClub(int id)
         {
-            Data.Repositories.PlayerRepository repo = new Data.Repositories.PlayerRepository(context);
+            PlayerRepository repo = new PlayerRepository(context);
 
             List<PlayerDAO> players = new List<PlayerDAO>();
             var playerdto = repo.GetAllPlayersByClub(id);
@@ -23,7 +23,7 @@ namespace DataManager.Business.Containers
         }
         public List<PlayerDAO> GetAllPlayersByCountry(int id)
         {
-            Data.Repositories.PlayerRepository repo = new Data.Repositories.PlayerRepository(context);
+            PlayerRepository repo = new PlayerRepository(context);
 
             List<PlayerDAO> players = new List<PlayerDAO>();
             var playerdto = repo.GetAllPlayersByCountry(id);

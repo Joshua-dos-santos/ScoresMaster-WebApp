@@ -42,9 +42,45 @@
             width: 150px;
             border-radius: 50%;
         }
+
     #UpdateButton {
         margin-top: auto;
     }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    #myInput {
+        background-image: url('/css/searchicon.png');
+        background-position: 10px 10px;
+        background-repeat: no-repeat;
+        width: 100%;
+        font-size: 16px;
+        padding: 12px 20px 12px 40px;
+        border: 1px solid #ddd;
+        margin-bottom: 12px;
+    }
+
+    #myTable {
+        border-collapse: collapse;
+        width: 100%;
+        border: 1px solid #ddd;
+        font-size: 18px;
+    }
+
+        #myTable th, #myTable td {
+            text-align: left;
+            padding: 12px;
+        }
+
+        #myTable tr {
+            border-bottom: 1px solid #ddd;
+        }
+
+            #myTable tr.header, #myTable tr:hover {
+                background-color: #f1f1f1;
+            }
 </style>
 <body>
     <div class="split left">
@@ -66,38 +102,59 @@
     </div>
 
     <div class="split right">
-            <table class="table">
+        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for club..." title="Type in a name">
+        <table class="table" id="myTable">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.ClubID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.League)
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
                 <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.ClubID)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Name)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.League)
-                    </th>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ClubID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.League.Name)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Update Favorite Club", "UpdateClub", "Profile", item, new { /* id=item.PrimaryKey */ }) |
+                    </td>
                 </tr>
+            }
 
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.ClubID)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Name)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.League.Name)
-                        </td>
-                        <td>
-                            @Html.ActionLink("Update Favorite Club", "UpdateClub", "Profile", item, new { /* id=item.PrimaryKey */ }) |
-                        </td>
-                    </tr>
+        </table>
+        <script>
+            function myFunction() {
+                var input, filter, table, tr, td, i, txtValue;
+                input = document.getElementById("myInput");
+                filter = input.value.toUpperCase();
+                table = document.getElementById("myTable");
+                tr = table.getElementsByTagName("tr");
+                for (i = 0; i < tr.length; i++) {
+                    td = tr[i].getElementsByTagName("td")[1];
+                    if (td) {
+                        txtValue = td.textContent || td.innerText;
+                        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                            tr[i].style.display = "";
+                        } else {
+                            tr[i].style.display = "none";
+                        }
+                    }
                 }
-
-            </table>
-        </div>
- </body>
+            }
+        </script>
+    </div>
+</body>
 

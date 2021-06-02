@@ -1,11 +1,14 @@
 ﻿@model IEnumerable<ScoresMaster.Models.Player>
+<style>
+    .avatar {
+        vertical-align: middle;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+    }
+</style>
 
-
-<h2>@ViewBag.Home_Team</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<h2><img src="~/Images/Badges/@ViewData["Logo"]" alt="Avatar" class="avatar" />@ViewBag.Home_Team</h2>
 <table class="table">
     <tr>
         <th>

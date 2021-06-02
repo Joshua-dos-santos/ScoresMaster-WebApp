@@ -293,7 +293,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Country\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -20,7 +20,7 @@ namespace UnitTest_ScoresMaster
         {
             var result = true;
             List<Player> players = new List<Player>();
-            players = playerContainerFE.GetAllPlayers(0);
+            players = playerContainerFE.GetAllPlayersByClub(0);
             if (players.Count == 0)
             {
                 result = false;

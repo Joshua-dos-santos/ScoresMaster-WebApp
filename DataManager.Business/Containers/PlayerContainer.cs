@@ -1,4 +1,5 @@
 ﻿using DataManager.Business.DAO;
+using DataManager.Data.Repositories;
 using System.Collections.Generic;
 
 namespace DataManager.Business.Containers
@@ -8,12 +9,24 @@ namespace DataManager.Business.Containers
         Data.Logic.PlayerDatabaseContext context = new Data.Logic.PlayerDatabaseContext();
         GeographicalContainer geographicalContainer = new GeographicalContainer();
 
-        public List<PlayerDAO> GetAllPlayers(int id)
+        public List<PlayerDAO> GetAllPlayersByClub(int id)
         {
             Data.Repositories.PlayerRepository repo = new Data.Repositories.PlayerRepository(context);
 
             List<PlayerDAO> players = new List<PlayerDAO>();
-            var playerdto = repo.GetAllPlayers(id);
+            var playerdto = repo.GetAllPlayersByClub(id);
+            foreach (var dto in playerdto)
+            {
+                players.Add(new PlayerDAO(dto) { Position = GetPosition(dto.Position.unique_id), Nationality = geographicalContainer.GetCountry(dto.Nationality.CountryID) });
+            }
+            return players;
+        }
+        public List<PlayerDAO> GetAllPlayersByCountry(int id)
+        {
+            Data.Repositories.PlayerRepository repo = new Data.Repositories.PlayerRepository(context);
+
+            List<PlayerDAO> players = new List<PlayerDAO>();
+            var playerdto = repo.GetAllPlayersByCountry(id);
             foreach (var dto in playerdto)
             {
                 players.Add(new PlayerDAO(dto) { Position = GetPosition(dto.Position.unique_id), Nationality = geographicalContainer.GetCountry(dto.Nationality.CountryID) });
@@ -21,9 +34,17 @@ namespace DataManager.Business.Containers
             return players;
         }
 
+        public PlayerDAO GetPlayer(int id)
+        {
+            PlayerRepository repo = new PlayerRepository(context);
+            var player = repo.GetPlayer(id);
+            PlayerDAO playerDAO = new PlayerDAO(player) { Position = GetPosition(player.Position.unique_id), Nationality = geographicalContainer.GetCountry(player.Nationality.CountryID) };
+            return playerDAO;
+        }
+
         public PositionDAO GetPosition(int id)
         {
-            Data.Repositories.PlayerRepository repo = new Data.Repositories.PlayerRepository(context);
+            PlayerRepository repo = new PlayerRepository(context);
             var position = repo.GetPosition(id);
             PositionDAO positionDAO = new PositionDAO(position);
             return positionDAO;

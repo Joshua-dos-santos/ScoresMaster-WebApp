@@ -10,15 +10,14 @@ namespace ScoresMaster.Controllers
 {
     public class ProfileController : Controller
     {
+            LoginContainerFE loginContainerFE = new LoginContainerFE();
+            ClubContainerFE clubContainerFE = new ClubContainerFE();
         // GET: Profile
         public ActionResult ShowMyProfile(LoginModel userLogin)
         {
-            int i;
-            LoginContainerFE loginContainerFE = new LoginContainerFE();
-            ClubContainerFE clubContainerFE = new ClubContainerFE();
             List<string> clubnames = new List<string>();
             List<Club> clubs = clubContainerFE.GetAllClubs();
-            for(i = 1; i <= clubs.Count(); i++)
+            for(int i = 1; i <= clubs.Count(); i++)
             { 
                 clubnames.Add(clubs[i - 1].Name);
             }
@@ -35,7 +34,6 @@ namespace ScoresMaster.Controllers
         public ActionResult UpdateClub(LoginModel loginModel, Club club)
         {
             loginModel.Favorite_Club = club;
-            LoginContainerFE loginContainerFE = new LoginContainerFE();
             loginModel.Unique_id = (string)TempData.Peek("unique_id");
             loginContainerFE.UpdateFavoriteClub(loginModel.Favorite_Club.ClubID, loginModel.Unique_id);
             loginModel = loginContainerFE.GetUserDetails(loginModel.Unique_id);

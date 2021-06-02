@@ -15,9 +15,18 @@ namespace DataManager.Data.Repositories
             this.context = context;
         }
 
-        public List<PlayerDTO> GetAllPlayers(int id)
+        public List<PlayerDTO> GetAllPlayersByClub(int id)
         {
-            return context.GetAllPlayers(id).ToList();
+            return context.GetAllPlayersByClub(id).ToList();
+        }
+
+        public List<PlayerDTO> GetAllPlayersByCountry(int id)
+        {
+            return context.GetAllPlayersByCountry(id).ToList();
+        }
+        public PlayerDTO GetPlayer(int id)
+        {
+            return context.GetPlayer(id);
         }
        
         public PositionDTO GetPosition(int id)

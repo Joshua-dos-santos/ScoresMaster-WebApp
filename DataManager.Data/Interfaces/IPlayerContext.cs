@@ -5,7 +5,9 @@ namespace DataManager.Data.Interfaces
 {
     interface IPlayerContext
     {
-        IEnumerable<PlayerDTO> GetAllPlayers(int id);
+        IEnumerable<PlayerDTO> GetAllPlayersByClub(int id);
+        IEnumerable<PlayerDTO> GetAllPlayersByCountry(int id);
+        PlayerDTO GetPlayer(int id);
         PositionDTO GetPosition(int id);
     }
 }

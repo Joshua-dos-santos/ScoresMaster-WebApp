@@ -3,48 +3,50 @@
 @{
     ViewBag.Title = "MatchDetails";
 }
-
 <h2>MatchDetails</h2>
 
-
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.MatchID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Home_Team)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Match_Start)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Away_Team)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
+<html>
+<body>
+    <table class="table" >
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.MatchID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Home_Team)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Match_Start)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Away_Team)
-            </td>
-            <td>
-                @Html.ActionLink("See Home Squad", "Home_team", "Profile", item, new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("See League Info", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("See Away Squad", "Away_team", "Squad", item, new { /* id=item.PrimaryKey */ })
-            </td>
+            <th>
+                @Html.DisplayNameFor(model => model.MatchID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Home_Team)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Match_Start)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Away_Team)
+            </th>
+            <th></th>
         </tr>
-    }
 
-</table>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MatchID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Home_Team)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Match_Start)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Away_Team)
+                </td>
+                <td>
+                    @Html.ActionLink("See Home Squad", "Home_team", "Squad", item, new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("See League Info", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("See Away Squad", "Away_team", "Squad", item, new { /* id=item.PrimaryKey */ })
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>
+</html>

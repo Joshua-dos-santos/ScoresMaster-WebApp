@@ -234,6 +234,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Images\Badges\Adelaide United.png" />
     <Content Include="Images\Badges\Manchester United.png" />
+    <Content Include="Images\Badges\PSV.png" />
     <Content Include="Images\Badges\Real Madrid CF.png" />
     <Content Include="Images\NoProfilePicture.png" />
     <Content Include="Images\PremierLeague.png">
@@ -287,6 +288,7 @@
     <Content Include="Views\Squad\ViewHomeSquad.cshtml" />
     <Content Include="Views\Squad\ViewAwaySquad.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Squad\CountrySquad.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

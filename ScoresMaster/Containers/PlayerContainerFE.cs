@@ -10,15 +10,33 @@ namespace ScoresMaster.Containers
         GeographicalContainerFE GeographicalContainer = new GeographicalContainerFE();
 
 
-        public List<Player> GetAllPlayers(int id)
+        public List<Player> GetAllPlayersByClub(int id)
         {
             List<Player> players = new List<Player>();
-            var player = playerContainer.GetAllPlayers(id);
+            var player = playerContainer.GetAllPlayersByClub(id);
             foreach (var m in player)
             {
                 players.Add(new Player(m) { Position = GetPosition(m.Position.unique_id), Nationality = GeographicalContainer.GetCountry(m.Nationality.CountryID) });
             }
             return players;
+        }
+
+        public List<Player> GetAllPlayersByCountry(int id)
+        {
+            List<Player> players = new List<Player>();
+            var player = playerContainer.GetAllPlayersByCountry(id);
+            foreach (var m in player)
+            {
+                players.Add(new Player(m) { Position = GetPosition(m.Position.unique_id), Nationality = GeographicalContainer.GetCountry(m.Nationality.CountryID) });
+            }
+            return players;
+        }
+        
+        public Player GetPlayer(int id)
+        {
+            var player = playerContainer.GetPlayer(id);
+            Player newPlayer = new Player(player) { Position = GetPosition(player.Position.unique_id), Nationality = GeographicalContainer.GetCountry(player.Nationality.CountryID) };
+            return newPlayer;
         }
 
         public Position GetPosition(int id)

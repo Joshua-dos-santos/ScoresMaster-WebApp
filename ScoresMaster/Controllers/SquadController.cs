@@ -12,14 +12,15 @@ namespace ScoresMaster.Controllers
     public class SquadController : Controller
     {
             ClubContainerFE clubContainerFE = new ClubContainerFE();
-        PlayerContainerFE PlayerContainerFE = new PlayerContainerFE();
+        PlayerContainerFE playerContainerFE = new PlayerContainerFE();
+        GeographicalContainerFE GeographicalContainerFE = new GeographicalContainerFE();
 
         public ActionResult Home_team(Club club, Match match)
         {
             club.Name = match.Home_Team;
             ViewBag.Home_Team = match.Home_Team;
             club = clubContainerFE.GetClubByName(club.Name);
-            List<Player> playerList = PlayerContainerFE.GetAllPlayers(club.ClubID);
+            List<Player> playerList = playerContainerFE.GetAllPlayersByClub(club.ClubID);
             return View("ViewHomeSquad", playerList);
         }
 
@@ -28,13 +29,18 @@ namespace ScoresMaster.Controllers
             club.Name = match.Away_Team;
             ViewBag.Away_Team = match.Away_Team;
             club = clubContainerFE.GetClubByName(club.Name);
-            List<Player> playerList = PlayerContainerFE.GetAllPlayers(club.ClubID);
+            List<Player> playerList = playerContainerFE.GetAllPlayersByClub(club.ClubID);
             return View("ViewAwaySquad", playerList);
         }
 
-        public ActionResult CountrySquad()
+        public ActionResult CountrySquad(Country country, Player player)
         {
-            return View();
+            Player newPlayer = playerContainerFE.GetPlayer(player.PlayerID);
+            country = newPlayer.Nationality;
+            ViewBag.Country = country.Name;
+            var players = playerContainerFE.GetAllPlayersByCountry(country.CountryID).OrderBy(c => c.Position.unique_id).ToList();
+
+            return View("CountrySquad", players);
         }
     }
 }

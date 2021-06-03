@@ -236,6 +236,7 @@
     <Content Include="Images\Badges\Manchester United.png" />
     <Content Include="Images\Badges\PSV.png" />
     <Content Include="Images\Badges\Real Madrid CF.png" />
+    <Content Include="Images\Badges\Sporting CP.png" />
     <Content Include="Images\NoProfilePicture.png" />
     <Content Include="Images\PremierLeague.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

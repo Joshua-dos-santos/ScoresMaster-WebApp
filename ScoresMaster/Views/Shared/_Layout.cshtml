@@ -30,12 +30,7 @@
                         <li class="nav-item">
                             @Html.ActionLink("National Squads", "CountryList", "Squad", null, new { @class = "nav-link" })
                         </li>
-                        <li class="nav-item" style="float: right; text-align: right">
-                            @Html.ActionLink("Login", "LoginAction", "Login", null, new { @class = "nav-link" })
-                        </li>
-                        <li class="nav-item" style="float: right; text-align: right">
-                            @Html.ActionLink("Registrate", "Register", "Registration", null, new { @class = "nav-link" })
-                        </li>
+
                     }
                     else
                     {
@@ -48,21 +43,38 @@
                         <li class="nav-item">
                             @Html.ActionLink("My Profile", "ShowMyProfile", "Profile", null, new { @class = "nav-link" })
                         </li>
-                        <li class="nav-item" style="float: right; text-align: right">
-                            @Html.ActionLink("Logout", "Logout", "Login", null, new { @class = "nav-link" })
-                        </li>
+
                     }}
             </ul>
+            <ul class="navbar-nav ml-auto">
+                @{
+                    var Login = (string)TempData.Peek("unique_id");
+                    if (Login == null)
+                    {
+                        <li class="nav-item">
+                            @Html.ActionLink("Login", "LoginAction", "Login", null, new { @class = "nav-link" })
+                        </li>
+                        <li class="nav-item">
+                            @Html.ActionLink("Registrate", "Register", "Registration", null, new { @class = "nav-link" })
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            @Html.ActionLink("Logout", "Logout", "Login", null, new { @class = "nav-link" })
+                        </li>
+                        }}
+                </ul>
+            </div>
+        </nav>
+        <div class="container body-content pt-3">
+            @RenderBody()
         </div>
-    </nav>
-    <div class="container body-content pt-3">
-        @RenderBody()
-    </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @*@Scripts.Render("~/bundles/bootstrap")*@
-    <script src="~/Scripts/bootstrap.js"></script>
-    @RenderSection("scripts", required: false)
-</body>
+        @Scripts.Render("~/bundles/jquery")
+        @*@Scripts.Render("~/bundles/bootstrap")*@
+        <script src="~/Scripts/bootstrap.js"></script>
+        @RenderSection("scripts", required: false)
+    </body>
 
 </html>

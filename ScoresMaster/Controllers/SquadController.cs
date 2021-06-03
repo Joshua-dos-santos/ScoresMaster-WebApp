@@ -36,8 +36,6 @@ namespace ScoresMaster.Controllers
 
         public ActionResult CountrySquad(Country country, Player player)
         {
-            //Player newPlayer = playerContainerFE.GetPlayer(player.PlayerID);
-            //country = newPlayer.Nationality;
             ViewBag.Country = country.Name;
             var players = playerContainerFE.GetAllPlayersByCountry(country.CountryID).OrderBy(c => c.Position.unique_id).ToList();
 

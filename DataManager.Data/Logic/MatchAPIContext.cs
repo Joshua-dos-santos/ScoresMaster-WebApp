@@ -11,6 +11,7 @@ namespace DataManager.Data.Logic
     {
         public IEnumerable<MatchDTO> GetAllMatches(int id)
         {
+            ClubDatabaseContext clubDatabaseContext = new ClubDatabaseContext();
             string result = null;
             string requestString = "";
             if (id == 352 || id == 619)
@@ -41,9 +42,9 @@ namespace DataManager.Data.Logic
             {
                 MatchDTO match = new MatchDTO();
                 match.MatchID = matchData.data[i].match_id;
-                match.Home_Team = matchData.data[i].home_team.name;
+                match.Home_Team = clubDatabaseContext.GetClubByName((string)matchData.data[i].home_team.name);
                 match.Match_Start = matchData.data[i].match_start;
-                match.Away_Team = matchData.data[i].away_team.name;
+                match.Away_Team = clubDatabaseContext.GetClubByName((string)matchData.data[i].away_team.name);
                 matchList.Add(match);
             }
 

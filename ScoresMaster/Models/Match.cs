@@ -9,18 +9,20 @@ namespace ScoresMaster.Models
     {
         public int MatchID { get; set; }
         [DisplayName("Home team")]
-        public string Home_Team { get; set; }
+        public Club Home_Team { get; set; }
         [DisplayName("Match Time")]
         public string Match_Start { get; set; }
         [DisplayName("Away team")]
-        public string Away_Team { get; set; }
+        public Club Away_Team { get; set; }
 
         public Match(MatchDAO matchDAO)
         {
+            Club Home_team = new Club();
+            Club Away_team = new Club();
             MatchID = matchDAO.MatchID;
-            Home_Team = matchDAO.Home_Team;
+            Home_Team = Home_team;
             Match_Start = matchDAO.Match_Start;
-            Away_Team = matchDAO.Away_Team;
+            Away_Team = Away_team;
         }
         public Match()
         {

@@ -118,20 +118,21 @@
 
             @foreach (var item in Model)
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ClubID)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.League.Name)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Update Favorite Club", "UpdateClub", "Profile", item, new { /* id=item.PrimaryKey */ }) |
-                    </td>
-                </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClubID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.League.Name)
+            </td>
+            <td>
+                @Html.ActionLink("Update Favorite Club", "UpdateClub", "Profile", item, new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("See squad", "Home_Team", "Squad", item, new { /* id=item.PrimaryKey */ }) |
+            </td>
+        </tr>
             }
 
         </table>

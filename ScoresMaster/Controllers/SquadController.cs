@@ -16,9 +16,8 @@ namespace ScoresMaster.Controllers
 
         public ActionResult Home_team(Club club, Match match)
         {
-            club.Name = match.Home_Team;
-            ViewData["Logo"] = match.Home_Team + ".png";
-            ViewBag.Home_Team = match.Home_Team;
+            ViewData["Logo"] = club.Name + ".png";
+            ViewBag.Home_Team = club.Name;
             club = clubContainerFE.GetClubByName(club.Name);
             List<Player> playerList = playerContainerFE.GetAllPlayersByClub(club.ClubID);
             return View("ViewHomeSquad", playerList);
@@ -26,9 +25,8 @@ namespace ScoresMaster.Controllers
 
         public ActionResult Away_team(Club club, Match match)
         {
-            club.Name = match.Away_Team;
-            ViewData["Logo"] = match.Away_Team + ".png";
-            ViewBag.Away_Team = match.Away_Team;
+            ViewData["Logo"] = club.Name + ".png";
+            ViewBag.Away_Team = club.Name;
             club = clubContainerFE.GetClubByName(club.Name);
             List<Player> playerList = playerContainerFE.GetAllPlayersByClub(club.ClubID);
             return View("ViewAwaySquad", playerList);

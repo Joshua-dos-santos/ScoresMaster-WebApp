@@ -55,7 +55,7 @@ namespace DataManager.Data.Logic
                 while (executeString.Read())
                 {
                     club.ClubID = executeString.GetInt32(0);
-                    club.Name = matchDTO.Home_Team;
+                    club.Name = executeString.GetString(1); ;
                     club.League = league;
                 }
                 databaseConnection.Close();

@@ -44,6 +44,7 @@ namespace DataManager.Data.Logic
                 match.MatchID = matchData.data[i].match_id;
                 match.Home_Team = clubDatabaseContext.GetClubByName((string)matchData.data[i].home_team.name);
                 match.Match_Start = matchData.data[i].match_start;
+                match.Match_Status = matchData.data[i].status;
                 match.Away_Team = clubDatabaseContext.GetClubByName((string)matchData.data[i].away_team.name);
                 matchList.Add(match);
             }

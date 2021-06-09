@@ -43,8 +43,7 @@ namespace ScoresMaster.Controllers
         public ActionResult CountryList()
         {
             GeographicalContainerFE geographicalContainerFE = new GeographicalContainerFE();
-            List<Country> countries = new List<Country>();
-            countries = geographicalContainerFE.GetAllCountries();
+            List<Country> countries = geographicalContainerFE.GetAllCountries();
             return View("AllCountries", countries);
         }
     }

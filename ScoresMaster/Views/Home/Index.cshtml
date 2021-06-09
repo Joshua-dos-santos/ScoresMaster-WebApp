@@ -8,7 +8,7 @@
 
 <html>
 <body>
-    <table class="table" >
+    <table class="table">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.MatchID)
@@ -35,7 +35,8 @@
                     @Html.DisplayFor(modelItem => item.Home_Team.Name)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Match_Start)
+                    @Html.DisplayFor(modelItem => item.Match_Start)<br />
+                    @Html.DisplayFor(modelItem => item.Match_Status)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Away_Team.Name)

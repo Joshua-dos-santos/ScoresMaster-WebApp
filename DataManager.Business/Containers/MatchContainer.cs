@@ -9,7 +9,7 @@ namespace DataManager.Business.Containers
        
         public List<MatchDAO> GetAllMatches(int id)
         {
-            Data.Logic.MatchAPIContext context = new Data.Logic.MatchAPIContext();
+            MatchAPIContext context = new MatchAPIContext();
             ClubContainer clubContainer = new ClubContainer();
             Data.Repositories.MatchRepository repo = new Data.Repositories.MatchRepository(context);
             

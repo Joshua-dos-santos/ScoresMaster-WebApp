@@ -39,7 +39,7 @@ namespace DataManager.Data.Logic
                     newCountry.CountryID = executeString.GetInt32(5);
                     newCountry = GeographicalDatabaseContext.GetCountry(newCountry.CountryID);
                     playerDTO.Nationality = newCountry;
-                    playerDTO.Birth_Day = executeString.GetString(7);
+                    playerDTO.Birth_Day = executeString.GetDateTime(7).Date;
                     Players.Add(playerDTO);
                 }
                 databaseConnection.Close();
@@ -78,7 +78,8 @@ namespace DataManager.Data.Logic
                     newCountry.CountryID = executeString.GetInt32(5);
                     newCountry = GeographicalDatabaseContext.GetCountry(newCountry.CountryID);
                     playerDTO.Nationality = newCountry;
-                    playerDTO.Birth_Day = executeString.GetString(7);
+                    playerDTO.Birth_Day = executeString.GetDateTime(7).Date;
+                    playerDTO.Birth_Day.ToString().Replace("00:00:00", "");
                     Players.Add(playerDTO);
                 }
                 databaseConnection.Close();
@@ -114,7 +115,7 @@ namespace DataManager.Data.Logic
                     newCountry.CountryID = executeString.GetInt32(5);
                     newCountry = GeographicalDatabaseContext.GetCountry(newCountry.CountryID);
                     playerDTO.Nationality = newCountry;
-                    playerDTO.Birth_Day = executeString.GetString(7);
+                    playerDTO.Birth_Day = executeString.GetDateTime(7).Date;
                 }
             }
             catch (Exception e)

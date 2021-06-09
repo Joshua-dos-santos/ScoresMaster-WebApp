@@ -18,7 +18,7 @@ namespace ScoresMaster.Models
         public string Shirt_Number { get; set; }
         public Position Position { get; set; }
         public Country Nationality { get; set; }
-        public string Birth_Day { get; set; } 
+        public DateTime Birth_Day { get; set; } 
 
         public Player(PlayerDAO playerDAO)
         {

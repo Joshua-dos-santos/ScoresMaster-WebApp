@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataManager.Data", "DataMan
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataManager.Business", "DataManager.Business\DataManager.Business.csproj", "{0F42629C-AF8C-46B8-B2C7-74DFC82F9611}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest_ScoresMaster", "UnitTest_ScoresMaster\UnitTest_ScoresMaster.csproj", "{C9E27444-C947-4A58-B784-656BFEFFD153}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTest_ScoresMaster", "UnitTest_ScoresMaster\UnitTest_ScoresMaster.csproj", "{C9E27444-C947-4A58-B784-656BFEFFD153}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

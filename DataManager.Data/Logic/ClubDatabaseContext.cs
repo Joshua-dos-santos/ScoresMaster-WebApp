@@ -42,7 +42,6 @@ namespace DataManager.Data.Logic
         public ClubDTO GetClubByName(string name)
         {
             ClubDTO club = new ClubDTO();
-            MatchDTO matchDTO = new MatchDTO();
             LeagueDTO league = new LeagueDTO();
             MySqlConnection databaseConnection = new MySqlConnection(DatabaseDTO.DbConnectionString);
             MySqlCommand getClubs = new MySqlCommand("SELECT * FROM `club` WHERE `club_name`=@val1", databaseConnection);

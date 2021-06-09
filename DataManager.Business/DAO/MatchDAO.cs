@@ -7,6 +7,7 @@ namespace DataManager.Business.DAO
         public int MatchID { get; set; }
         public ClubDAO Home_Team { get; set; }
         public string Match_Start { get; set; }
+        public string Match_Status { get; set; }
         public ClubDAO Away_Team { get; set; }
 
         public MatchDAO(MatchDTO matchDTO)
@@ -16,6 +17,7 @@ namespace DataManager.Business.DAO
             MatchID = matchDTO.MatchID;
             Home_Team = Home_team;
             Match_Start = matchDTO.Match_Start;
+            Match_Status = matchDTO.Match_Status;
             Away_Team = Away_team;
         }
     }

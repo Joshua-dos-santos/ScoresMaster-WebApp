@@ -43,6 +43,7 @@ namespace DataManager.Data.Logic
         {
             ClubDTO club = new ClubDTO();
             LeagueDTO league = new LeagueDTO();
+            LeagueDatabaseContext context = new LeagueDatabaseContext();
             MySqlConnection databaseConnection = new MySqlConnection(DatabaseDTO.DbConnectionString);
             MySqlCommand getClubs = new MySqlCommand("SELECT * FROM `club` WHERE `club_name`=@val1", databaseConnection);
             getClubs.Parameters.AddWithValue("@val1", name);
@@ -54,8 +55,8 @@ namespace DataManager.Data.Logic
                 while (executeString.Read())
                 {
                     club.ClubID = executeString.GetInt32(0);
-                    club.Name = executeString.GetString(1); ;
-                    club.League = league;
+                    club.Name = executeString.GetString(1); 
+                    club.League = context.GetLeague(executeString.GetInt32(2));
                 }
                 databaseConnection.Close();
             }

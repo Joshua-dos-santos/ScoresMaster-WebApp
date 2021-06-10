@@ -16,7 +16,7 @@ namespace DataManager.Data.Logic
             string requestString = "";
             if (id == 352 || id == 619)
             {
-                requestString = "https://app.sportdataapi.com/api/v1/soccer/matches?apikey=78b7f4f0-781d-11eb-b7ce-ab513a4a050f&season_id=" + id + "&date_from=2021-03-10";
+                requestString = "https://app.sportdataapi.com/api/v1/soccer/matches?apikey=05117e70-c9e9-11eb-83fe-29a32a0eb61a&season_id=" + id + "&date_from=2021-03-10";
             }
             else if (id == 496 || id == 706)
             {

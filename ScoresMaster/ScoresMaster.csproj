@@ -194,8 +194,10 @@
     <Compile Include="Containers\MatchContainerFE.cs" />
     <Compile Include="Containers\PlayerContainerFE.cs" />
     <Compile Include="Containers\RegisterContainerFE.cs" />
+    <Compile Include="Containers\StandingsContainerFE.cs" />
     <Compile Include="Controllers\CountryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LeagueController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\RegistrationController.cs" />
@@ -214,6 +216,7 @@
     <Compile Include="Models\Position.cs" />
     <Compile Include="Models\Primary_Color.cs" />
     <Compile Include="Models\RegistrationModel.cs" />
+    <Compile Include="Models\Standings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -292,6 +295,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Squad\CountrySquad.cshtml" />
     <Content Include="Views\Squad\AllCountries.cshtml" />
+    <Content Include="Views\League\LeagueInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

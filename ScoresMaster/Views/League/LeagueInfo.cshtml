@@ -1,0 +1,305 @@
+﻿@model ScoresMaster.Models.Standings
+@using ScoresMaster.Models
+<h2>LeagueInfo</h2>
+<style>
+    .tab {
+        overflow: hidden;
+        border: 1px solid #ccc;
+        background-color: #f1f1f1;
+    }
+
+        /* Style the buttons that are used to open the tab content */
+        .tab button {
+            background-color: inherit;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+        }
+
+            /* Change background color of buttons on hover */
+            .tab button:hover {
+                background-color: #ddd;
+            }
+
+            /* Create an active/current tablink class */
+            .tab button.active {
+                background-color: #ccc;
+            }
+
+    /* Style the tab content */
+    .tabcontent {
+        display: none;
+        padding: 6px 12px;
+        border: 1px solid #ccc;
+        border-top: none;
+    }
+</style>
+<div class="tab">
+    <button class="tablinks" onclick="SeeInfo(event, 'Premier League')">Premier League</button>
+    <button class="tablinks" onclick="SeeInfo(event, 'Eredivisie')">Eredivisie</button>
+    <button class="tablinks" onclick="SeeInfo(event, 'Liga NOS')">Liga NOS</button>
+    <button class="tablinks" onclick="SeeInfo(event, 'Ligue 1')">Ligue 1</button>
+    <button class="tablinks" onclick="SeeInfo(event, 'Bundesliga')">Bundesliga</button>
+    <button class="tablinks" onclick="SeeInfo(event, 'Serie A')">Serie A</button>
+</div>
+<div id="Premier League" class="tabcontent">
+    <h3>Premier League</h3>
+    <div>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Club)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LeaguePoints)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Status)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Result)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (Standings item in ViewBag.StandingsPL)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Club.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LeaguePoints)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Status)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Result)
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+<div id="Eredivisie" class="tabcontent">
+    <h3>Eredivisie</h3>
+    <div>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Club)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LeaguePoints)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Status)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Result)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (Standings item in ViewBag.standingsEredivisie)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Club.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LeaguePoints)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Status)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Result)
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+<div id="Liga NOS" class="tabcontent">
+    <h3>Liga NOS</h3>
+    <div>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Club)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LeaguePoints)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Status)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Result)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (Standings item in ViewBag.standingsLigaNOS)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Club.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LeaguePoints)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Status)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Result)
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+<div id="Ligue 1" class="tabcontent">
+    <h3>Ligue 1</h3>
+    <div>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Club)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LeaguePoints)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Status)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Result)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (Standings item in ViewBag.standingsLigue1)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Club.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LeaguePoints)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Status)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Result)
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+<div id="Bundesliga" class="tabcontent">
+    <h3>Bundesliga</h3>
+    <div>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Club)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LeaguePoints)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Status)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Result)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (Standings item in ViewBag.standingsBundesliga)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Club.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LeaguePoints)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Status)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Result)
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div><div id="Serie A" class="tabcontent">
+    <h3>Serie A</h3>
+    <div>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Club)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LeaguePoints)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Status)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Result)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (Standings item in ViewBag.standingsSerieA)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Club.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LeaguePoints)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Status)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Result)
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+
+<script>
+    function SeeInfo(evt, cityName) {
+        var i, tabcontent, tablinks;
+
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+</script>

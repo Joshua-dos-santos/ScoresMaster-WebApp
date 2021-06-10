@@ -79,7 +79,6 @@ namespace DataManager.Data.Logic
                     newCountry = GeographicalDatabaseContext.GetCountry(newCountry.CountryID);
                     playerDTO.Nationality = newCountry;
                     playerDTO.Birth_Day = executeString.GetDateTime(7).Date;
-                    playerDTO.Birth_Day.ToString().Replace("00:00:00", "");
                     Players.Add(playerDTO);
                 }
                 databaseConnection.Close();

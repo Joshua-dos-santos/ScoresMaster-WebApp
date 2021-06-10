@@ -43,7 +43,7 @@
                 </td>
                 <td>
                     @Html.ActionLink("See Home Squad", "Home_team", "Squad", item.Home_Team, new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("See League Info", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("See League standings", "Details","League",item.Home_Team, new { /* id=item.PrimaryKey */ }) |
                     @Html.ActionLink("See Away Squad", "Away_team", "Squad", item.Away_Team, new { /* id=item.PrimaryKey */ })
                 </td>
             </tr>

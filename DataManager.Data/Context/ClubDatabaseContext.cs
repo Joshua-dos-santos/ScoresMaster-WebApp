@@ -14,7 +14,7 @@ namespace DataManager.Data.Logic
             LeagueDatabaseContext leagueDatabaseContext = new LeagueDatabaseContext();
             List<ClubDTO> clubs = new List<ClubDTO>();
             MySqlConnection databaseConnection = new MySqlConnection(DatabaseDTO.DbConnectionString);
-            MySqlCommand getLeagues = new MySqlCommand("SELECT * FROM `club`", databaseConnection);
+            MySqlCommand getLeagues = new MySqlCommand("SELECT * FROM `club` INNER JOIN `league` ON `club`.`league`=`league`.`unique_id`", databaseConnection);
             try
             {
                 databaseConnection.Open();
@@ -26,8 +26,7 @@ namespace DataManager.Data.Logic
                     LeagueDTO leagueDTO = new LeagueDTO();
                     clubDTO.ClubID = executeString.GetInt32(0);
                     clubDTO.Name = executeString.GetString(1);
-                    leagueDTO.LeagueID = executeString.GetInt32(2);
-                    clubDTO.League = leagueDatabaseContext.GetLeague(leagueDTO.LeagueID);
+                    clubDTO.League = leagueDatabaseContext.GetLeague(executeString.GetInt32(2));
                     clubs.Add(clubDTO);
                 }
                 databaseConnection.Close();

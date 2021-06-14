@@ -38,6 +38,7 @@ namespace DataManager.Data.Logic
                 string clubName = GetStandigsClub((int)standingData.data.standings[i].team_id);
                 standingsDTO.Club = clubDatabaseContext.GetClubByName(clubName);
                 standingsDTO.League = leagueDatabaseContext.GetLeague(standingsDTO.Club.League.LeagueID);
+                standingsDTO.TablePosition = standingData.data.standings[i].position;
                 standingsDTO.LeaguePoints = standingData.data.standings[i].points;
                 standingsDTO.Status = standingData.data.standings[i].status;
                 standingsDTO.Result = standingData.data.standings[i].result;

@@ -11,6 +11,8 @@ namespace ScoresMaster.Models
     public class Standings
     {
         public League League { get; set; }
+        [Display(Name = "Position")]
+        public int TablePosition { get; set; }
         public Club Club { get; set; }
         [Display(Name = "Points")]
         public int LeaguePoints { get; set; }
@@ -22,6 +24,7 @@ namespace ScoresMaster.Models
             League league = new League();
             Club club = new Club();
             League = league;
+            TablePosition = standingsDAO.TablePosition;
             Club = club;
             LeaguePoints = standingsDAO.LeaguePoints;
             Status = standingsDAO.Status;

@@ -51,6 +51,9 @@
         <table class="table">
             <tr>
                 <th>
+                    @Html.DisplayNameFor(model => model.TablePosition)
+                </th>
+                <th>
                     @Html.DisplayNameFor(model => model.Club)
                 </th>
                 <th>
@@ -67,20 +70,23 @@
 
             @foreach (Standings item in ViewBag.StandingsPL)
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Club.Name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.LeaguePoints)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Status)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Result)
-                    </td>
-                </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TablePosition)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Club.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LeaguePoints)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Result)
+            </td>
+        </tr>
             }
         </table>
     </div>
@@ -90,6 +96,9 @@
     <div>
         <table class="table">
             <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.TablePosition)
+                </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Club)
                 </th>
@@ -107,20 +116,23 @@
 
             @foreach (Standings item in ViewBag.standingsEredivisie)
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Club.Name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.LeaguePoints)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Status)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Result)
-                    </td>
-                </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TablePosition)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Club.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LeaguePoints)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Result)
+            </td>
+        </tr>
             }
         </table>
     </div>
@@ -130,6 +142,9 @@
     <div>
         <table class="table">
             <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.TablePosition)
+                </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Club)
                 </th>
@@ -147,20 +162,23 @@
 
             @foreach (Standings item in ViewBag.standingsLigaNOS)
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Club.Name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.LeaguePoints)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Status)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Result)
-                    </td>
-                </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TablePosition)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Club.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LeaguePoints)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Result)
+            </td>
+        </tr>
             }
         </table>
     </div>
@@ -170,6 +188,9 @@
     <div>
         <table class="table">
             <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.TablePosition)
+                </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Club)
                 </th>
@@ -187,20 +208,23 @@
 
             @foreach (Standings item in ViewBag.standingsLigue1)
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Club.Name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.LeaguePoints)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Status)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Result)
-                    </td>
-                </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TablePosition)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Club.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LeaguePoints)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Result)
+            </td>
+        </tr>
             }
         </table>
     </div>
@@ -210,6 +234,9 @@
     <div>
         <table class="table">
             <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.TablePosition)
+                </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Club)
                 </th>
@@ -227,20 +254,23 @@
 
             @foreach (Standings item in ViewBag.standingsBundesliga)
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Club.Name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.LeaguePoints)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Status)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Result)
-                    </td>
-                </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TablePosition)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Club.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LeaguePoints)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Result)
+            </td>
+        </tr>
             }
         </table>
     </div>
@@ -249,6 +279,9 @@
     <div>
         <table class="table">
             <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.TablePosition)
+                </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Club)
                 </th>
@@ -266,20 +299,23 @@
 
             @foreach (Standings item in ViewBag.standingsSerieA)
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Club.Name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.LeaguePoints)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Status)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Result)
-                    </td>
-                </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TablePosition)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Club.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LeaguePoints)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Result)
+            </td>
+        </tr>
             }
         </table>
     </div>

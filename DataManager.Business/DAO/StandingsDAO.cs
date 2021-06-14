@@ -10,6 +10,7 @@ namespace DataManager.Business.DAO
     public class StandingsDAO
     {
         public LeagueDAO League { get; set; }
+        public int TablePosition { get; set; }
         public ClubDAO Club { get; set; }
         public int LeaguePoints { get; set; }
         public string Status { get; set; }
@@ -20,6 +21,7 @@ namespace DataManager.Business.DAO
             LeagueDAO leagueDAO = new LeagueDAO();
             ClubDAO clubDAO = new ClubDAO();
             League = leagueDAO;
+            TablePosition = standingsDTO.TablePosition;
             Club = clubDAO;
             LeaguePoints = standingsDTO.LeaguePoints;
             Status = standingsDTO.Status;

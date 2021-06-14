@@ -23,10 +23,9 @@ namespace DataManager.Data.Logic
                 while (executeString.Read())
                 {
                     ClubDTO clubDTO = new ClubDTO();
-                    LeagueDTO leagueDTO = new LeagueDTO();
                     clubDTO.ClubID = executeString.GetInt32(0);
                     clubDTO.Name = executeString.GetString(1);
-                    clubDTO.League = leagueDatabaseContext.GetLeague(executeString.GetInt32(2));
+                    clubDTO.League = new LeagueDTO() {LeagueID = executeString.GetInt32(2), Name = (string)executeString["league_name"]};
                     clubs.Add(clubDTO);
                 }
                 databaseConnection.Close();
